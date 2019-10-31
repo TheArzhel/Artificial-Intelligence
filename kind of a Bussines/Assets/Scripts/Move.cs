@@ -5,7 +5,7 @@ using System.Collections;
 public class Move : MonoBehaviour {
 
 	public GameObject target;
-	public GameObject aim;
+	//public GameObject aim;
 	//public Slider arrow;
 	public float max_mov_speed = 5.0f;
 	public float max_mov_acceleration = 0.1f;
@@ -49,18 +49,18 @@ public class Move : MonoBehaviour {
         // cap rotation
         current_rotation_speed = Mathf.Clamp(current_rotation_speed, -max_rot_speed, max_rot_speed);
 
-		//// rotate the arrow
-		//float angle = Mathf.Atan2(current_velocity.x, current_velocity.z);
-		//aim.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.up);
+        // rotate the arrow
+        float angle = Mathf.Atan2(current_velocity.x, current_velocity.z);
+      //  aim.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.up);
 
-		//// strech it
-		//arrow.value = current_velocity.magnitude * 4;
+        // strech it
+      //  arrow.value = current_velocity.magnitude * 4;
 
-		//// final rotate
-		//transform.rotation *= Quaternion.AngleAxis(current_rotation_speed * Time.deltaTime, Vector3.up);
+        // final rotate
+        transform.rotation *= Quaternion.AngleAxis(current_rotation_speed * Time.deltaTime, Vector3.up);
 
 
-		// finally move
-		transform.position += current_velocity * Time.deltaTime;
+        // finally move
+        transform.position += current_velocity * Time.deltaTime;
 	}
 }
