@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SteeringFlee : MonoBehaviour {
+public class SteeringFlee : MonoBehaviour
+{
 
-	Move move;
+    Move move;
 
-	// Use this for initialization
-	void Start () {
-		move = GetComponent<Move>();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		Steer(move.target.transform.position);
-	}
+    // Use this for initialization
+    void Start()
+    {
+        move = GetComponent<Move>();
+    }
 
-	public void Steer(Vector3 target)
-	{
-		Vector3 diff = transform.position - target;
-		diff.Normalize ();
-		diff *= move.max_mov_acceleration;
+    // Update is called once per frame
+    void Update()
+    {
+        Steer(move.target.transform.position);
+    }
 
-		move.AccelerateMovement(diff);
-	}
+    public void Steer(Vector3 target)
+    {
+        // TODO 2: Same as Steering seek but opposite direction
+        Vector3 direction = -(target - transform.position);
+        direction.Normalize();
+        move.AccelerateMovement(direction * move.max_mov_acceleration);
+    }
 }
