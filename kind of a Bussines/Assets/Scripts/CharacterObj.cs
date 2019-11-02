@@ -12,10 +12,11 @@ public class CharacterObj : MonoBehaviour
     public float slow_Distance = 0.5f;
     private int iterator = 0;
     SteeringSeek seek;
+    SteeringFollowPath FollowPath;
     private NavMeshPathStatus status= NavMeshPathStatus.PathPartial;
     private int Cornersize;
     private Vector3[] readablepath;
-
+    private bool taskDone = false;
     Vector3 nextPoint;
     
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class CharacterObj : MonoBehaviour
         move = GetComponent<Move>();
         seek = GetComponent<SteeringSeek>();
         path = new NavMeshPath();
-        
+        FollowPath = GetComponent<SteeringFollowPath>();
       //  elapsed = 0.0f;
         NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
 
@@ -37,69 +38,85 @@ public class CharacterObj : MonoBehaviour
     {
         Debug.Log("Update: ");
 
-        if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance || iterator >= Cornersize)
+        if (!taskDone)
         {
+            taskDone = FollowPath.Steer(path);
+        }
+        else
+        {
+            move.current_velocity = Vector3.zero;
+
+            move.current_rotation_speed = 0;
+
+            move.max_mov_acceleration = 0;
+
+            move.max_mov_speed= 0;
+        }
+
+       
+    //    if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance || iterator >= Cornersize)
+    //    {
            
-            status = NavMeshPathStatus.PathComplete;
-            path.ClearCorners();
-            Debug.Log("arrive: ");
+    //        status = NavMeshPathStatus.PathComplete;
+    //        path.ClearCorners();
+    //        Debug.Log("arrive: ");
 
             
 
 
-        }
-        else if (Vector3.Distance(transform.position, move.target.transform.position) > slow_Distance)
-        {
-            Debug.Log("%f"+ Vector3.Distance(transform.position, move.target.transform.position));
-            Debug.Log("your distance and mine is greater than slow: ");
+    //    }
+    //    else if (Vector3.Distance(transform.position, move.target.transform.position) > slow_Distance)
+    //    {
+    //        Debug.Log("%f"+ Vector3.Distance(transform.position, move.target.transform.position));
+    //        Debug.Log("your distance and mine is greater than slow: ");
 
-            if (iterator < Cornersize)
-            {
-                Debug.Log(iterator);
-                nextPoint = path.corners[iterator];
-                Debug.Log("go to next corner");
-            }
+    //        if (iterator < Cornersize)
+    //        {
+    //            Debug.Log(iterator);
+    //            nextPoint = path.corners[iterator];
+    //            Debug.Log("go to next corner");
+    //        }
 
-            if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
-            {
+    //        if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
+    //        {
 
-                status = NavMeshPathStatus.PathComplete;
-                path.ClearCorners();
-                Debug.Log("arrive: ");
+    //            status = NavMeshPathStatus.PathComplete;
+    //            path.ClearCorners();
+    //            Debug.Log("arrive: ");
 
-            }
+    //        }
 
-            if (Vector3.Distance(transform.position, nextPoint) > slow_Distance)
-            {
-                seek.Steer(nextPoint);
-                Debug.Log("go to point");
-            }
-            else if (Vector3.Distance(transform.position, nextPoint) < slow_Distance)
-            {
-                iterator++;
-                Debug.Log("go to point, next iterator");
-            }
-        }
-        else if (Vector3.Distance(transform.position, nextPoint) <= slow_Distance)
-        {
-            Debug.Log("nextpoint and mine distance  is smaller than slow: ");
-            if (Vector3.Distance(nextPoint, move.target.transform.position) <= min_Distance)
-            {
+    //        if (Vector3.Distance(transform.position, nextPoint) > slow_Distance)
+    //        {
+    //            seek.Steer(nextPoint);
+    //            Debug.Log("go to point");
+    //        }
+    //        else if (Vector3.Distance(transform.position, nextPoint) < slow_Distance)
+    //        {
+    //            iterator++;
+    //            Debug.Log("go to point, next iterator");
+    //        }
+    //    }
+    //    else if (Vector3.Distance(transform.position, nextPoint) <= slow_Distance)
+    //    {
+    //        Debug.Log("nextpoint and mine distance  is smaller than slow: ");
+    //        if (Vector3.Distance(nextPoint, move.target.transform.position) <= min_Distance)
+    //        {
               
-                status = NavMeshPathStatus.PathComplete;
-                path.ClearCorners();
-                Debug.Log("arrive: ");
+    //            status = NavMeshPathStatus.PathComplete;
+    //            path.ClearCorners();
+    //            Debug.Log("arrive: ");
 
-            }
-            else
-            {
-                iterator++;
-                if (iterator < Cornersize)
-                {
-                    nextPoint = path.corners[iterator];
-                }
+    //        }
+    //        else
+    //        {
+    //            iterator++;
+    //            if (iterator < Cornersize)
+    //            {
+    //                nextPoint = path.corners[iterator];
+    //            }
 
-            }
+    //        }
         }
 
         

@@ -1,69 +1,131 @@
 ﻿using UnityEngine;
 using System.Collections;
-using BansheeGz.BGSpline.Components;
-using BansheeGz.BGSpline.Curve;
-
+using UnityEngine.AI;
 
 public class SteeringFollowPath : MonoBehaviour
 {
 
-
-
-    Move move;
-    SteeringSeek seek;
-    public BGCcMath curve;
-
     public float ratio = 0.0f;
     public float ratio_increment = 0.1f;
     public float min_distance = 1.0f;
-    float current_ratio = 0.0f;
+    
+    public float slow_Distance = 0.5f;
+    
+    NavMeshPath path;
+    Move move;
+    SteeringSeek seek;
 
-    Vector3 ClosestPoint1;
+    private int iterator = 0;
+    private int Cornersize=0;
+    
+    private Vector3[] readablepath;
+    Vector3 nextPoint;
 
     // Use this for initialization
     void Start()
     {
         move = GetComponent<Move>();
         seek = GetComponent<SteeringSeek>();
-        //curve = GetComponent<BGCcMath>();
+        path = new NavMeshPath();
 
-        Vector3 ClosestPoint = curve.CalcPositionByClosestPoint(transform.position, out current_ratio);
-        ClosestPoint1 = ClosestPoint;
+
+  
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, ClosestPoint1) < min_distance)
-        {
-            seek.Steer(ClosestPoint1);
-        }
-        else
-        {
+        Steer(path);
+    }
 
-            if (current_ratio >= 1.0f)
+    public bool Steer(NavMeshPath path_)
+    {
+        // if first time entering 
+        if (path == null)
+        {
+            path = path_;
+            Cornersize = path.corners.Length;
+        }
+
+        Debug.Log("SteerFollowPath: ");
+
+        //if the object arrive to the end
+        if (Vector3.Distance(transform.position, move.target.transform.position) <= min_distance || iterator >= Cornersize)
+        {
+            path.ClearCorners();
+            Debug.Log("arrive: ");
+            return true;
+        }
+
+        // the obj moving is far from the target
+        else if (Vector3.Distance(transform.position, move.target.transform.position) > slow_Distance)
+        {
+            // Debug.Log("%f" + Vector3.Distance(transform.position, move.target.transform.position));
+           // Debug.Log("your distance and mine is greater than slow: ");
+
+
+            // if I can get more points, go for next
+            if (iterator < Cornersize)
             {
-                current_ratio = 0.0f;
+                Debug.Log(iterator);
+                nextPoint = path.corners[iterator];
+                Debug.Log("go to next corner");
             }
 
-            current_ratio += (ratio_increment * Time.deltaTime);
-            Vector3 newpos = curve.CalcPositionByDistance(current_ratio);
-            transform.position = newpos;
+            //if i arrive at the position
+            //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_distance)
+            //{
+            //    path.ClearCorners();
+            //    Debug.Log("arrive: ");
+
+            //}
+
+
+            //go to point
+            if (Vector3.Distance(transform.position, nextPoint) > slow_Distance)
+            {
+                seek.Steer(nextPoint);
+                Debug.Log("go to point");
+            }
+
+            //go and ask for next point if there is any
+            else if (Vector3.Distance(transform.position, nextPoint) < slow_Distance)
+            {
+                iterator++;
+                Debug.Log("go to point, next iterator");
+            }
         }
 
-        // TODO 2: Check if the tank is close enough to the desired point
-        // If so, create a new point further ahead in the path
-    }
-
-    void OnDrawGizmosSelected()
-    {
-
-        if (isActiveAndEnabled)
+        //The object is really near from the target
+        else if (Vector3.Distance(transform.position, nextPoint) <= slow_Distance)
         {
-            // Display the explosion radius when selected
-            Gizmos.color = Color.green;
-            // Useful if you draw a sphere were on the closest point to the path
+            Debug.Log("nextpoint and mine distance  is smaller than slow: ");
+            //delete information and do nothing
+            if (Vector3.Distance(nextPoint, move.target.transform.position) <= min_distance)
+            {
+
+                path.ClearCorners();
+                Debug.Log("arrive: ");
+
+            }
+
+            //else
+            //{
+            //    iterator++;
+            //    if (iterator < Cornersize)
+            //    {
+            //        nextPoint = path.corners[iterator];
+            //    }
+
+            //}
         }
 
+        return false;
     }
 }
+
+        
+
+    
+
