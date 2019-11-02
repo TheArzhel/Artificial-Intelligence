@@ -17,8 +17,8 @@ public class SteeringSeek : MonoBehaviour
     void Update()
     {
 
-        
 
+        Steer(move.target.transform.position);
 
 
     }
@@ -27,10 +27,9 @@ public class SteeringSeek : MonoBehaviour
     {
         // TODO 1: accelerate towards our target at max_acceleration
         // use move.AccelerateMovement()
-
-     
-
-
+        move.Steering_linear = (target - transform.position);
+        move.Steering_linear = move.Steering_linear.normalized * move.max_acceleration;
+        move.AccelerateMovement();
 
 
     }
