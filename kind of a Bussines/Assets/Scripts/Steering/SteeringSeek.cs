@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class SteeringSeek : MonoBehaviour
 {
 
@@ -16,23 +15,18 @@ public class SteeringSeek : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         Steer(move.target.transform.position);
-
-
     }
 
     public void Steer(Vector3 target)
     {
-        // TODO 1: accelerate towards our target at max_acceleration
-        // use move.AccelerateMovement()
-        Vector3 Steering_linear;
-        Steering_linear = (target - transform.position);
-        Steering_linear = Steering_linear.normalized * move.max_acceleration;
-        move.AccelerateMovement(Steering_linear);
+        if (!move)
+            move = GetComponent<Move>();
 
+        Vector3 diff = target - transform.position;
+        diff.Normalize();
+        diff *= move.max_mov_acceleration;
 
+        move.AccelerateMovement(diff);
     }
-
 }

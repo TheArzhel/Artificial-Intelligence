@@ -22,10 +22,10 @@ public class SteeringFlee : MonoBehaviour
     {
      
 
-        Vector3 Steering_linear;
-        Steering_linear = (transform.position - target);
-        Steering_linear = Steering_linear.normalized * move.max_acceleration;
-        move.AccelerateMovement(Steering_linear);
+        //Vector3 Steering_linear;
+        //Steering_linear = (transform.position - target);
+        //Steering_linear = Steering_linear.normalized * move.max_acceleration;
+        //move.AccelerateMovement(Steering_linear);
 
     }
 }
