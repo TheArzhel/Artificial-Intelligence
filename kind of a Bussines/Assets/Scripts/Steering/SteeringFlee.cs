@@ -4,25 +4,25 @@ using System.Collections;
 public class SteeringFlee : MonoBehaviour
 {
 
-    //Move move;
+    Move move;
 
-    //// Use this for initialization
-    //void Start()
-    //{
-    //    move = GetComponent<Move>();
-    //}
+    // Use this for initialization
+    void Start()
+    {
+        move = GetComponent<Move>();
+    }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    Steer(move.target.transform.position);
-    //}
+    // Update is called once per frame
+    void Update()
+    {
+       Flee(move.target.transform.position);
+    }
 
-    //public void Steer(Vector3 target)
-    //{
-    //    // TODO 2: Same as Steering seek but opposite direction
-    //    Vector3 direction = -(target - transform.position);
-    //    direction.Normalize();
-    //    move.AccelerateMovement(direction * move.max_mov_acceleration);
-    //}
+    public void Flee(Vector3 target)
+    {
+        move.Steering_linear = (transform.position-target);
+        move.Steering_linear = move.Steering_linear.normalized * move.max_acceleration;
+        move.AccelerateMovement();
+
+    }
 }
