@@ -4,82 +4,83 @@ using System.Collections;
 public class SteeringArrive : MonoBehaviour
 {
 
-    //public float min_distance = 0.1f;
-    //public float slow_distance = 5.0f;
-    //public float time_to_accel = 0.6f;
+    public float min_distance = 0.1f;
+    public float slow_distance = 5.0f;
+    public float time_to_target = 0.6f;
 
-    //Move move;
+    public bool ArriveActive = true;
 
-    //// Use this for initialization
-    //void Start()
-    //{
-    //    move = GetComponent<Move>();
-    //}
+    float DistanceFromTarget;
+    float NeededSpeed;
+    Vector3 DirectionMov;
+    Vector3 NeededVelocity;
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    Steer(move.target.transform.position);
-    //}
+    
+   
+   
 
-    //public void Steer(Vector3 target)
-    //{
-    //    if (!move)
-    //        move = GetComponent<Move>();
+  
 
-    //    // TODO 3: Find the acceleration to achieve the desired velocity
-    //    // If we are close enough to the target just stop moving and do nothing else
-    //    // Calculate the desired acceleration using the velocity we want to achieve and the one we already have
-    //    // Use time_to_target as the time to transition from the current velocity to the desired velocity
-    //    // Clamp the desired acceleration and call move.AccelerateMovement()
+    Move move;
 
-    //    //target.Normalize();
-    //    Vector3 ownpos = transform.position;
-    //    float dist = Vector3.Distance(target, ownpos);
-    //    Vector3 distancetoTaget = (target - transform.position);
+    // Use this for initialization
+    void Start()
+    {
+        move = GetComponent<Move>();
+    }
 
-    //    //else
-    //    //{
+    // Update is called once per frame
+    void Update()
+    {
+        Steer(move.target.transform.position);
+    }
 
-    //    //    Vector3 direction = (target - ownpos);
-    //    //    move.AccelerateMovement(direction * move.max_mov_acceleration);
+    public void Steer(Vector3 target)
+    {
+        //Get the target direction and distance
+       DirectionMov = target - transform.position;
+       DistanceFromTarget = DirectionMov.magnitude;
 
+        //check if it's the min distance
+        if (DistanceFromTarget < min_distance)
+            ArriveActive = false;
+        else
+            ArriveActive = true;
 
-    //    //}
+        //check slow speed is needed
+        //if not keep it max, else reduce depending on distance
+        if (DistanceFromTarget>slow_distance)
+            NeededSpeed=move.max_speed; 
+        else
+            NeededSpeed = move.max_speed * (DistanceFromTarget/slow_distance);
 
+        //set the direction of agent to target and assing the speed needed 
+        NeededVelocity = DirectionMov;
+        NeededVelocity = NeededVelocity.normalized*NeededSpeed;
 
-    //    Vector3 desiredVelocity = distancetoTaget.normalized * move.max_mov_speed;
-    //    Vector3 velocityCorrection = desiredVelocity - move.current_velocity;
-    //    Vector3 desiredAcceleration = velocityCorrection / time_to_accel;
+        //obtain de desired acceleration in order slow on target:
+        //a=(Vf-Vo)/time_taken
+        Vector3 steering_linear;
+        steering_linear = (NeededVelocity - move.Velocity)/time_to_target;
 
-    //    // Mathf.Clamp(desiredAcceleration.magnitude, 0.0f, move.max_mov_acceleration);
-    //    if (desiredAcceleration.magnitude > move.max_mov_acceleration)
-    //        desiredAcceleration = desiredAcceleration.normalized * move.max_mov_acceleration;
+        //if a>max_a then cap
+        if (steering_linear.magnitude > move.max_acceleration)
+              steering_linear=steering_linear.normalized* move.max_acceleration;
 
-    //    move.AccelerateMovement(desiredAcceleration);
+        //Apply force
+        move.AccelerateMovement(steering_linear);
 
+    }
 
-    //    if (dist < min_distance)
-    //    {
-    //        move.current_velocity = Vector3.zero;
-    //        move.SetRotationVelocity(0.0f);
-    //    }
+    void OnDrawGizmosSelected()
+    {
+        // Display the explosion radius when selected
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, min_distance);
 
-    //    //TODO 4: Add a slow factor to reach the target
-    //    // Start slowing down when we get closer to the target
-    //    // Calculate a slow factor (0 to 1 multiplier to desired velocity)
-    //    // Once inside the slow radius, the further we are from it, the slower we go
-    //}
-
-    //void OnDrawGizmosSelected()
-    //{
-    //    // Display the explosion radius when selected
-    //    Gizmos.color = Color.white;
-    //    Gizmos.DrawWireSphere(transform.position, min_distance);
-
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireSphere(transform.position, slow_distance);
-    //}
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, slow_distance);
+    }
 
 
 }

@@ -20,9 +20,12 @@ public class SteeringFlee : MonoBehaviour
 
     public void Flee(Vector3 target)
     {
-        move.Steering_linear = (transform.position-target);
-        move.Steering_linear = move.Steering_linear.normalized * move.max_acceleration;
-        move.AccelerateMovement();
+     
+
+        Vector3 Steering_linear;
+        Steering_linear = (transform.position - target);
+        Steering_linear = Steering_linear.normalized * move.max_acceleration;
+        move.AccelerateMovement(Steering_linear);
 
     }
 }

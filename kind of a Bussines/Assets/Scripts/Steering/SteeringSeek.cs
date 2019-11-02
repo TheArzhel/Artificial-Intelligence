@@ -27,9 +27,10 @@ public class SteeringSeek : MonoBehaviour
     {
         // TODO 1: accelerate towards our target at max_acceleration
         // use move.AccelerateMovement()
-        move.Steering_linear = (target - transform.position);
-        move.Steering_linear = move.Steering_linear.normalized * move.max_acceleration;
-        move.AccelerateMovement();
+        Vector3 Steering_linear;
+        Steering_linear = (target - transform.position);
+        Steering_linear = Steering_linear.normalized * move.max_acceleration;
+        move.AccelerateMovement(Steering_linear);
 
 
     }

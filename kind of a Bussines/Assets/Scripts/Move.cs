@@ -30,14 +30,12 @@ using System.Collections;
 //    Kinematic Kinematic_Data;
 //    Steering Steering_Data;
 
-
-
 //}
 public class Move : MonoBehaviour {
 
 
     //Agent Data
-    public GameObject target;
+   public GameObject target;
 
     //Kinematics Data
    [Header("Kinematics Data")]
@@ -54,11 +52,13 @@ public class Move : MonoBehaviour {
 
     //limits
     [Header("Limits Param")]
+    //velocities
     public float max_speed = 5.0f;
-    public float max_acceleration = 0.1f;
     public float max_rot_speed = 10.0f; // in degrees / second
+    //Accelerations
+    public float max_acceleration = 0.1f;
     public float max_rot_acceleration = 0.1f; // in degrees
-
+  
 
     
     //public Vector3 current_velocity = Vector3.zero;
@@ -71,9 +71,9 @@ public class Move : MonoBehaviour {
        Velocity = velocity;
 	}
 
-	public void AccelerateMovement (/*Vector3 acceleration*/) 
+	public void AccelerateMovement (Vector3 acceleration) 
 	{
-       //Steering_linear = acceleration;
+       Steering_linear = acceleration;
        Velocity += Steering_linear;
 	}
 
@@ -82,10 +82,10 @@ public class Move : MonoBehaviour {
        Rotation = rotation_speed;
 	}
 
-	public void AccelerateRotation (/*float rotation_acceleration*/) 
+	public void AccelerateRotation (float rotation_acceleration) 
 	{
 
-      //Steering_angular = rotation_acceleration;
+      Steering_angular = rotation_acceleration;
       Rotation += Steering_angular;
 	}
 	
