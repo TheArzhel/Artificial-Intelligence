@@ -13,6 +13,9 @@ public class CharacterObj : MonoBehaviour
     private int iterator = 0;
     // Start is called before the first frame update
     SteeringSeek seek;
+
+    Vector3 mesh;
+
     void Start()
     {
         move = GetComponent<Move>();
@@ -27,7 +30,10 @@ public class CharacterObj : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, move.target.transform.position) > min_Distance)
         {
-            Vector3 mesh = path.corners[iterator];
+            if (path.corners[iterator] != null)
+            {
+                mesh = path.corners[iterator];
+            }
 
             if (Vector3.Distance(transform.position, mesh) > slow_Distance)
             {
@@ -37,7 +43,10 @@ public class CharacterObj : MonoBehaviour
             else if (Vector3.Distance(transform.position, mesh) <= slow_Distance)
             {
                 iterator++;
-                mesh = path.corners[iterator];
+                if (path.corners[iterator] != null)
+                {
+                    mesh = path.corners[iterator];
+                }
             }
             if (Vector3.Distance(transform.position, mesh) <= min_Distance)
             {
