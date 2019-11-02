@@ -11,11 +11,12 @@ public class CharacterObj : MonoBehaviour
     public float min_Distance = 0.1f;
     public float slow_Distance = 0.5f;
     private int iterator = 0;
-    // Start is called before the first frame update
     SteeringSeek seek;
+    private NavMeshPathStatus status= NavMeshPathStatus.PathPartial;
 
-    Vector3 mesh;
+    Vector3 nextPoint;
 
+    // Start is called before the first frame update
     void Start()
     {
         move = GetComponent<Move>();
@@ -30,29 +31,30 @@ public class CharacterObj : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, move.target.transform.position) > min_Distance)
         {
-            if (path.corners[iterator] != null)
+            if (status!= NavMeshPathStatus.PathComplete)
             {
-                mesh = path.corners[iterator];
+                nextPoint = path.corners[iterator];
             }
 
-            if (Vector3.Distance(transform.position, mesh) > slow_Distance)
+            if (Vector3.Distance(transform.position, nextPoint) > slow_Distance)
             {
-                seek.Steer(mesh);
+                seek.Steer(nextPoint);
 
             }
-            else if (Vector3.Distance(transform.position, mesh) <= slow_Distance)
+            else if (Vector3.Distance(transform.position, nextPoint) <= slow_Distance)
             {
                 iterator++;
-                if (path.corners[iterator] != null)
+                if (status != NavMeshPathStatus.PathComplete)
                 {
-                    mesh = path.corners[iterator];
+                    nextPoint = path.corners[iterator];
                 }
             }
-            if (Vector3.Distance(transform.position, mesh) <= min_Distance)
+            if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
             {
                 iterator = 0;
-
+                status = NavMeshPathStatus.PathComplete;
             }
+            
         }
         else
         {
