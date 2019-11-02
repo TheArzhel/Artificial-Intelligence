@@ -44,8 +44,11 @@ public class SteeringFollowPath : MonoBehaviour
         // if first time entering 
         if (path == null)
         {
+            path = new NavMeshPath();
             path = path_;
             Cornersize = path.corners.Length;
+            move = GetComponent<Move>();
+            seek = GetComponent<SteeringSeek>();
         }
 
         Debug.Log("SteerFollowPath: ");

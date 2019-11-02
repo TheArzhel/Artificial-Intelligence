@@ -29,14 +29,14 @@ public class CharacterObj : MonoBehaviour
       //  elapsed = 0.0f;
         NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
 
-        Cornersize = path.corners.Length;
+        //Cornersize = path.corners.Length;
         //Cornersize = readablepath.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update: ");
+        Debug.Log("Update: charactes behaviour");
 
         if (!taskDone)
         {
@@ -122,4 +122,4 @@ public class CharacterObj : MonoBehaviour
         
     }
 
-}
+
