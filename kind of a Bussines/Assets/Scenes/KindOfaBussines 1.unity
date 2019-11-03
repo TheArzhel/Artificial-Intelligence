@@ -1299,9 +1299,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 110303670}
+  - component: {fileID: 110303671}
   m_Layer: 0
   m_Name: Scenario
-  m_TagString: Untagged
+  m_TagString: Day
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1325,6 +1326,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110303671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110303669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c97c347a58a4dc4c91b385b322ebb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &113084267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6244,6 +6257,7 @@ MonoBehaviour:
   KitchenList: []
   PayList: []
   WalkList: []
+  BarList: []
 --- !u!114 &539414300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18585,6 +18599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618862424}
   - component: {fileID: 1618862423}
+  - component: {fileID: 1618862425}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -18602,7 +18617,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.9761442, g: 1, b: 0.8117647, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -18666,6 +18681,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 41.574, y: 844.736, z: -133.768}
+--- !u!114 &1618862425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618862422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ec3d597d4d5cf4f8ccc79ea3069a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lt: {fileID: 1618862423}
 --- !u!1001 &1621233413
 PrefabInstance:
   m_ObjectHideFlags: 0

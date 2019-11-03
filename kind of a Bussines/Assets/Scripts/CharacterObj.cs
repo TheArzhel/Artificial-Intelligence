@@ -24,7 +24,10 @@ public class CharacterObj : MonoBehaviour
     SteeringSeek seek;
     SteeringFollowPath FollowPath;
     SteeringArrive Arrive;
-    
+
+    GameObject scene;
+    DayNight Day;
+
     public LayerMask mask;
 
 
@@ -67,6 +70,11 @@ public class CharacterObj : MonoBehaviour
         if (!Arrive)
         Arrive = GetComponent<SteeringArrive>();
 
+        scene = GameObject.FindGameObjectWithTag("Day");
+
+        if (!day)
+            Day = scene.GetComponent<DayNight>();
+
         path = new NavMeshPath();
         FollowPath = GetComponent<SteeringFollowPath>();
         //NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
@@ -82,6 +90,8 @@ public class CharacterObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        day = Day.getdate();
+
         //Debug.Log("Update: charactes behaviour");
         if (!timerON)
         {
