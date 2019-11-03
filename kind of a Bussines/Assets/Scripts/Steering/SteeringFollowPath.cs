@@ -44,37 +44,44 @@ public class SteeringFollowPath : MonoBehaviour
         // if first time entering 
         if (path == null)
         {
+            Debug.Log("new info");
             path = new NavMeshPath();
             path = path_;
             Cornersize = path.corners.Length;
+            Debug.Log("CL "+Cornersize);
+            if (!move)
             move = GetComponent<Move>();
+            if (!seek)
             seek = GetComponent<SteeringSeek>();
+
+            iterator = 0;
+            
         }
 
-        Debug.Log("SteerFollowPath: ");
+       // Debug.Log("SteerFollowPath: ");
 
         //if the object arrive to the end
         if (Vector3.Distance(transform.position, move.target.transform.position) <= min_distance || iterator >= Cornersize)
         {
+            Debug.Log("iterator: "+iterator);
+            Debug.Log("cournes: "+Cornersize);
+
             path.ClearCorners();
             Debug.Log("arrive: ");
+            iterator = 0;
+            Cornersize = 0;
+            path = null;
+
             return true;
         }
 
         // the obj moving is far from the target
         else if (Vector3.Distance(transform.position, move.target.transform.position) > slow_Distance)
         {
+           
             // Debug.Log("%f" + Vector3.Distance(transform.position, move.target.transform.position));
-           // Debug.Log("your distance and mine is greater than slow: ");
 
 
-            // if I can get more points, go for next
-            if (iterator < Cornersize)
-            {
-                Debug.Log(iterator);
-                nextPoint = path.corners[iterator];
-                Debug.Log("go to next corner");
-            }
 
             //if i arrive at the position
             //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_distance)
@@ -84,32 +91,46 @@ public class SteeringFollowPath : MonoBehaviour
 
             //}
 
+            // if I can get more points, go for next
+            if (iterator < Cornersize)
+            {
+               // Debug.Log("1.1");
+                //Debug.Log(iterator);
+                nextPoint = path.corners[iterator];
+                //Debug.Log("go to next corner");
+            }
+
 
             //go to point
             if (Vector3.Distance(transform.position, nextPoint) > slow_Distance)
             {
+                Debug.Log("nexpoint"+nextPoint);
+
+                Debug.Log("transform" + transform.position);
+
                 seek.Steer(nextPoint);
-                Debug.Log("go to point");
+                //Debug.Log("go to point");
             }
 
             //go and ask for next point if there is any
             else if (Vector3.Distance(transform.position, nextPoint) < slow_Distance)
             {
+                Debug.Log("1.3");
                 iterator++;
-                Debug.Log("go to point, next iterator");
+                //Debug.Log("go to point, next iterator");
             }
         }
 
         //The object is really near from the target
         else if (Vector3.Distance(transform.position, nextPoint) <= slow_Distance)
         {
-            Debug.Log("nextpoint and mine distance  is smaller than slow: ");
+            //Debug.Log("nextpoint and mine distance  is smaller than slow: ");
             //delete information and do nothing
             if (Vector3.Distance(nextPoint, move.target.transform.position) <= min_distance)
             {
-
+                Debug.Log("2");
                 path.ClearCorners();
-                Debug.Log("arrive: ");
+                Debug.Log("arrive23: ");
 
             }
 

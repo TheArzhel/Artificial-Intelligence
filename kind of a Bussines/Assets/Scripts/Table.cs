@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Table : InteractableItem
 {
-    public bool ocupy =false;
+    public bool ocupy = false;
 
+    void Start()
+    {
+        ocupy = new bool() ;
+        ocupy = false;
+        Debug.Log("new bool");
+    }
     public override void OnInteract()
     {
         if (ocupy)
@@ -19,6 +25,7 @@ public class Table : InteractableItem
             ocupy = true;
         }
     }
+
     public bool GetOcupy()
     { return ocupy; }
 }

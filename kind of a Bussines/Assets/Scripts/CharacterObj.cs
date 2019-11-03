@@ -23,6 +23,7 @@ public class CharacterObj : MonoBehaviour
     public float slow_Distance = 0.5f;
 
     public List<GameObject> TableList;
+
     Table tableScript;
     State action = State.WAIT;
     private GameObject Objective;
@@ -37,7 +38,7 @@ public class CharacterObj : MonoBehaviour
         seek = GetComponent<SteeringSeek>();
        
         path = new NavMeshPath();
-        //FollowPath = GetComponent<SteeringFollowPath>();
+        FollowPath = GetComponent<SteeringFollowPath>();
         //NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
 
         ListTag("Table");
@@ -46,7 +47,7 @@ public class CharacterObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update: charactes behaviour");
+        //Debug.Log("Update: charactes behaviour");
 
         if (action == State.WAIT)
         {
@@ -62,8 +63,12 @@ public class CharacterObj : MonoBehaviour
                     
                     CalculatePath(Objective);
                     action = State.LOOKTABLE;
-
+                    taskDone = false;
                     break;
+                } else
+                {
+                    //Debug.Log("2 this true" + i);
+                    //taskDone = true;
                 }
             }
         }
@@ -73,9 +78,13 @@ public class CharacterObj : MonoBehaviour
             {
                 taskDone = FollowPath.Steer(path);
             }
-            else
+            else if (taskDone)
             {
-                Objective.GetComponent<Table>().OnInteract();
+                //Debug.Log("before interact" + tableScript.GetOcupy());
+               //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
+                Objective.GetComponent<Table>().ocupy = true;
+               // tableScript.OnInteract();
+               // Debug.Log("on interact"+ tableScript.GetOcupy());
 
                 move.current_velocity = Vector3.zero;
 
@@ -86,6 +95,7 @@ public class CharacterObj : MonoBehaviour
                 move.max_mov_speed= 0;
 
                 action = State.WAIT;
+                taskDone = false;
             }
 
         }
@@ -100,6 +110,7 @@ public class CharacterObj : MonoBehaviour
         
            TableList = new List<GameObject>();
 
+
         foreach (GameObject ObjectF in GameObject.FindGameObjectsWithTag(tag))
         {
             TableList.Add(ObjectF);
@@ -108,15 +119,28 @@ public class CharacterObj : MonoBehaviour
         Objective = TableList[0];
         tableScript = Objective.GetComponent<Table>();
 
-        Debug.Log("Table list size" + TableList.Count);
-        Debug.Log("Table" + tableScript.GetOcupy());
+       // Debug.Log("Table list size" + TableList.Count);
+       // Debug.Log("Table" + tableScript.GetOcupy());
 
     }
 
     void CalculatePath(GameObject objevit)
     {
+        Debug.Log(move.target.name);
         move.target = objevit;
-        NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
+        Debug.Log(objevit.name);
+        Debug.Log(move.target.name);
+        if (path != null)
+        {
+            path.ClearCorners();
+            path = null;
+
+        }
+
+        path = new NavMeshPath();
+
+        NavMesh.CalculatePath(transform.position, objevit.transform.position, NavMesh.AllAreas, path);
+        Debug.Log("newPath");
     }
 }
   
