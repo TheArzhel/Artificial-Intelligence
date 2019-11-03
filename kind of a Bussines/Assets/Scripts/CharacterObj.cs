@@ -11,10 +11,14 @@ enum State
     KITCHEN,
     WALK,
     PAY,
+    BAR
 }
 
 public class CharacterObj : MonoBehaviour
 {
+    //main cycle
+    public static bool day = true;
+
     NavMeshPath path;
     Move move;
     SteeringSeek seek;
@@ -79,203 +83,404 @@ public class CharacterObj : MonoBehaviour
         //Debug.Log("Update: charactes behaviour");
         if (!timerON)
         {
-            if (action == State.WAIT)
-            {
-                if (nextMovePay)
-                {
-                    move.Stop();
-                    Objective = PayList[0];
-                    tableScript = Objective.GetComponent<Table>();
-                    if (tableScript.GetOcupy() == false || timerON == false)
-                    {
-                        CalculatePath(Objective);
-                        action = State.PAY;
-                        nextMoveKitchen = true;
-                        nextMovePay = false;
-                        taskDone = false;
+            
 
-                    }
-                    else
+            if (day)
+            {
+                if (action == State.WAIT)
+                {
+                    if (nextMovePay)
                     {
-                        timerON = true;
-                        TimeToStop = 10;
-                        // timer wait start
                         move.Stop();
-                        //stop();
-                    }
-
-                }
-                else if (nextMoveTable)
-                {
-                    for (int i = 0; i < TableList.Count; ++i)
-                    {
-                        //Debug.Log("1 this ");
-                        Objective = TableList[i];
+                        Objective = PayList[0];
                         tableScript = Objective.GetComponent<Table>();
 
-                        if (tableScript.GetOcupy() == false || timerON == false)
+                        if (tableScript.GetOcupy() == false && timerON == false)
                         {
-                            //Debug.Log("2 this");
-
                             CalculatePath(Objective);
-                            action = State.LOOKTABLE;
-                            nextMoveWlak = true;
-                            nextMoveTable = false;
+                            action = State.PAY;
+                            nextMoveKitchen = true;
+                            nextMovePay = false;
                             taskDone = false;
-                            break;
+
                         }
                         else
                         {
                             timerON = true;
-                            TimeToStop = 5;
+                            TimeToStop = 10;
                             // timer wait start
                             move.Stop();
                             //stop();
                         }
+
+                    }
+                    else if (nextMoveTable)
+                    {
+                        for (int i = 0; i < TableList.Count; ++i)
+                        {
+                            //Debug.Log("1 this ");
+                            Objective = TableList[i];
+                            tableScript = Objective.GetComponent<Table>();
+
+                            if (tableScript.GetOcupy() == false && timerON == false)
+                            {
+                                //Debug.Log("2 this");
+
+                                CalculatePath(Objective);
+                                action = State.LOOKTABLE;
+                                nextMoveWlak = true;
+                                nextMoveTable = false;
+                                taskDone = false;
+                                break;
+                            }
+                            else
+                            {
+                                timerON = true;
+                                TimeToStop = 5;
+                                // timer wait start
+                                move.Stop();
+                                //stop();
+                            }
+                        }
+
+                    }
+                    else if (nextMoveKitchen)
+                    {
+                        for (int i = 0; i < KitchenList.Count; ++i)
+                        {
+                            //Debug.Log("1 this ");
+                            Objective = KitchenList[i];
+                            tableScript = Objective.GetComponent<Table>();
+                            if (tableScript.GetOcupy() == false && timerON == false)
+                            {
+                                //Debug.Log("2 this");
+
+                                CalculatePath(Objective);
+                                action = State.KITCHEN;
+                                nextMoveTable = true;
+                                nextMoveKitchen = false;
+                                taskDone = false;
+                                break;
+                            }
+                            else
+                            {
+                                timerON = true;
+                                // timer wait start
+                                TimeToStop = 15;
+                                move.Stop();
+                                //stop();
+                            }
+                        }
+
+                    }
+                    else if (nextMoveWlak)
+                    {
+                        while (iteratorWalk < WalkList.Count)
+                        {
+                            //Debug.Log("1 this ");
+                            Objective = WalkList[iteratorWalk];
+                            tableScript = Objective.GetComponent<Table>();
+
+                            CalculatePath(Objective);
+                            action = State.WALK;
+                            if (iteratorWalk == WalkList.Count-1)
+                            {
+                                nextMovePay = true;
+                                nextMoveWlak = false;
+                                nextMoveTable = false;
+                                nextMoveKitchen = false;
+                                //taskDone = false;
+                                iteratorWalk = 0;
+                                action = State.WAIT;
+                                break;
+                            }
+                            ++iteratorWalk;
+                            break;
+                        }
+
+                    }
+                }
+                else if (action == State.LOOKTABLE)
+                {
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+                       
+                        Objective.GetComponent<Table>().ocupy = true;
+                     
+                        timerON = true;
+                        TimeToStop = 5;
+                        move.Stop();
+                        action = State.WAIT;
+                        taskDone = false;
                     }
 
                 }
-                else if (nextMoveKitchen)
+                else if (action == State.KITCHEN)
                 {
-                    for (int i = 0; i < KitchenList.Count; ++i)
+                    if (!taskDone)
                     {
-                        //Debug.Log("1 this ");
-                        Objective = KitchenList[i];
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+
+                        Objective.GetComponent<Table>().ocupy = true;
+                        //timer and wait, when timer finish deactive table
+                        timerON = true;
+                        TimeToStop = 15;
+                        move.Stop();
+                        action = State.WAIT;
+                        taskDone = false;
+                    }
+                }
+                else if (action == State.PAY)
+                {
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+
+                        Objective.GetComponent<Table>().ocupy = true;
+                        //timer and wait, when timer finish deactive table
+                        timerON = true;
+                        TimeToStop = 3;
+                        move.Stop();
+                        action = State.WAIT;
+                        taskDone = false;
+                    }
+                }
+                else if (action == State.WALK)
+                {
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+
+                        //Objective.GetComponent<Table>().ocupy = true;
+                        //timer and wait, when timer finish deactive table
+                        timerON = true;
+                        TimeToStop = 2;
+                        move.Stop();
+                        action = State.WAIT;
+                        nextMoveWlak = true;
+                        taskDone = false;
+                    }
+                }
+            }
+            else {
+                if (action == State.WAIT)
+                {
+                    if (nextMovePay)
+                    {
+                        move.Stop();
+                        Objective = PayList[0];
                         tableScript = Objective.GetComponent<Table>();
                         if (tableScript.GetOcupy() == false || timerON == false)
                         {
-                            //Debug.Log("2 this");
-
                             CalculatePath(Objective);
-                            action = State.KITCHEN;
-                            nextMoveTable = true;
-                            nextMoveKitchen = false;
+                            action = State.PAY;
+                            nextMoveKitchen = true;
+                            nextMovePay = false;
                             taskDone = false;
-                            break;
+
                         }
                         else
                         {
                             timerON = true;
+                            TimeToStop = 10;
                             // timer wait start
-                            TimeToStop = 15;
                             move.Stop();
                             //stop();
                         }
+
                     }
-
-                }
-                else if (nextMoveWlak)
-                {
-                    while (iteratorWalk < WalkList.Count)
+                    else if (nextMoveTable)
                     {
-                        //Debug.Log("1 this ");
-                        Objective = WalkList[iteratorWalk];
-                        tableScript = Objective.GetComponent<Table>();
-
-                        CalculatePath(Objective);
-                        action = State.WALK;
-                        if (iteratorWalk >= WalkList.Count)
+                        for (int i = 0; i < TableList.Count; ++i)
                         {
-                            nextMovePay = true;
-                            nextMoveWlak = false;
-                            nextMoveTable = false;
-                            nextMoveKitchen = false;
-                            //taskDone = false;
-                            iteratorWalk = 0;
-                            action = State.WAIT;
+                            //Debug.Log("1 this ");
+                            Objective = TableList[i];
+                            tableScript = Objective.GetComponent<Table>();
+
+                            if (tableScript.GetOcupy() == false || timerON == false)
+                            {
+                                //Debug.Log("2 this");
+
+                                CalculatePath(Objective);
+                                action = State.LOOKTABLE;
+                                nextMoveWlak = true;
+                                nextMoveTable = false;
+                                taskDone = false;
+                                break;
+                            }
+                            else
+                            {
+                                timerON = true;
+                                TimeToStop = 5;
+                                // timer wait start
+                                move.Stop();
+                                //stop();
+                            }
+                        }
+
+                    }
+                    else if (nextMoveKitchen)
+                    {
+                        for (int i = 0; i < KitchenList.Count; ++i)
+                        {
+                            //Debug.Log("1 this ");
+                            Objective = KitchenList[i];
+                            tableScript = Objective.GetComponent<Table>();
+                            if (tableScript.GetOcupy() == false || timerON == false)
+                            {
+                                //Debug.Log("2 this");
+
+                                CalculatePath(Objective);
+                                action = State.KITCHEN;
+                                nextMoveTable = true;
+                                nextMoveKitchen = false;
+                                taskDone = false;
+                                break;
+                            }
+                            else
+                            {
+                                timerON = true;
+                                // timer wait start
+                                TimeToStop = 15;
+                                move.Stop();
+                                //stop();
+                            }
+                        }
+
+                    }
+                    else if (nextMoveWlak)
+                    {
+                        while (iteratorWalk < WalkList.Count)
+                        {
+                            //Debug.Log("1 this ");
+                            Objective = WalkList[iteratorWalk];
+                            tableScript = Objective.GetComponent<Table>();
+
+                            CalculatePath(Objective);
+                            action = State.WALK;
+                            if (iteratorWalk >= WalkList.Count)
+                            {
+                                nextMovePay = true;
+                                nextMoveWlak = false;
+                                nextMoveTable = false;
+                                nextMoveKitchen = false;
+                                //taskDone = false;
+                                iteratorWalk = 0;
+                                action = State.WAIT;
+                                break;
+                            }
+                            ++iteratorWalk;
                             break;
                         }
-                        ++iteratorWalk;
-                        break;
+
+                    }
+                }
+                else if (action == State.LOOKTABLE)
+                {
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+                        //Debug.Log("before interact" + tableScript.GetOcupy());
+                        //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
+                        Objective.GetComponent<Table>().ocupy = true;
+                        // tableScript.OnInteract();
+                        // Debug.Log("on interact"+ tableScript.GetOcupy());
+
+                        // Arrive.Steer(move.target.transform.position);
+                        // move.Stop();
+                        timerON = true;
+                        TimeToStop = 5;
+                        move.Stop();
+                        action = State.WAIT;
+                        taskDone = false;
                     }
 
                 }
-            }
-            else if (action == State.LOOKTABLE)
-            {
-                if (!taskDone)
+                else if (action == State.KITCHEN)
                 {
-                    taskDone = FollowPath.Steer(path);
-                }
-                else if (taskDone)
-                {
-                    //Debug.Log("before interact" + tableScript.GetOcupy());
-                    //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
-                    Objective.GetComponent<Table>().ocupy = true;
-                    // tableScript.OnInteract();
-                    // Debug.Log("on interact"+ tableScript.GetOcupy());
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
 
-                    // Arrive.Steer(move.target.transform.position);
-                    // move.Stop();
-                    timerON = true;
-                    TimeToStop = 5;
-                    move.Stop();
-                    action = State.WAIT;
-                    taskDone = false;
+                        Objective.GetComponent<Table>().ocupy = true;
+                        //timer and wait, when timer finish deactive table
+                        timerON = true;
+                        TimeToStop = 15;
+                        move.Stop();
+                        action = State.WAIT;
+                        taskDone = false;
+                    }
+                }
+                else if (action == State.PAY)
+                {
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+
+                        Objective.GetComponent<Table>().ocupy = true;
+                        //timer and wait, when timer finish deactive table
+                        timerON = true;
+                        TimeToStop = 3;
+                        move.Stop();
+                        action = State.WAIT;
+                        taskDone = false;
+                    }
+                }
+                else if (action == State.WALK)
+                {
+                    if (!taskDone)
+                    {
+                        taskDone = FollowPath.Steer(path);
+                    }
+                    else if (taskDone)
+                    {
+
+                        //Objective.GetComponent<Table>().ocupy = true;
+                        //timer and wait, when timer finish deactive table
+                        timerON = true;
+                        TimeToStop = 2;
+                        move.Stop();
+                        action = State.WAIT;
+                        nextMoveWlak = true;
+                        taskDone = false;
+                    }
                 }
 
-            }
-            else if (action == State.KITCHEN) {
-                if (!taskDone)
-                {
-                    taskDone = FollowPath.Steer(path);
-                }
-                else if (taskDone)
-                {
-
-                    Objective.GetComponent<Table>().ocupy = true;
-                    //timer and wait, when timer finish deactive table
-                    timerON = true;
-                    TimeToStop = 15;
-                    move.Stop();
-                    action = State.WAIT;
-                    taskDone = false;
-                }
-            }
-            else if (action == State.PAY) {
-                if (!taskDone)
-                {
-                    taskDone = FollowPath.Steer(path);
-                }
-                else if (taskDone)
-                {
-
-                    Objective.GetComponent<Table>().ocupy = true;
-                    //timer and wait, when timer finish deactive table
-                    timerON = true;
-                    TimeToStop = 3;
-                    move.Stop();
-                    action = State.WAIT;
-                    taskDone = false;
-                }
-            }
-            else if (action == State.WALK) {
-                if (!taskDone)
-                {
-                    taskDone = FollowPath.Steer(path);
-                }
-                else if (taskDone)
-                {
-
-                    //Objective.GetComponent<Table>().ocupy = true;
-                    //timer and wait, when timer finish deactive table
-                    timerON = true;
-                    TimeToStop = 2;
-                    move.Stop();
-                    action = State.WAIT;
-                    nextMoveWlak = true;
-                    taskDone = false;
-                }
             }
         }
         if (timerON)
         {
             Timer += Time.deltaTime;
 
-            if (Timer % 60 >= TimeToStop)
+            if (Timer % 60 >= 1)//timetostop)
             {
                     Timer = 0.0f;
                     timerON = false;
+
+                if (Objective.GetComponent<Table>() != null)
+                    Objective.GetComponent<Table>().OnInteract();
             }
         }
 
