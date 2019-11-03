@@ -8,7 +8,8 @@ public class SteeringObstacleAvoidance : MonoBehaviour
     public float range = 2.0f;
     RaycastHit hit;
     public bool Rayhit;
-    public int layerMask = 8;
+    public int layerMask;
+
 
     public float displacement=3.0f;
     public float Strenght = 3.0f;
@@ -22,6 +23,11 @@ public class SteeringObstacleAvoidance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        layerMask = 1 << 8;
+       // This would cast rays only against colliders in layer 8.
+       // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
+        layerMask = ~layerMask;
+
         move = GetComponent<Move>();
         seek = GetComponent<SteeringSeek>();
     }

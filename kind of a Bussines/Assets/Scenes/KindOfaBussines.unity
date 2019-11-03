@@ -12097,6 +12097,8 @@ MonoBehaviour:
   max_rot_speed: 10
   max_acceleration: 37.91
   max_rot_acceleration: 21.26
+  current_velocity: {x: 0, y: 0, z: 0}
+  current_rotation_speed: 0
 --- !u!114 &1022112918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12131,6 +12133,23 @@ MonoBehaviour:
   slow_distance: 5
   time_to_target: 0.6
   ArriveActive: 1
+--- !u!114 &1022112920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022112913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c462bb65ede5ac8439f4c559272391bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 3
+  Rayhit: 0
+  layerMask: 8
+  displacement: 3
+  Strenght: 5
 --- !u!1001 &1037126629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18898,7 +18917,7 @@ GameObject:
   - component: {fileID: 1709547542}
   - component: {fileID: 1709547541}
   - component: {fileID: 1709547540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18971,7 +18990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709547539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 0, z: -0.09446192}
+  m_LocalPosition: {x: -6.78, y: 0, z: 2.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
