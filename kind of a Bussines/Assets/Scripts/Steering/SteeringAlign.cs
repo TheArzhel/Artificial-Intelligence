@@ -16,6 +16,7 @@ public class SteeringAlign : MonoBehaviour
   public  float rotation;
     float needed_rotation_speed; 
     float steering_angular;
+    float RotDirection;
 
     Move move;
    
@@ -39,12 +40,11 @@ public class SteeringAlign : MonoBehaviour
 
     float Target_orientation = Vector3.SignedAngle(Vector3.forward, DirectionMov, Vector3.up);
 
-      rotation = Target_orientation - move.orientation;
+    RotDirection = Vector3.SignedAngle(transform.forward, DirectionMov, Vector3.up);
+    rotation = Target_orientation - move.orientation;
 
-        // Map the result to the (-pi, pi) interval
-        //rotation = mapToRange(rotation)
-      
-
+        
+       
         float rotationSize = Mathf.Abs(rotation);
 
         if (rotationSize > min_angle || AlignActive)
@@ -73,13 +73,17 @@ public class SteeringAlign : MonoBehaviour
             if (Mathf.Abs(steering_angular) > Deg2Rad(move.max_rot_acceleration))
                 steering_angular = Deg2Rad(move.max_rot_acceleration);
 
+            if (RotDirection>0)
                move.AccelerateRotation(Rad2Deg(steering_angular));
+            else
+                move.AccelerateRotation(Rad2Deg(-steering_angular));
+
         }
         else
         {
-            Debug.Log("DYINGGGG HERREEEEEE");
-            move.Rotation = 0;
-            move.Steering_angular = 0;
+
+            move.SetRotationVelocity(0);
+            move.AccelerateRotation(0); 
 
         }
 
@@ -94,6 +98,8 @@ public class SteeringAlign : MonoBehaviour
 
        return Rad * Mathf.Rad2Deg;
     }
+
+   
 
 }
 
