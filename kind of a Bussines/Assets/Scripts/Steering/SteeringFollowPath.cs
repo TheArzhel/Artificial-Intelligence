@@ -41,6 +41,12 @@ public class SteeringFollowPath : MonoBehaviour
 
     public bool Steer(NavMeshPath path_)
     {
+        if(!move)
+            move = GetComponent<Move>();
+        if (!seek)
+            seek = GetComponent<SteeringSeek>();
+
+  
         // if first time entering 
         if (path == null)
         {
@@ -104,9 +110,9 @@ public class SteeringFollowPath : MonoBehaviour
             //go to point
             if (Vector3.Distance(transform.position, nextPoint) > slow_Distance)
             {
-                Debug.Log("nexpoint"+nextPoint);
+               // Debug.Log("nexpoint"+nextPoint);
 
-                Debug.Log("transform" + transform.position);
+                //Debug.Log("transform" + transform.position);
 
                 seek.Steer(nextPoint);
                 //Debug.Log("go to point");
@@ -115,7 +121,7 @@ public class SteeringFollowPath : MonoBehaviour
             //go and ask for next point if there is any
             else if (Vector3.Distance(transform.position, nextPoint) < slow_Distance)
             {
-                Debug.Log("1.3");
+               // Debug.Log("1.3");
                 iterator++;
                 //Debug.Log("go to point, next iterator");
             }
