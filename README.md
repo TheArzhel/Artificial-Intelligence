@@ -152,6 +152,9 @@ moving camera: WASD
 **Github:**
 Repository link:
 https://github.com/TheArzhel/Artificial-Intelligence
+License link:
+https://github.com/TheArzhel/Artificial-Intelligence/blob/master/LICENSE
+
 
 
 Authors:
