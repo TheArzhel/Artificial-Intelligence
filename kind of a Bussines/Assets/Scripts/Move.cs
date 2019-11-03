@@ -54,10 +54,10 @@ public class Move : MonoBehaviour {
     [Header("Limits Param")]
     //velocities
     public float max_speed = 5.0f;
-    public float max_rot_speed = 10.0f; // in degrees / second
+    public float max_rot_speed = 5.0f; // in degrees / second
     //Accelerations
     public float max_acceleration = 0.1f;
-    public float max_rot_acceleration = 0.1f; // in degrees
+    public float max_rot_acceleration = 0.5f; // in degrees
   
 
     
@@ -92,10 +92,10 @@ public class Move : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
-
-		// cap velocity
-		if(Velocity.magnitude > max_speed)
+        // cap velocity
+        if (Velocity.magnitude > max_speed)
 		{
             Velocity = Velocity.normalized * max_speed;
 		}
@@ -104,5 +104,6 @@ public class Move : MonoBehaviour {
         // final rotate & movement
         transform.rotation *= Quaternion.AngleAxis(Rotation * Time.deltaTime, Vector3.up);
         transform.position += Velocity * Time.deltaTime;
+
 	}
 }
