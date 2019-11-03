@@ -38,6 +38,9 @@ public class Move : MonoBehaviour
     public Vector3 current_velocity = Vector3.zero;
     public float current_rotation_speed = 0.0f; // degrees
 
+
+    Animator anim;
+
     // Methods for behaviours to set / add velocities
 
     public void SetMovementVelocity(Vector3 velocity)
@@ -68,8 +71,16 @@ public class Move : MonoBehaviour
 
     }
 
-    public void Stop()
+     void Start()
     {
+       anim= GetComponent<Animator>();
+
+    }
+
+        public void Stop()
+    {
+
+        //anim.SetBool("IsWalking", false);
         //linear Velocity
         Velocity = Vector3.zero;
 
@@ -108,6 +119,18 @@ public class Move : MonoBehaviour
 		{
             Velocity = Velocity.normalized * max_speed;
 		}
+
+
+        if (Velocity.magnitude > 3)
+        {
+            anim.SetBool("IsWalking", true);
+
+        }
+        else if (Velocity.magnitude == 0 || Velocity.magnitude < 3)
+        {
+            anim.SetBool("IsWalking", false);
+
+        }
 
         //if (Rotation > 0 && Rotation > max_rot_speed)
         //{
