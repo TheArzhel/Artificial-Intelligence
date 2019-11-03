@@ -46,6 +46,11 @@ public class CharacterObj : MonoBehaviour
     private bool nextMoveWlak = false;
     private bool nextMoveKitchen = false;
     private bool nextMoveTable = false;
+
+    //time
+    private float Timer = 0.0f;
+    private bool timerON = false;
+    private int TimeToStop = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -80,7 +85,7 @@ public class CharacterObj : MonoBehaviour
                 move.Stop();
                 Objective = PayList[0];
                 tableScript = Objective.GetComponent<Table>();
-                if ( tableScript.GetOcupy() == false)
+                if (tableScript.GetOcupy() == false || timerON == false)
                 {
                     CalculatePath(Objective);
                     action = State.PAY;
@@ -91,7 +96,10 @@ public class CharacterObj : MonoBehaviour
                 }
                 else
                 {
+                    timerON = true;
+                    TimeToStop = 10;
                     // timer wait start
+                    move.Stop();
                     //stop();
                 }
 
@@ -104,7 +112,7 @@ public class CharacterObj : MonoBehaviour
                     Objective = TableList[i];
                     tableScript = Objective.GetComponent<Table>();
 
-                    if (tableScript.GetOcupy() == false)
+                    if (tableScript.GetOcupy() == false || timerON == false)
                     {
                         //Debug.Log("2 this");
 
@@ -117,8 +125,11 @@ public class CharacterObj : MonoBehaviour
                     }
                     else
                     {
-                        //Debug.Log("2 this true" + i);
-                        //taskDone = true;
+                        timerON = true;
+                        TimeToStop = 5;
+                        // timer wait start
+                        move.Stop();
+                        //stop();
                     }
                 }
 
@@ -130,7 +141,7 @@ public class CharacterObj : MonoBehaviour
                     //Debug.Log("1 this ");
                     Objective = KitchenList[i];
                     tableScript = Objective.GetComponent<Table>();
-                    if (tableScript.GetOcupy() == false)
+                    if (tableScript.GetOcupy() == false || timerON == false)
                     {
                         //Debug.Log("2 this");
 
@@ -143,8 +154,11 @@ public class CharacterObj : MonoBehaviour
                     }
                     else
                     {
-                        //Debug.Log("2 this true" + i);
-                        //taskDone = true;
+                        timerON = true;
+                        // timer wait start
+                        TimeToStop = 15;
+                        move.Stop();
+                        //stop();
                     }
                 }
 
@@ -157,9 +171,9 @@ public class CharacterObj : MonoBehaviour
                     Objective = WalkList[iteratorWalk];
                     tableScript = Objective.GetComponent<Table>();
                    
-                        CalculatePath(Objective);
+                        CalculatePath(Objective );
                         action = State.WALK;
-                    if (iteratorWalk >= WalkList.Count)
+                    if (iteratorWalk >= WalkList.Count )
                     {
                         nextMovePay = true;
                         nextMoveWlak = false;
@@ -245,6 +259,14 @@ public class CharacterObj : MonoBehaviour
             }
         }
 
+        if (timerON)
+        {
+            Timer += Time.deltaTime;
+            if (Timer % 60 == TimeToStop)
+            {       Timer = 0.0f;
+                    timerON = false;
+            }
+        }
 
     }
 
