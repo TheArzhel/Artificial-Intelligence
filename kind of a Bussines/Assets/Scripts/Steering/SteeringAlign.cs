@@ -87,17 +87,13 @@ public class SteeringAlign : MonoBehaviour
         else
         {
 
-            move.SetRotationVelocity(0);
-            move.AccelerateRotation(0);
-            move.Stop();
+            move.StopRotation();
 
         }
 
         if (rotationSize < slow_angle)
         {
-            move.SetRotationVelocity(0);
-            move.AccelerateRotation(0);
-            move.Stop();
+            move.StopRotation();
         }
 
     }

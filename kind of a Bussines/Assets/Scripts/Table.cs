@@ -10,7 +10,7 @@ public class Table : InteractableItem
     {
         ocupy = new bool() ;
         ocupy = false;
-        Debug.Log("new bool");
+       // Debug.Log("new bool");
     }
     public override void OnInteract()
     {

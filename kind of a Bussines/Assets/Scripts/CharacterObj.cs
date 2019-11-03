@@ -6,7 +6,11 @@ using UnityEngine.AI;
 enum State
 {
     WAIT, 
-    LOOKTABLE
+    LOOKTABLE,
+    ASKTABLE,
+    KITCHEN,
+    WALK,
+    PAY,
 }
 
 public class CharacterObj : MonoBehaviour
@@ -24,6 +28,9 @@ public class CharacterObj : MonoBehaviour
     public float slow_Distance = 0.5f;
 
     public List<GameObject> TableList;
+    public List<GameObject> KitchenList;
+    public List<GameObject> PayList;
+    public List<GameObject> WalkList;
 
     Table tableScript;
     State action = State.WAIT;
@@ -31,18 +38,34 @@ public class CharacterObj : MonoBehaviour
 
     private bool taskDone = false;
     Vector3 nextPoint;
+
+    private int iteratorWalk = 0;
+    //Contol bools
+
+    private bool nextMovePay = true;
+    private bool nextMoveWlak = false;
+    private bool nextMoveKitchen = false;
+    private bool nextMoveTable = false;
     
     // Start is called before the first frame update
     void Start()
     {
+        if (!move)
         move = GetComponent<Move>();
-        seek = GetComponent<SteeringSeek>();
-       Arrive = GetComponent<SteeringArrive>();
+        if(!seek)
+            seek = GetComponent<SteeringSeek>();
+        if (!Arrive)
+        Arrive = GetComponent<SteeringArrive>();
+
         path = new NavMeshPath();
         FollowPath = GetComponent<SteeringFollowPath>();
         //NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
-
-        ListTag("Table");
+        action = State.WAIT;
+        ListTable("Table");
+        ListKitchen("Kitchen");
+        ListPay("Pay");
+        ListWalk("Walk Customer");
+        //Debug.Log("init ");
     }
 
     // Update is called once per frame
@@ -52,25 +75,105 @@ public class CharacterObj : MonoBehaviour
 
         if (action == State.WAIT)
         {
-            for (int i = 0; i < TableList.Count; ++i)
+            if (nextMovePay)
             {
-                Debug.Log("1 this ");
-                Objective = TableList[i];
+                move.Stop();
+                Objective = PayList[0];
                 tableScript = Objective.GetComponent<Table>();
-
-                if (tableScript.GetOcupy() == false)
+                if ( tableScript.GetOcupy() == false)
                 {
-                    Debug.Log("2 this");
-                    
                     CalculatePath(Objective);
-                    action = State.LOOKTABLE;
+                    action = State.PAY;
+                    nextMoveKitchen = true;
+                    nextMovePay = false;
                     taskDone = false;
-                    break;
-                } else
-                {
-                    //Debug.Log("2 this true" + i);
-                    //taskDone = true;
+
                 }
+                else
+                {
+                    // timer wait start
+                    //stop();
+                }
+
+            }
+            else if (nextMoveTable)
+            {
+                for (int i = 0; i < TableList.Count; ++i)
+                {
+                    //Debug.Log("1 this ");
+                    Objective = TableList[i];
+                    tableScript = Objective.GetComponent<Table>();
+
+                    if (tableScript.GetOcupy() == false)
+                    {
+                        //Debug.Log("2 this");
+
+                        CalculatePath(Objective);
+                        action = State.LOOKTABLE;
+                        nextMoveWlak = true;
+                        nextMoveTable = false;
+                        taskDone = false;
+                        break;
+                    }
+                    else
+                    {
+                        //Debug.Log("2 this true" + i);
+                        //taskDone = true;
+                    }
+                }
+
+            }
+            else if (nextMoveKitchen)
+            {
+                for (int i = 0; i < KitchenList.Count; ++i)
+                {
+                    //Debug.Log("1 this ");
+                    Objective = KitchenList[i];
+                    tableScript = Objective.GetComponent<Table>();
+                    if (tableScript.GetOcupy() == false)
+                    {
+                        //Debug.Log("2 this");
+
+                        CalculatePath(Objective);
+                        action = State.KITCHEN;
+                        nextMoveTable = true;
+                        nextMoveKitchen = false;
+                        taskDone = false;
+                        break;
+                    }
+                    else
+                    {
+                        //Debug.Log("2 this true" + i);
+                        //taskDone = true;
+                    }
+                }
+
+            }
+            else if (nextMoveWlak)
+            {
+                while ( iteratorWalk < WalkList.Count)
+                {
+                    //Debug.Log("1 this ");
+                    Objective = WalkList[iteratorWalk];
+                    tableScript = Objective.GetComponent<Table>();
+                   
+                        CalculatePath(Objective);
+                        action = State.WALK;
+                    if (iteratorWalk >= WalkList.Count)
+                    {
+                        nextMovePay = true;
+                        nextMoveWlak = false;
+                        nextMoveTable = false;
+                        nextMoveKitchen = false;
+                        //taskDone = false;
+                        iteratorWalk = 0;
+                        action = State.WAIT;
+                        break;
+                    }
+                    ++iteratorWalk;
+                        break;
+                }
+
             }
         }
         else if (action == State.LOOKTABLE)
@@ -82,12 +185,12 @@ public class CharacterObj : MonoBehaviour
             else if (taskDone)
             {
                 //Debug.Log("before interact" + tableScript.GetOcupy());
-               //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
+                //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
                 Objective.GetComponent<Table>().ocupy = true;
                 // tableScript.OnInteract();
                 // Debug.Log("on interact"+ tableScript.GetOcupy());
 
-               // Arrive.Steer(move.target.transform.position);
+                // Arrive.Steer(move.target.transform.position);
                 // move.Stop();
 
                 action = State.WAIT;
@@ -95,13 +198,59 @@ public class CharacterObj : MonoBehaviour
             }
 
         }
+        else if (action == State.KITCHEN) {
+            if (!taskDone)
+            {
+                taskDone = FollowPath.Steer(path);
+            }
+            else if (taskDone)
+            {
+                
+                Objective.GetComponent<Table>().ocupy = true;
+                 //timer and wait, when timer finish deactive table
 
-      
+                action = State.WAIT;
+                taskDone = false;
+            }
+        }
+        else if (action == State.PAY) {
+            if (!taskDone)
+            {
+                taskDone = FollowPath.Steer(path);
+            }
+            else if (taskDone)
+            {
+
+                Objective.GetComponent<Table>().ocupy = true;
+                //timer and wait, when timer finish deactive table
+
+                action = State.WAIT;
+                taskDone = false;
+            }
+        }
+        else if (action == State.WALK) {
+            if (!taskDone)
+            {
+                taskDone = FollowPath.Steer(path);
+            }
+            else if (taskDone)
+            {
+
+                //Objective.GetComponent<Table>().ocupy = true;
+                //timer and wait, when timer finish deactive table
+
+                action = State.WAIT;
+                nextMoveWlak = true;
+                taskDone = false;
+            }
+        }
+
+
     }
 
 
 
-    void ListTag(string tag)
+    void ListTable(string tag)
         {
         
            TableList = new List<GameObject>();
@@ -120,12 +269,70 @@ public class CharacterObj : MonoBehaviour
 
     }
 
+    void ListKitchen(string tag)
+    {
+
+        KitchenList = new List<GameObject>();
+
+
+        foreach (GameObject ObjectF in GameObject.FindGameObjectsWithTag(tag))
+        {
+            KitchenList.Add(ObjectF);
+        }
+
+        Objective = KitchenList[0];
+        //KitchenList = Objective.GetComponent<Table>();
+
+        // Debug.Log("Table list size" + TableList.Count);
+        // Debug.Log("Table" + tableScript.GetOcupy());
+
+    }
+
+    void ListPay(string tag)
+    {
+
+        PayList = new List<GameObject>();
+
+
+        foreach (GameObject ObjectF in GameObject.FindGameObjectsWithTag(tag))
+        {
+            PayList.Add(ObjectF);
+        }
+
+        Objective = PayList[0];
+        //KitchenList = Objective.GetComponent<Table>();
+
+        // Debug.Log("Table list size" + TableList.Count);
+        // Debug.Log("Table" + tableScript.GetOcupy());
+
+    }
+
+    void ListWalk(string tag)
+    {
+
+        WalkList = new List<GameObject>();
+
+
+        foreach (GameObject ObjectF in GameObject.FindGameObjectsWithTag(tag))
+        {
+            WalkList.Add(ObjectF);
+        }
+
+        Objective = WalkList[0];
+        //KitchenList = Objective.GetComponent<Table>();
+
+        // Debug.Log("Table list size" + TableList.Count);
+        // Debug.Log("Table" + tableScript.GetOcupy());
+
+    }
+
+
     void CalculatePath(GameObject objevit)
     {
-        Debug.Log(move.target.name);
+        //Debug.Log(move.target.name);
         move.target = objevit;
-        Debug.Log(objevit.name);
-        Debug.Log(move.target.name);
+        //Debug.Log(objevit.name);
+        //Debug.Log(move.target.name);
         if (path != null)
         {
             path.ClearCorners();

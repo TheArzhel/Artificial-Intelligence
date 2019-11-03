@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Table
   - Door
+  - Pay
+  - Kitchen
+  - Walk Customer
   layers:
   - Default
   - TransparentFX

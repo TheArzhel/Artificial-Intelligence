@@ -22,6 +22,11 @@ public class SteeringObstacleAvoidance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // This would cast rays only against colliders in layer 8.
+        layerMask = 1 << 8;
+        // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
+        layerMask = ~layerMask;
+
         move = GetComponent<Move>();
         seek = GetComponent<SteeringSeek>();
     }
@@ -57,13 +62,13 @@ public class SteeringObstacleAvoidance : MonoBehaviour
         if (Rayhit)
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-            Debug.Log("Did Hit");
+            //Debug.Log("Did Hit");
             Debug.DrawRay(HitPoint, newpos, Color.green);
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * range, Color.white);
-            Debug.Log("Did not Hit");
+           // Debug.Log("Did not Hit");
         }
 
     }

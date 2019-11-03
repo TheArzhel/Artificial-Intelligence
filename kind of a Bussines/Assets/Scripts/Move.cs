@@ -100,14 +100,29 @@ public class Move : MonoBehaviour
         //linear Velocity
         Velocity = Vector3.zero;
 
-        //linear acc
-        //current_rotation_speed = 0;
-
         //rot velocity
         Rotation = 0;
+        SetRotationVelocity(0);
+        AccelerateRotation(0);
+        
+    }
 
-        //rot ac
-        // max_mov_speed = 0;
+    public void StopRotation()
+    {
+      
+        Rotation = 0;
+        SetRotationVelocity(0);
+        AccelerateRotation(0);
+
+    }
+
+    public void StopLinera()
+    {
+        //linear Velocity
+        Velocity = Vector3.zero;
+        AccelerateMovement(Vector3.zero);
+
+
     }
 
     // Update is called once per frame
