@@ -31,24 +31,25 @@ using System.Collections;
 //    Steering Steering_Data;
 
 //}
-public class Move : MonoBehaviour {
+public class Move : MonoBehaviour
+{
 
 
     //Agent Data
-   public GameObject target;
+    public GameObject target;
 
     //Kinematics Data
-   [Header("Kinematics Data")]
-   public Vector3 pos;
-   public float orientation;
-   [Header("-------- Read Only --------")]
-   public Vector3 Velocity= Vector3.zero;
-   public float Rotation = 0.0f;
+    [Header("Kinematics Data")]
+    public Vector3 pos;
+    public float orientation;
+    [Header("-------- Read Only --------")]
+    public Vector3 Velocity = Vector3.zero;
+    public float Rotation = 0.0f;
 
     //Steering Data
-   [Header("Steering Data")]
-   public Vector3 Steering_linear;
-   public float Steering_angular;
+    [Header("Steering Data")]
+    public Vector3 Steering_linear;
+    public float Steering_angular;
 
     //limits
     [Header("Limits Param")]
@@ -66,64 +67,73 @@ public class Move : MonoBehaviour {
 
     // Methods for behaviours to set / add velocities
 
-    public void SetMovementVelocity (Vector3 velocity)
-	{
-       Velocity = velocity;
-	}
+    public void SetMovementVelocity(Vector3 velocity)
+    {
+        Velocity = velocity;
+    }
 
-	public void AccelerateMovement (Vector3 acceleration)
-	{
-       Steering_linear = acceleration;
-       Velocity += Steering_linear;
-	}
+    public void AccelerateMovement(Vector3 acceleration)
+    {
+        Steering_linear = acceleration;
+        Velocity += Steering_linear;
+    }
 
-	public void SetRotationVelocity (float rotation_speed)
-	{
-       Rotation = rotation_speed;
-	}
+    public void SetRotationVelocity(float rotation_speed)
+    {
+        Rotation = rotation_speed;
+    }
 
-	public void AccelerateRotation (float rotation_acceleration)
-	{
+    public void AccelerateRotation(float rotation_acceleration)
+    {
 
-      Steering_angular = rotation_acceleration;
-      Rotation += Steering_angular;
-	}
+        Steering_angular = rotation_acceleration;
+        Rotation += Steering_angular;
+    }
 
-  public void Stop()
-  {
-      //linear Velocity
-      Velocity = Vector3.zero;
+    public void Stop()
+    {
+        //linear Velocity
+        Velocity = Vector3.zero;
 
-      //linear acc
-      //current_rotation_speed = 0;
+        //linear acc
+        //current_rotation_speed = 0;
 
-      //rot velocity
-    Rotation = 0;
+        //rot velocity
+        Rotation = 0;
 
-      //rot ac
-     // max_mov_speed = 0;
-  }
+        //rot ac
+        // max_mov_speed = 0;
+    }
 
-	// Update is called once per frame
-	void Update ()
-	{
-         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
+    // Update is called once per frame
+    void Update()
+    {
+        orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
         // cap velocity
         if (Velocity.magnitude > max_speed)
-		{
-            Velocity = Velocity.normalized * max_speed;
-		}
-        if (Rotation > max_rot_speed)
         {
-          //be carefull with signs
-            Rotation = max_rot_acceleration;
+            Velocity = Velocity.normalized * max_speed;
         }
+
+        //if (Rotation > 0 && Rotation > max_rot_speed)
+        //{
+        //    //be carefull with signs
+        //    Rotation = max_rot_speed;
+        //}
+        //else if (Rotation < 0 && Rotation < -max_rot_speed)
+        //{
+        //    //be carefull with signs
+        //    Rotation = -max_rot_speed;
+        //}
 
 
         // final rotate & movement
         transform.rotation *= Quaternion.AngleAxis(Rotation * Time.deltaTime, Vector3.up);
         transform.position += Velocity * Time.deltaTime;
 
-	}
+
+
+
+    }
 }
