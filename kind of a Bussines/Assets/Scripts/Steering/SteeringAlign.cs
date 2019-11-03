@@ -8,7 +8,7 @@ public class SteeringAlign : MonoBehaviour
     public float min_angle =5f;
     public float slow_angle =15f;
     public float time_to_target = 0.4f;
-
+    public float min_distance = 1.0f;
     public bool AlignActive = true;
 
     Vector3 DirectionMov;
@@ -30,8 +30,12 @@ public class SteeringAlign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
       DirectionMov = move.target.transform.position - transform.position;
+
+        if (DirectionMov.magnitude <= min_distance)
+        {
+            AlignActive = false;
+        }
 
     float Target_orientation = Vector3.SignedAngle(Vector3.forward, DirectionMov, Vector3.up);
 
@@ -43,35 +47,34 @@ public class SteeringAlign : MonoBehaviour
 
         float rotationSize = Mathf.Abs(rotation);
 
-        if (rotationSize < min_angle)
-            AlignActive = false;
-        else
-            AlignActive = true;
+        if (rotationSize > min_angle || AlignActive)
+        {
 
-        if (rotationSize > slow_angle)
-            needed_rotation_speed = Deg2Rad(move.max_rot_speed);
-        else
-            needed_rotation_speed = Deg2Rad(move.max_rot_speed) * (Deg2Rad(rotationSize) / Deg2Rad(slow_angle));
+            if (rotationSize < min_angle)
+                AlignActive = false;
+            else
+                AlignActive = true;
+
+            if (rotationSize > slow_angle)
+                needed_rotation_speed = Deg2Rad(move.max_rot_speed);
+            else
+                needed_rotation_speed = Deg2Rad(move.max_rot_speed) * (Deg2Rad(rotationSize) / Deg2Rad(slow_angle));
         
 
-        needed_rotation_speed *= Deg2Rad(rotation) / Deg2Rad(rotationSize);
+            needed_rotation_speed *= Deg2Rad(rotation) / Deg2Rad(rotationSize);
 
 
-        if (needed_rotation_speed > Deg2Rad(move.max_rot_speed))
-            needed_rotation_speed = Deg2Rad(move.max_rot_speed);
+            if (needed_rotation_speed > Deg2Rad(move.max_rot_speed))
+                needed_rotation_speed = Deg2Rad(move.max_rot_speed);
 
-            steering_angular = (needed_rotation_speed - Deg2Rad(move.Rotation)) / time_to_target;
-
-
-        if (Mathf.Abs(steering_angular) > Deg2Rad(move.max_rot_acceleration))
-            steering_angular = Deg2Rad(move.max_rot_acceleration);
+                steering_angular = (needed_rotation_speed - Deg2Rad(move.Rotation)) / time_to_target;
 
 
+            if (Mathf.Abs(steering_angular) > Deg2Rad(move.max_rot_acceleration))
+                steering_angular = Deg2Rad(move.max_rot_acceleration);
 
-
-
-        if(rotationSize>min_angle)
-          move.AccelerateRotation(Rad2Deg(steering_angular));
+               move.AccelerateRotation(Rad2Deg(steering_angular));
+        }
         else
         {
             Debug.Log("DYINGGGG HERREEEEEE");

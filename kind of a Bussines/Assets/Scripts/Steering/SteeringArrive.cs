@@ -47,28 +47,40 @@ public class SteeringArrive : MonoBehaviour
         else
             ArriveActive = true;
 
-        //check slow speed is needed
-        //if not keep it max, else reduce depending on distance
-        if (DistanceFromTarget>slow_distance)
-            NeededSpeed=move.max_speed; 
+        if (ArriveActive)
+        {
+            //check slow speed is needed
+            //if not keep it max, else reduce depending on distance
+            if (DistanceFromTarget > slow_distance)
+                NeededSpeed = move.max_speed;
+            else
+                NeededSpeed = move.max_speed * (DistanceFromTarget / slow_distance);
+
+            //set the direction of agent to target and assing the speed needed 
+            NeededVelocity = DirectionMov;
+            NeededVelocity = NeededVelocity.normalized * NeededSpeed;
+
+            //obtain de desired acceleration in order slow on target:
+            //a=(Vf-Vo)/time_taken
+            Vector3 steering_linear;
+            steering_linear = (NeededVelocity - move.Velocity) / time_to_target;
+
+            //if a>max_a then cap
+            if (steering_linear.magnitude > move.max_acceleration)
+                steering_linear = steering_linear.normalized * move.max_acceleration;
+
+            //Apply force
+            move.AccelerateMovement(steering_linear);
+
+
+        }
         else
-            NeededSpeed = move.max_speed * (DistanceFromTarget/slow_distance);
+        {
+            move.Velocity = Vector3.zero;
 
-        //set the direction of agent to target and assing the speed needed 
-        NeededVelocity = DirectionMov;
-        NeededVelocity = NeededVelocity.normalized*NeededSpeed;
-
-        //obtain de desired acceleration in order slow on target:
-        //a=(Vf-Vo)/time_taken
-        Vector3 steering_linear;
-        steering_linear = (NeededVelocity - move.Velocity)/time_to_target;
-
-        //if a>max_a then cap
-        if (steering_linear.magnitude > move.max_acceleration)
-              steering_linear=steering_linear.normalized* move.max_acceleration;
-
-        //Apply force
-        move.AccelerateMovement(steering_linear);
+            move.Steering_linear = Vector3.zero;
+            
+        }
 
     }
 

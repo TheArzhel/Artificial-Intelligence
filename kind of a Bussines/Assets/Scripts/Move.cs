@@ -99,6 +99,11 @@ public class Move : MonoBehaviour {
 		{
             Velocity = Velocity.normalized * max_speed;
 		}
+        if (Rotation > max_rot_speed)
+        {
+          //be carefull with signs
+            Rotation = max_rot_acceleration;
+        }
 
   
         // final rotate & movement
