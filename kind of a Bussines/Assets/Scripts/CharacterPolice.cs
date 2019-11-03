@@ -233,7 +233,7 @@ public class CharacterPolice : MonoBehaviour
         {
             Timer += Time.deltaTime;
 
-            if (Timer % 60 >= 1)//timetostop)
+            if (Timer % 60 >= TimeToStop)//timetostop)
             {
                     Timer = 0.0f;
                     timerON = false;

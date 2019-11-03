@@ -157,7 +157,7 @@ public class CharacterWork : MonoBehaviour
                         //Objective.GetComponent<Table>().ocupy = true;
                         //timer and wait, when timer finish deactive table
                         timerON = true;
-                        TimeToStop = 2;
+                        TimeToStop = 3;
                         move.Stop();
                         action = StateWork.WAIT;
                         nextMoveCargo = false;
@@ -180,7 +180,7 @@ public class CharacterWork : MonoBehaviour
                         //Objective.GetComponent<Table>().ocupy = true;
                         //timer and wait, when timer finish deactive table
                         timerON = true;
-                        TimeToStop = 2;
+                        TimeToStop = 6;
                         move.Stop();
                         action = StateWork.WAIT;
                         Debug.Log("last");
@@ -238,7 +238,7 @@ public class CharacterWork : MonoBehaviour
                         //Objective.GetComponent<Table>().ocupy = true;
                         //timer and wait, when timer finish deactive table
                         timerON = true;
-                        TimeToStop = 2;
+                        TimeToStop = 8;
                         move.Stop();
                         action = StateWork.WAIT;
                         Debug.Log("last");
@@ -254,7 +254,7 @@ public class CharacterWork : MonoBehaviour
         {
             Timer += Time.deltaTime;
 
-            if (Timer % 60 >= 1)//timetostop)
+            if (Timer % 60 >= TimeToStop)//timetostop)
             {
                     Timer = 0.0f;
                     timerON = false;
@@ -281,10 +281,7 @@ public class CharacterWork : MonoBehaviour
         }
 
         Objective = WalkList[0];
-        //KitchenList = Objective.GetComponent<Table>();
-
-        // Debug.Log("Table list size" + TableList.Count);
-        // Debug.Log("Table" + tableScript.GetOcupy());
+        
 
     }
 
@@ -300,10 +297,7 @@ public class CharacterWork : MonoBehaviour
         }
 
         Objective = CargoList[0];
-        //KitchenList = Objective.GetComponent<Table>();
-
-        // Debug.Log("Table list size" + TableList.Count);
-        // Debug.Log("Table" + tableScript.GetOcupy());
+       
 
     }
 
