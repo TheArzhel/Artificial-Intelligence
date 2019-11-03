@@ -61,8 +61,6 @@ public class SteeringAlign : MonoBehaviour
                 needed_rotation_speed = Deg2Rad(move.max_rot_speed) * (Deg2Rad(rotationSize) / Deg2Rad(slow_angle));
         
 
-            needed_rotation_speed *= Deg2Rad(rotation) / Deg2Rad(rotationSize);
-
 
             if (needed_rotation_speed > Deg2Rad(move.max_rot_speed))
                 needed_rotation_speed = Deg2Rad(move.max_rot_speed);

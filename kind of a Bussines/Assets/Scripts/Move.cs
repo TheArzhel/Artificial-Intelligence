@@ -90,9 +90,7 @@ public class Move : MonoBehaviour {
 	}
     public void ChangeTarget(GameObject tar)
     {
-
         target = tar;
-
     }
 
   public void Stop()
@@ -120,16 +118,11 @@ public class Move : MonoBehaviour {
 		{
             Velocity = Velocity.normalized * max_speed;
 		}
-        if (Rotation > max_rot_speed)
-        {
-          //be carefull with signs
-            Rotation = max_rot_acceleration;
-        }
 
 
         // final rotate & movement
         transform.rotation *= Quaternion.AngleAxis(Rotation * Time.deltaTime, Vector3.up);
         transform.position += Velocity * Time.deltaTime;
 
-	}
+    }
 }
