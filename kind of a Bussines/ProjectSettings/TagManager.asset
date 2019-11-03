@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Table
-  - Door
   - Pay
   - Kitchen
   - Walk Customer
@@ -13,6 +12,9 @@ TagManager:
   - Day
   - Cargo
   - Walk police
+  - Walk Work
+  - Cargo Work
+  - Bar Work
   layers:
   - Default
   - TransparentFX

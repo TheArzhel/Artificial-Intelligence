@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-enum StatePolice
+enum StateWork
 {
     WAIT, 
     WALK,
     CARGO
 }
 
-public class CharacterPolice : MonoBehaviour
+public class CharacterWork : MonoBehaviour
 {
     //main cycle
     public static bool day = false;
@@ -34,7 +34,7 @@ public class CharacterPolice : MonoBehaviour
     public List<GameObject> WalkList;
     public List<GameObject> CargoList;
 
-    StatePolice action = StatePolice.WAIT;
+    StateWork action = StateWork.WAIT;
     private GameObject Objective;
 
     private bool taskDone = false;
@@ -69,9 +69,9 @@ public class CharacterPolice : MonoBehaviour
         path = new NavMeshPath();
         FollowPath = GetComponent<SteeringFollowPath>();
         //NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
-        action = StatePolice.WAIT;
-        ListWalk("Walk police");
-        ListCargo("Cargo");
+        action = StateWork.WAIT;
+        ListWalk("Walk Work");
+        ListCargo("Cargo Work");
         //Debug.Log("init ");
     }
 
@@ -87,7 +87,7 @@ public class CharacterPolice : MonoBehaviour
 
             if (day)
             {
-                if (action == StatePolice.WAIT)
+                if (action == StateWork.WAIT)
                 {
                     
                     if (nextMoveWlak)
@@ -99,15 +99,15 @@ public class CharacterPolice : MonoBehaviour
                             Debug.Log("last!!!");
 
                             CalculatePath(Objective);
-                            action = StatePolice.WALK;
+                            action = StateWork.WALK;
                             if (iteratorWalk == WalkList.Count - 1)
                             {
                                 
-                                nextMoveWlak = true;
-                                //nextMoveCargo = true;
+                                nextMoveWlak = false;
+                                nextMoveCargo = true;
                                 //taskDone = false;
                                 iteratorWalk = 0;
-                                action = StatePolice.WAIT;
+                                action = StateWork.WAIT;
                                 break;
                             }
                             ++iteratorWalk;
@@ -124,15 +124,15 @@ public class CharacterPolice : MonoBehaviour
 
 
                             CalculatePath(Objective);
-                            action = StatePolice.CARGO;
+                            action = StateWork.CARGO;
                             if (iteratorWalk == CargoList.Count - 1)
                             {
 
                                 nextMoveWlak = true;
-                               // nextMoveCargo = false ;
+                                nextMoveCargo = false ;
                                 //taskDone = false;
                                 iteratorWalk = 0;
-                                action = StatePolice.WAIT;
+                                action = StateWork.WAIT;
                                 break;
                             }
                             ++iteratorWalk;
@@ -142,7 +142,7 @@ public class CharacterPolice : MonoBehaviour
                     }
                 }
                 
-                else if (action == StatePolice.WALK)
+                else if (action == StateWork.WALK)
                 {
                     if (!taskDone)
                     {
@@ -156,15 +156,15 @@ public class CharacterPolice : MonoBehaviour
                         timerON = true;
                         TimeToStop = 2;
                         move.Stop();
-                        action = StatePolice.WAIT;
-                        //nextMoveCargo = false;
+                        action = StateWork.WAIT;
+                        nextMoveCargo = false;
                         nextMoveWlak = true;
                         taskDone = false;
                         Debug.Log("last!");
                     }
                 }
 
-                else if (action == StatePolice.CARGO)
+                else if (action == StateWork.CARGO)
                 {
                     if (!taskDone)
                     {
@@ -178,10 +178,10 @@ public class CharacterPolice : MonoBehaviour
                         timerON = true;
                         TimeToStop = 2;
                         move.Stop();
-                        action = StatePolice.WAIT;
+                        action = StateWork.WAIT;
                         Debug.Log("last");
-                        //nextMoveCargo = true;
-                        nextMoveWlak = true;
+                        nextMoveCargo = true;
+                        nextMoveWlak = false;
                         taskDone = false;
                     }
                 }
@@ -189,7 +189,7 @@ public class CharacterPolice : MonoBehaviour
 
             else
             {
-                if (action == StatePolice.WAIT)
+                if (action == StateWork.WAIT)
                 {
 
                     
@@ -202,7 +202,7 @@ public class CharacterPolice : MonoBehaviour
 
 
                             CalculatePath(Objective);
-                            action = StatePolice.CARGO;
+                            action = StateWork.CARGO;
                             if (iteratorWalk == CargoList.Count - 1)
                             {
 
@@ -210,7 +210,7 @@ public class CharacterPolice : MonoBehaviour
                                  nextMoveCargo = true ;
                                 //taskDone = false;
                                 iteratorWalk = 0;
-                                action = StatePolice.WAIT;
+                                action = StateWork.WAIT;
                                 break;
                             }
                             ++iteratorWalk;
@@ -221,7 +221,7 @@ public class CharacterPolice : MonoBehaviour
                 }
 
                 
-                else if (action == StatePolice.CARGO)
+                else if (action == StateWork.CARGO)
                 {
                     if (!taskDone)
                     {
@@ -235,7 +235,7 @@ public class CharacterPolice : MonoBehaviour
                         timerON = true;
                         TimeToStop = 2;
                         move.Stop();
-                        action = StatePolice.WAIT;
+                        action = StateWork.WAIT;
                         Debug.Log("last");
                         nextMoveCargo = true;
                         //nextMoveWlak = true;
