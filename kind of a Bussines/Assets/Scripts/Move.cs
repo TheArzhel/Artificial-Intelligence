@@ -44,7 +44,7 @@ public class Move : MonoBehaviour {
    [Header("-------- Read Only --------")]
    public Vector3 Velocity= Vector3.zero;
    public float Rotation = 0.0f;
- 
+
     //Steering Data
    [Header("Steering Data")]
    public Vector3 Steering_linear;
@@ -58,39 +58,54 @@ public class Move : MonoBehaviour {
     //Accelerations
     public float max_acceleration = 0.1f;
     public float max_rot_acceleration = 0.5f; // in degrees
-  
 
-    
-    //public Vector3 current_velocity = Vector3.zero;
-    //public float current_rotation_speed = 0.0f; // degrees
+
+    [Header("-------- Read Only --------")]
+    public Vector3 current_velocity = Vector3.zero;
+    public float current_rotation_speed = 0.0f; // degrees
 
     // Methods for behaviours to set / add velocities
 
-    public void SetMovementVelocity (Vector3 velocity) 
+    public void SetMovementVelocity (Vector3 velocity)
 	{
        Velocity = velocity;
 	}
 
-	public void AccelerateMovement (Vector3 acceleration) 
+	public void AccelerateMovement (Vector3 acceleration)
 	{
        Steering_linear = acceleration;
        Velocity += Steering_linear;
 	}
 
-	public void SetRotationVelocity (float rotation_speed) 
+	public void SetRotationVelocity (float rotation_speed)
 	{
        Rotation = rotation_speed;
 	}
 
-	public void AccelerateRotation (float rotation_acceleration) 
+	public void AccelerateRotation (float rotation_acceleration)
 	{
 
       Steering_angular = rotation_acceleration;
       Rotation += Steering_angular;
 	}
-	
+
+  public void Stop()
+  {
+      //linear Velocity
+      Velocity = Vector3.zero;
+
+      //linear acc
+      //current_rotation_speed = 0;
+
+      //rot velocity
+    Rotation = 0;
+
+      //rot ac
+     // max_mov_speed = 0;
+  }
+
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
          orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
@@ -105,7 +120,7 @@ public class Move : MonoBehaviour {
             Rotation = max_rot_acceleration;
         }
 
-  
+
         // final rotate & movement
         transform.rotation *= Quaternion.AngleAxis(Rotation * Time.deltaTime, Vector3.up);
         transform.position += Velocity * Time.deltaTime;

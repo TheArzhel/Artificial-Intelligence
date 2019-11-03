@@ -15,11 +15,11 @@ public class SteeringArrive : MonoBehaviour
     Vector3 DirectionMov;
     Vector3 NeededVelocity;
 
-    
-   
-   
 
-  
+
+
+
+
 
     Move move;
 
@@ -56,7 +56,7 @@ public class SteeringArrive : MonoBehaviour
             else
                 NeededSpeed = move.max_speed * (DistanceFromTarget / slow_distance);
 
-            //set the direction of agent to target and assing the speed needed 
+            //set the direction of agent to target and assing the speed needed
             NeededVelocity = DirectionMov;
             NeededVelocity = NeededVelocity.normalized * NeededSpeed;
 
@@ -79,7 +79,7 @@ public class SteeringArrive : MonoBehaviour
             move.Velocity = Vector3.zero;
 
             move.Steering_linear = Vector3.zero;
-            
+
         }
 
     }
