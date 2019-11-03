@@ -8,7 +8,8 @@ public class SteeringObstacleAvoidance : MonoBehaviour
     public float range = 2.0f;
     RaycastHit hit;
     public bool Rayhit;
-    public int layerMask = 8;
+    public int layerMask;
+
 
     public float displacement=3.0f;
     public float Strenght = 3.0f;
