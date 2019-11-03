@@ -38,6 +38,21 @@ public class Move : MonoBehaviour
         current_rotation_speed += rotation_acceleration;
     }
 
+    public void Stop()
+    {
+        //linear Velocity
+        current_velocity = Vector3.zero;
+
+        //linear acc
+        //current_rotation_speed = 0;
+
+        //rot velocity
+        current_rotation_speed = 0;
+
+        //rot ac
+       // max_mov_speed = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {

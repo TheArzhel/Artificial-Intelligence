@@ -83,16 +83,10 @@ public class CharacterObj : MonoBehaviour
                 //Debug.Log("before interact" + tableScript.GetOcupy());
                //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
                 Objective.GetComponent<Table>().ocupy = true;
-               // tableScript.OnInteract();
-               // Debug.Log("on interact"+ tableScript.GetOcupy());
+                // tableScript.OnInteract();
+                // Debug.Log("on interact"+ tableScript.GetOcupy());
 
-                move.current_velocity = Vector3.zero;
-
-                move.current_rotation_speed = 0;
-
-                move.max_mov_acceleration = 0;
-
-                move.max_mov_speed= 0;
+                move.Stop();
 
                 action = State.WAIT;
                 taskDone = false;
