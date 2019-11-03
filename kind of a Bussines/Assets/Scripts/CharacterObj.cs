@@ -15,6 +15,7 @@ public class CharacterObj : MonoBehaviour
     Move move;
     SteeringSeek seek;
     SteeringFollowPath FollowPath;
+    SteeringArrive Arrive;
     
     public LayerMask mask;
 
@@ -36,7 +37,7 @@ public class CharacterObj : MonoBehaviour
     {
         move = GetComponent<Move>();
         seek = GetComponent<SteeringSeek>();
-       
+       Arrive = GetComponent<SteeringArrive>();
         path = new NavMeshPath();
         FollowPath = GetComponent<SteeringFollowPath>();
         //NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
@@ -86,7 +87,8 @@ public class CharacterObj : MonoBehaviour
                 // tableScript.OnInteract();
                 // Debug.Log("on interact"+ tableScript.GetOcupy());
 
-                move.Stop();
+               // Arrive.Steer(move.target.transform.position);
+                // move.Stop();
 
                 action = State.WAIT;
                 taskDone = false;

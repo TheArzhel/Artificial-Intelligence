@@ -3,13 +3,14 @@ using System.Collections;
 
 public class SteeringSeek : MonoBehaviour
 {
-
+    SteeringArrive arrive;
     Move move;
     public float mind_distance = 1.0f;
     // Use this for initialization
     void Start()
     {
         move = GetComponent<Move>();
+        arrive = GetComponent<SteeringArrive>();
     }
 
     // Update is called once per frame
@@ -26,6 +27,10 @@ public class SteeringSeek : MonoBehaviour
         {
             move = GetComponent<Move>();
         }
+        if (!arrive)
+        {
+            arrive = GetComponent<SteeringArrive>();
+        }
         Vector3 Steering_linear;
         Steering_linear = (target - transform.position);
         if (Steering_linear.magnitude > mind_distance)
@@ -35,6 +40,7 @@ public class SteeringSeek : MonoBehaviour
 
         move.AccelerateMovement(Steering_linear);
 
+        //arrive.Steer(target);
         }
     }
 }

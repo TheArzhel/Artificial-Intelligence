@@ -4,8 +4,8 @@ using System.Collections;
 public class SteeringArrive : MonoBehaviour
 {
 
-    public float min_distance = 0.1f;
-    public float slow_distance = 5.0f;
+    public float min_distance = 0.7f;
+    public float slow_distance = 4.0f;
     public float time_to_target = 0.6f;
 
     public bool ArriveActive = true;
@@ -37,8 +37,11 @@ public class SteeringArrive : MonoBehaviour
 
     public void Steer(Vector3 target)
     {
+        if (!move)
+            move = GetComponent<Move>();
+
         //Get the target direction and distance
-       DirectionMov = target - transform.position;
+        DirectionMov = target - transform.position;
        DistanceFromTarget = DirectionMov.magnitude;
 
         //check if it's the min distance
@@ -51,10 +54,12 @@ public class SteeringArrive : MonoBehaviour
         {
             //check slow speed is needed
             //if not keep it max, else reduce depending on distance
+            //if (DistanceFromTarget > slow_distance)
+                //NeededSpeed = move.max_speed;
             if (DistanceFromTarget > slow_distance)
-                NeededSpeed = move.max_speed;
-            else
+            {
                 NeededSpeed = move.max_speed * (DistanceFromTarget / slow_distance);
+            }
 
             //set the direction of agent to target and assing the speed needed
             NeededVelocity = DirectionMov;
@@ -70,15 +75,21 @@ public class SteeringArrive : MonoBehaviour
                 steering_linear = steering_linear.normalized * move.max_acceleration;
 
             //Apply force
-            move.AccelerateMovement(steering_linear);
+            steering_linear.y = 0.0f;
+            if (DistanceFromTarget <= slow_distance)
+            {
+                move.AccelerateMovement(steering_linear);
+            }
 
 
         }
         else
         {
-            move.Velocity = Vector3.zero;
+            //move.Velocity = Vector3.zero;
 
-            move.Steering_linear = Vector3.zero;
+            //move.Steering_linear = Vector3.zero;
+        //stop linear only    
+        //move.Stop();
 
         }
 
