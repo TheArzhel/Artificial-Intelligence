@@ -80,6 +80,7 @@ public class CharacterPolice : MonoBehaviour
     {
         if (day != Day.getdate())
         {
+            Debug.Log("Change day night");
            day = Day.getdate();
 
             if (day)
@@ -99,6 +100,8 @@ public class CharacterPolice : MonoBehaviour
              TimeToStop = 0;
             action = StatePolice.WAIT;
             iteratorWalk = 0;
+            Objective = null;
+            path = null;
         }
 
         //Debug.Log("Update: charactes behaviour");
@@ -117,7 +120,7 @@ public class CharacterPolice : MonoBehaviour
                         {
                             //Debug.Log("1 this ");
                             Objective = WalkList[iteratorWalk];
-                            Debug.Log("last!!!");
+                            
 
                             CalculatePath(Objective);
                             action = StatePolice.WALK;
@@ -136,38 +139,16 @@ public class CharacterPolice : MonoBehaviour
                         }
 
                     }
-                    if (nextMoveCargo)
-                    {
-                        while (iteratorWalk < CargoList.Count)
-                        {
-                            //Debug.Log("1 this ");
-                            Objective = CargoList[iteratorWalk];
-
-
-                            CalculatePath(Objective);
-                            action = StatePolice.CARGO;
-                            if (iteratorWalk == CargoList.Count - 1)
-                            {
-
-                                nextMoveWlak = true;
-                               // nextMoveCargo = false ;
-                                //taskDone = false;
-                                iteratorWalk = 0;
-                                action = StatePolice.WAIT;
-                                break;
-                            }
-                            ++iteratorWalk;
-                            break;
-                        }
-
-                    }
+                    
                 }
                 
                 else if (action == StatePolice.WALK)
                 {
                     if (!taskDone)
                     {
-                        taskDone = FollowPath.Steer(path);
+                        if (path != null)
+                            taskDone = FollowPath.Steer(path);
+                        Debug.Log("peta1");
                     }
                     else if (taskDone)
                     {
@@ -185,27 +166,7 @@ public class CharacterPolice : MonoBehaviour
                     }
                 }
 
-                else if (action == StatePolice.CARGO)
-                {
-                    if (!taskDone)
-                    {
-                        taskDone = FollowPath.Steer(path);
-                    }
-                    else if (taskDone)
-                    {
-
-                        //Objective.GetComponent<Table>().ocupy = true;
-                        //timer and wait, when timer finish deactive table
-                        timerON = true;
-                        TimeToStop = 2;
-                        move.Stop();
-                        action = StatePolice.WAIT;
-                        Debug.Log("last");
-                        //nextMoveCargo = true;
-                        nextMoveWlak = true;
-                        taskDone = false;
-                    }
-                }
+                
             }
 
             else
@@ -246,7 +207,9 @@ public class CharacterPolice : MonoBehaviour
                 {
                     if (!taskDone)
                     {
+                        if (path!=null)
                         taskDone = FollowPath.Steer(path);
+                        Debug.Log("peta2");
                     }
                     else if (taskDone)
                     {
@@ -297,10 +260,10 @@ public class CharacterPolice : MonoBehaviour
         }
 
         Objective = WalkList[0];
-        //KitchenList = Objective.GetComponent<Table>();
+        
 
-        // Debug.Log("Table list size" + TableList.Count);
-        // Debug.Log("Table" + tableScript.GetOcupy());
+         Debug.Log("Walk Police list size" + WalkList.Count);
+        
 
     }
 
@@ -316,10 +279,10 @@ public class CharacterPolice : MonoBehaviour
         }
 
         Objective = CargoList[0];
-        //KitchenList = Objective.GetComponent<Table>();
+        
 
-        // Debug.Log("Table list size" + TableList.Count);
-        // Debug.Log("Table" + tableScript.GetOcupy());
+         Debug.Log("Cargo Police list size" + CargoList.Count);
+        
 
     }
 
