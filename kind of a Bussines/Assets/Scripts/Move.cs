@@ -88,6 +88,12 @@ public class Move : MonoBehaviour {
       Steering_angular = rotation_acceleration;
       Rotation += Steering_angular;
 	}
+    public void ChangeTarget(GameObject tar)
+    {
+
+        target = tar;
+
+    }
 
   public void Stop()
   {
