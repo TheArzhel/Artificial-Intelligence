@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+enum State
+{
+    WAIT, 
+    LOOKTABLE
+}
+
 public class CharacterObj : MonoBehaviour
 {
     NavMeshPath path;
@@ -10,11 +16,17 @@ public class CharacterObj : MonoBehaviour
     SteeringSeek seek;
     SteeringFollowPath FollowPath;
     
+    public LayerMask mask;
+
+
     public float min_Distance = 0.1f;
     public float slow_Distance = 0.5f;
 
+    public List<GameObject> TableList;
+    Table tableScript;
+    State action = State.WAIT;
+    private GameObject Objective;
 
-   
     private bool taskDone = false;
     Vector3 nextPoint;
     
@@ -23,10 +35,12 @@ public class CharacterObj : MonoBehaviour
     {
         move = GetComponent<Move>();
         seek = GetComponent<SteeringSeek>();
+       
         path = new NavMeshPath();
-        FollowPath = GetComponent<SteeringFollowPath>();
-        NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
-        
+        //FollowPath = GetComponent<SteeringFollowPath>();
+        //NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
+
+        ListTag("Table");
     }
 
     // Update is called once per frame
@@ -34,25 +48,76 @@ public class CharacterObj : MonoBehaviour
     {
         Debug.Log("Update: charactes behaviour");
 
-        if (!taskDone)
+        if (action == State.WAIT)
         {
-            taskDone = FollowPath.Steer(path);
+            for (int i = 0; i < TableList.Count; ++i)
+            {
+                Debug.Log("1 this ");
+                Objective = TableList[i];
+                tableScript = Objective.GetComponent<Table>();
+
+                if (tableScript.GetOcupy() == false)
+                {
+                    Debug.Log("2 this");
+                    
+                    CalculatePath(Objective);
+                    action = State.LOOKTABLE;
+
+                    break;
+                }
+            }
         }
-        else
+        else if (action == State.LOOKTABLE)
         {
-            move.current_velocity = Vector3.zero;
+            if (!taskDone)
+            {
+                taskDone = FollowPath.Steer(path);
+            }
+            else
+            {
+                Objective.GetComponent<Table>().OnInteract();
 
-            move.current_rotation_speed = 0;
+                move.current_velocity = Vector3.zero;
 
-            move.max_mov_acceleration = 0;
+                move.current_rotation_speed = 0;
 
-            move.max_mov_speed= 0;
+                move.max_mov_acceleration = 0;
+
+                move.max_mov_speed= 0;
+
+                action = State.WAIT;
+            }
+
         }
 
       
-        }
-
-        
     }
 
+
+
+    void ListTag(string tag)
+        {
+        
+           TableList = new List<GameObject>();
+
+        foreach (GameObject ObjectF in GameObject.FindGameObjectsWithTag(tag))
+        {
+            TableList.Add(ObjectF);
+        }
+
+        Objective = TableList[0];
+        tableScript = Objective.GetComponent<Table>();
+
+        Debug.Log("Table list size" + TableList.Count);
+        Debug.Log("Table" + tableScript.GetOcupy());
+
+    }
+
+    void CalculatePath(GameObject objevit)
+    {
+        move.target = objevit;
+        NavMesh.CalculatePath(transform.position, move.target.transform.position, NavMesh.AllAreas, path);
+    }
+}
+  
 
