@@ -143,3 +143,22 @@ Newspaper element: A Newspaper in thought to be a good idea to lead the player e
 Taxes: ate the same time taxes should be paid daily for money legally made, forcing the player to have bar activity to have better incomes and go forward in the City Control Meter.
 
 **Game design note:** having only a restaurant must be balanced, for it not to be able to progress in the game, forcing the player to open a bar to gain higher profits and invest in more things. The player must not be able to win with no bar.
+
+
+##Controls
+moving camera: WASD
+
+
+##Github:
+Repository link:
+https://github.com/TheArzhel/Artificial-Intelligence
+
+Authors:
+TheArzhel (Andres Saladrigas)
+https://github.com/TheArzhel  
+
+AdrianFR99 (Adrian Font) 
+https://github.com/AdrianFR99
+
+
+
