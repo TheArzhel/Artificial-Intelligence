@@ -11,6 +11,8 @@ TagManager:
   - Walk Customer
   - Bar
   - Day
+  - Cargo
+  - Walk police
   layers:
   - Default
   - TransparentFX
