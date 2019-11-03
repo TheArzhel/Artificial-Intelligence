@@ -36,8 +36,5 @@ public class SteeringSeek : MonoBehaviour
         move.AccelerateMovement(Steering_linear);
 
         }
-
-
-        move.AccelerateMovement(diff);
     }
 }

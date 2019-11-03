@@ -1380,6 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612fefe37772540c8bb2bcc1639f521e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mind_distance: 1
 --- !u!114 &1955563944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,9 +1394,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 186027539}
-  max_mov_speed: 3
-  max_mov_acceleration: 0.1
+  pos: {x: 0, y: 0, z: 0}
+  orientation: 0
+  Velocity: {x: 0, y: 0, z: 0}
+  Rotation: 0
+  Steering_linear: {x: 0, y: 0, z: 0}
+  Steering_angular: 0
+  max_speed: 5
   max_rot_speed: 10
+  max_acceleration: 0.1
   max_rot_acceleration: 0.1
   current_velocity: {x: 0, y: 0, z: 0}
   current_rotation_speed: 0
@@ -1440,7 +1447,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955563942}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b13ae3cbc54e44631ae987b5486c59f4, type: 3}
   m_Name: 
