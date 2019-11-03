@@ -78,7 +78,32 @@ public class CharacterWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        day = Day.getdate();
+        if (day != Day.getdate())
+        {
+            Debug.Log("Change day night");
+            day = Day.getdate();
+
+            if (day)
+            {
+                nextMoveWlak = true;
+                nextMoveCargo = false;
+
+            }
+            else
+            {
+                nextMoveWlak = false;
+                nextMoveCargo = true;
+            }
+
+            //time
+            Timer = 0.0f;
+            timerON = false;
+            TimeToStop = 0;
+            action = StateWork.WAIT;
+            iteratorWalk = 0;
+            Objective = null;
+            path = null;
+        }
 
         //Debug.Log("Update: charactes behaviour");
         if (!timerON)
@@ -115,38 +140,16 @@ public class CharacterWork : MonoBehaviour
                         }
 
                     }
-                    if (nextMoveCargo)
-                    {
-                        while (iteratorWalk < CargoList.Count)
-                        {
-                            //Debug.Log("1 this ");
-                            Objective = CargoList[iteratorWalk];
 
-
-                            CalculatePath(Objective);
-                            action = StateWork.CARGO;
-                            if (iteratorWalk == CargoList.Count - 1)
-                            {
-
-                                nextMoveWlak = true;
-                                nextMoveCargo = false ;
-                                //taskDone = false;
-                                iteratorWalk = 0;
-                                action = StateWork.WAIT;
-                                break;
-                            }
-                            ++iteratorWalk;
-                            break;
-                        }
-
-                    }
+            
                 }
                 
                 else if (action == StateWork.WALK)
                 {
                     if (!taskDone)
                     {
-                        taskDone = FollowPath.Steer(path);
+                        if (path != null)
+                            taskDone = FollowPath.Steer(path);
                     }
                     else if (taskDone)
                     {
@@ -168,6 +171,7 @@ public class CharacterWork : MonoBehaviour
                 {
                     if (!taskDone)
                     {
+                        if (path!=null)
                         taskDone = FollowPath.Steer(path);
                     }
                     else if (taskDone)
@@ -225,7 +229,8 @@ public class CharacterWork : MonoBehaviour
                 {
                     if (!taskDone)
                     {
-                        taskDone = FollowPath.Steer(path);
+                        if (path != null)
+                            taskDone = FollowPath.Steer(path);
                     }
                     else if (taskDone)
                     {

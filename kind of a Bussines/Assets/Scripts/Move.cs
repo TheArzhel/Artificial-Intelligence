@@ -4,33 +4,6 @@ using System.Collections;
 
 
 
-//struct Kinematic
-//{
-//    //Linear values
-//    Vector3 pos;
-//    float orientation;
-//    Vector3 Velocity;
-//    float Rotation;
-//}
-
-
-//struct Steering
-//{
-//    //accelerations
-//    Vector3 linear;
-//    float angular;
-
-//}
-
-//struct AgentData
-//{
-
-//    GameObject Target;
-
-//    Kinematic Kinematic_Data;
-//    Steering Steering_Data;
-
-//}
 public class Move : MonoBehaviour
 {
 
