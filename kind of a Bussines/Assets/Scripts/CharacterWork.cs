@@ -121,7 +121,7 @@ public class CharacterWork : MonoBehaviour
                         {
                             //Debug.Log("1 this ");
                             Objective = WalkList[iteratorWalk];
-                            Debug.Log("last!!!");
+                            
 
                             CalculatePath(Objective);
                             action = StateWork.WALK;
@@ -167,28 +167,7 @@ public class CharacterWork : MonoBehaviour
                     }
                 }
 
-                else if (action == StateWork.CARGO)
-                {
-                    if (!taskDone)
-                    {
-                        if (path!=null)
-                        taskDone = FollowPath.Steer(path);
-                    }
-                    else if (taskDone)
-                    {
-
-                        //Objective.GetComponent<Table>().ocupy = true;
-                        //timer and wait, when timer finish deactive table
-                        timerON = true;
-                        TimeToStop = 6;
-                        move.Stop();
-                        action = StateWork.WAIT;
-                        Debug.Log("last");
-                        nextMoveCargo = true;
-                        nextMoveWlak = false;
-                        taskDone = false;
-                    }
-                }
+                
             }
 
             else
@@ -210,7 +189,7 @@ public class CharacterWork : MonoBehaviour
                             if (iteratorWalk == CargoList.Count - 1)
                             {
 
-                                //nextMoveWlak = true;
+                                nextMoveWlak = false;
                                  nextMoveCargo = true ;
                                 //taskDone = false;
                                 iteratorWalk = 0;

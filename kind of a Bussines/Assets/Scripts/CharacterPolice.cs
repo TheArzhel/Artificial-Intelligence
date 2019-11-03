@@ -127,8 +127,8 @@ public class CharacterPolice : MonoBehaviour
                             if (iteratorWalk == WalkList.Count - 1)
                             {
                                 
-                                nextMoveWlak = true;
-                                //nextMoveCargo = true;
+                                nextMoveWlak = false;
+                                nextMoveCargo = true;
                                 //taskDone = false;
                                 iteratorWalk = 0;
                                 action = StatePolice.WAIT;
@@ -159,7 +159,7 @@ public class CharacterPolice : MonoBehaviour
                         TimeToStop = 2;
                         move.Stop();
                         action = StatePolice.WAIT;
-                        //nextMoveCargo = false;
+                        nextMoveCargo = false;
                         nextMoveWlak = true;
                         taskDone = false;
                         Debug.Log("last!");
@@ -188,7 +188,7 @@ public class CharacterPolice : MonoBehaviour
                             if (iteratorWalk == CargoList.Count - 1)
                             {
 
-                                //nextMoveWlak = true;
+                                nextMoveWlak = false;
                                  nextMoveCargo = true ;
                                 //taskDone = false;
                                 iteratorWalk = 0;
