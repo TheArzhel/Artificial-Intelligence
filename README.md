@@ -145,19 +145,20 @@ Taxes: ate the same time taxes should be paid daily for money legally made, forc
 **Game design note:** having only a restaurant must be balanced, for it not to be able to progress in the game, forcing the player to open a bar to gain higher profits and invest in more things. The player must not be able to win with no bar.
 
 
-##Controls
+**Controls:**
 moving camera: WASD
 
 
-##Github:
+**Github:**
 Repository link:
 https://github.com/TheArzhel/Artificial-Intelligence
 
+
 Authors:
-TheArzhel (Andres Saladrigas)
+TheArzhel (Andres Saladrigas):
 https://github.com/TheArzhel  
 
-AdrianFR99 (Adrian Font) 
+AdrianFR99 (Adrian Font):
 https://github.com/AdrianFR99
 
 
