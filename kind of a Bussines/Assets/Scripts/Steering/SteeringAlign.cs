@@ -16,7 +16,7 @@ public class SteeringAlign : MonoBehaviour
   public  float rotation;
     float needed_rotation_speed; 
     float steering_angular;
-    float RotDirection;
+    public float RotDirection;
 
     Move move;
    

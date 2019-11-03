@@ -1403,7 +1403,7 @@ MonoBehaviour:
   max_speed: 2.88
   max_rot_speed: 10
   max_acceleration: 0.4
-  max_rot_acceleration: 0.1
+  max_rot_acceleration: 4.12
   current_velocity: {x: 0, y: 0, z: 0}
   current_rotation_speed: 0
 --- !u!114 &1955563945
@@ -1456,3 +1456,22 @@ MonoBehaviour:
   slow_distance: 4.53
   time_to_target: 0.6
   ArriveActive: 1
+--- !u!114 &1955563950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955563942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a2539257a3a4efeb46289d1eb08300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min_angle: 5
+  slow_angle: 15
+  time_to_target: 0.4
+  min_distance: 1
+  AlignActive: 1
+  rotation: 0
+  RotDirection: 0
