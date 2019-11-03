@@ -9,6 +9,7 @@ TagManager:
   - Pay
   - Kitchen
   - Walk Customer
+  - Bar
   layers:
   - Default
   - TransparentFX

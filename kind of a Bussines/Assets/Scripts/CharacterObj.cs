@@ -17,7 +17,7 @@ enum State
 public class CharacterObj : MonoBehaviour
 {
     //main cycle
-    public static bool day = true;
+    public static bool day = false;
 
     NavMeshPath path;
     Move move;
@@ -35,6 +35,7 @@ public class CharacterObj : MonoBehaviour
     public List<GameObject> KitchenList;
     public List<GameObject> PayList;
     public List<GameObject> WalkList;
+    public List<GameObject> BarList;
 
     Table tableScript;
     State action = State.WAIT;
@@ -74,6 +75,7 @@ public class CharacterObj : MonoBehaviour
         ListKitchen("Kitchen");
         ListPay("Pay");
         ListWalk("Walk Customer");
+        ListBar("Bar");
         //Debug.Log("init ");
     }
 
@@ -83,7 +85,7 @@ public class CharacterObj : MonoBehaviour
         //Debug.Log("Update: charactes behaviour");
         if (!timerON)
         {
-            
+
 
             if (day)
             {
@@ -183,7 +185,7 @@ public class CharacterObj : MonoBehaviour
 
                             CalculatePath(Objective);
                             action = State.WALK;
-                            if (iteratorWalk == WalkList.Count-1)
+                            if (iteratorWalk == WalkList.Count - 1)
                             {
                                 nextMovePay = true;
                                 nextMoveWlak = false;
@@ -208,9 +210,9 @@ public class CharacterObj : MonoBehaviour
                     }
                     else if (taskDone)
                     {
-                       
+
                         Objective.GetComponent<Table>().ocupy = true;
-                     
+
                         timerON = true;
                         TimeToStop = 5;
                         move.Stop();
@@ -275,7 +277,8 @@ public class CharacterObj : MonoBehaviour
                     }
                 }
             }
-            else {
+           else 
+            {
                 if (action == State.WAIT)
                 {
                     if (nextMovePay)
@@ -283,7 +286,8 @@ public class CharacterObj : MonoBehaviour
                         move.Stop();
                         Objective = PayList[0];
                         tableScript = Objective.GetComponent<Table>();
-                        if (tableScript.GetOcupy() == false || timerON == false)
+
+                        if (tableScript.GetOcupy() == false && timerON == false)
                         {
                             CalculatePath(Objective);
                             action = State.PAY;
@@ -310,7 +314,7 @@ public class CharacterObj : MonoBehaviour
                             Objective = TableList[i];
                             tableScript = Objective.GetComponent<Table>();
 
-                            if (tableScript.GetOcupy() == false || timerON == false)
+                            if (tableScript.GetOcupy() == false && timerON == false)
                             {
                                 //Debug.Log("2 this");
 
@@ -339,7 +343,7 @@ public class CharacterObj : MonoBehaviour
                             //Debug.Log("1 this ");
                             Objective = KitchenList[i];
                             tableScript = Objective.GetComponent<Table>();
-                            if (tableScript.GetOcupy() == false || timerON == false)
+                            if (tableScript.GetOcupy() == false && timerON == false)
                             {
                                 //Debug.Log("2 this");
 
@@ -363,15 +367,15 @@ public class CharacterObj : MonoBehaviour
                     }
                     else if (nextMoveWlak)
                     {
-                        while (iteratorWalk < WalkList.Count)
+                        while (iteratorWalk < BarList.Count)
                         {
                             //Debug.Log("1 this ");
-                            Objective = WalkList[iteratorWalk];
+                            Objective = BarList[iteratorWalk];
                             tableScript = Objective.GetComponent<Table>();
 
                             CalculatePath(Objective);
                             action = State.WALK;
-                            if (iteratorWalk >= WalkList.Count)
+                            if (iteratorWalk == BarList.Count - 1)
                             {
                                 nextMovePay = true;
                                 nextMoveWlak = false;
@@ -396,14 +400,9 @@ public class CharacterObj : MonoBehaviour
                     }
                     else if (taskDone)
                     {
-                        //Debug.Log("before interact" + tableScript.GetOcupy());
-                        //if (Vector3.Distance(transform.position, move.target.transform.position) <= min_Distance)
-                        Objective.GetComponent<Table>().ocupy = true;
-                        // tableScript.OnInteract();
-                        // Debug.Log("on interact"+ tableScript.GetOcupy());
 
-                        // Arrive.Steer(move.target.transform.position);
-                        // move.Stop();
+                        Objective.GetComponent<Table>().ocupy = true;
+
                         timerON = true;
                         TimeToStop = 5;
                         move.Stop();
@@ -467,7 +466,6 @@ public class CharacterObj : MonoBehaviour
                         taskDone = false;
                     }
                 }
-
             }
         }
         if (timerON)
@@ -557,6 +555,25 @@ public class CharacterObj : MonoBehaviour
         }
 
         Objective = WalkList[0];
+        //KitchenList = Objective.GetComponent<Table>();
+
+        // Debug.Log("Table list size" + TableList.Count);
+        // Debug.Log("Table" + tableScript.GetOcupy());
+
+    }
+
+    void ListBar(string tag)
+    {
+
+        BarList = new List<GameObject>();
+
+
+        foreach (GameObject ObjectF in GameObject.FindGameObjectsWithTag(tag))
+        {
+            BarList.Add(ObjectF);
+        }
+
+        Objective = BarList[0];
         //KitchenList = Objective.GetComponent<Table>();
 
         // Debug.Log("Table list size" + TableList.Count);
