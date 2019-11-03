@@ -89,7 +89,7 @@ public class SteeringArrive : MonoBehaviour
 
             //move.Steering_linear = Vector3.zero;
         //stop linear only    
-        //move.Stop();
+        move.StopLinera();
 
         }
 

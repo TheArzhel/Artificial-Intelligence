@@ -78,7 +78,28 @@ public class CharacterPolice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        day = Day.getdate();
+        if (day != Day.getdate())
+        {
+           day = Day.getdate();
+
+            if (day)
+            {
+                nextMoveWlak = true;
+                nextMoveCargo = false;
+
+            }
+            else {
+                nextMoveWlak = false;
+                nextMoveCargo = true;
+            }
+
+            //time
+             Timer = 0.0f;
+             timerON = false;
+             TimeToStop = 0;
+            action = StatePolice.WAIT;
+            iteratorWalk = 0;
+        }
 
         //Debug.Log("Update: charactes behaviour");
         if (!timerON)
