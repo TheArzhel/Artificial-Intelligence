@@ -10,6 +10,7 @@ public class Move : MonoBehaviour
 
     //Agent Data
     public GameObject target;
+    public Vector3 target3;
 
     //Kinematics Data
     [Header("Kinematics Data")]

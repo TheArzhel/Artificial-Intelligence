@@ -16,7 +16,9 @@ public class SteeringSeek : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Steer(move.target.transform.position);
+        Steer(move.target3);
+
+        //Steer(move.target.transform.position);
     }
 
     public void Steer(Vector3 target)
@@ -37,9 +39,9 @@ public class SteeringSeek : MonoBehaviour
         {
 
         Steering_linear = Steering_linear.normalized * move.max_acceleration;
-
+            Steering_linear.y = 0;
         move.AccelerateMovement(Steering_linear);
-
+           
         //arrive.Steer(target);
         }
     }

@@ -32,7 +32,7 @@ public class SteeringArrive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Steer(move.target.transform.position);
+        Steer(move.target3);
     }
 
     public void Steer(Vector3 target)
