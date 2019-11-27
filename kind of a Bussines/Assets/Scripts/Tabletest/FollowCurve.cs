@@ -25,7 +25,10 @@ public class FollowCurve : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(curve);
+        if (curve != null)
+        {
+            Move(curve);
+        }
        
     }
 
@@ -73,5 +76,10 @@ public class FollowCurve : MonoBehaviour
         reversed = !reversed;
         loop = true;
         ratio = 0;
+    }
+
+    public void SetCurve(BGCcMath newcurve)
+    {
+        curve = newcurve;   
     }
 }

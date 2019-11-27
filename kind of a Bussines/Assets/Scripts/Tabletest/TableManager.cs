@@ -4,7 +4,7 @@ using UnityEngine;
 using BansheeGz.BGSpline.Components;
 using BansheeGz.BGSpline.Curve;
 
-public class NewBehaviourScript : MonoBehaviour
+public class TableManager : MonoBehaviour
 {
     public BGCcMath curve1;
     public BGCcMath curve2;
@@ -31,7 +31,7 @@ public class NewBehaviourScript : MonoBehaviour
         Count();
     }
 
-    bool askDisponibility()
+   public bool AskDisponibility()
     {
         if (eating < 4)
             return true;
@@ -39,7 +39,7 @@ public class NewBehaviourScript : MonoBehaviour
             return false;
     }
 
-    BGCcMath askPath()
+    public BGCcMath AskPath()
     {
         if (eating == 0)
         {
