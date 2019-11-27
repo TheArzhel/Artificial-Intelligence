@@ -25,6 +25,9 @@ public class PerceptionManager : MonoBehaviour
 {
      void EventPercieved(PerceptionEvent Event)
     {
+
+
+        // if GO detected 
         if (Event.Type == global::PerceptionEvent.types.NEW)
         {
             Debug.Log("GO Detected");
@@ -33,6 +36,7 @@ public class PerceptionManager : MonoBehaviour
 
 
         }
+        // if GO lost with any means of detection
         else if (Event.Type == global::PerceptionEvent.types.LOST)
         {
 
