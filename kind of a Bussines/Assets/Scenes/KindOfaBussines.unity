@@ -3196,7 +3196,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262627196}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3254,7 +3254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262627196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.97, y: 2.72, z: 1}
+  m_LocalPosition: {x: 13.97, y: 1.84, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19902,12 +19902,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522423259}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612fefe37772540c8bb2bcc1639f521e, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfac2d1f86870749aae1347e44ffe7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mind_distance: 1
+  PopUps: []
 --- !u!114 &1522423261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19932,74 +19932,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522423259}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fdb74c0d43ad45458532f1a1ff22e32, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfac2d1f86870749aae1347e44ffe7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ratio: 0
-  ratio_increment: 0.1
-  min_distance: 1
-  slow_Distance: 0.5
---- !u!114 &1522423263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522423259}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13ae3cbc54e44631ae987b5486c59f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  min_distance: 0.7
-  slow_distance: 4
-  time_to_target: 0.6
-  ArriveActive: 1
---- !u!114 &1522423264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522423259}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a2539257a3a4efeb46289d1eb08300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  min_angle: 5
-  slow_angle: 15
-  time_to_target: 0.4
-  min_distance: 1
-  AlignActive: 1
-  rotation: 0
---- !u!114 &1522423266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522423259}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a968724c3b6f64198b9b015470e4f6f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  pos: {x: 0, y: 0, z: 0}
-  orientation: 0
-  Velocity: {x: 0, y: 0, z: 0}
-  Rotation: 0
-  Steering_linear: {x: 0, y: 0, z: 0}
-  Steering_angular: 0
-  max_speed: 5
-  max_rot_speed: 5
-  max_acceleration: 3.96
-  max_rot_acceleration: 3.75
-  current_velocity: {x: 0, y: 0, z: 0}
-  current_rotation_speed: 0
+  PopUps: []
 --- !u!120 &1522423267
 LineRenderer:
   m_ObjectHideFlags: 0
