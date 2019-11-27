@@ -15,6 +15,7 @@ TagManager:
   - Walk Work
   - Cargo Work
   - Bar Work
+  - VisualEmissor
   layers:
   - Default
   - TransparentFX

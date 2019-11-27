@@ -55,7 +55,7 @@ public class AIVision : MonoBehaviour
                 {
 
                     //if ray hits added to the list detected now with a determined tag
-                    if (HitRay.collider.gameObject.CompareTag("Emissor"))
+                    if (HitRay.collider.gameObject.CompareTag("VisualEmissor"))
                     {
 
                         detected_now.Add(cols.gameObject);
