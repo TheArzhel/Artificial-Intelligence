@@ -7,6 +7,7 @@ using BansheeGz.BGSpline.Curve;
 public class Activity : MonoBehaviour
 {
     public GameObject[] tables;
+    public bool active = false;
 
     private GameObject Destiny;
     private BGCcMath curve;
@@ -23,7 +24,7 @@ public class Activity : MonoBehaviour
     public ACTIVITY action;
 
     // Start is called before the first frame update
-    void Start()
+   public void Start()
     {
         tables = GameObject.FindGameObjectsWithTag("Table");
       //  Debug.Log("Tables numbers  " + tables.Length);
@@ -33,20 +34,26 @@ public class Activity : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   public void Update()
     {
-      
-        if (!ret)
+
+        if (active)
         {
-            ret = FindTable();
-            //Debug.Log(ret);
-            if (ret)
+            if (!ret)
             {
+                ret = FindTable();
+                //Debug.Log(ret);
+                if (ret)
+                {
                 
-                tablemanager = Destiny.GetComponent<TableManager>();
-                curve = tablemanager.AskPath();
-                PathControl.SetCurve(curve);
+                    tablemanager = Destiny.GetComponent<TableManager>();
+                    curve = tablemanager.AskPath();
+                    PathControl.SetCurve(curve);
+
+                   
+                }
             }
+
         }
     }
 
@@ -69,5 +76,34 @@ public class Activity : MonoBehaviour
         }
         return false;
     }
+    
+    public void EnableACtivityScript(bool on)
+    {
+        active = on;
+    }
+
+    public bool Update()
+    {
+
+        if (active)
+        {
+            if (!ret)
+            {
+                ret = FindTable();
+                //Debug.Log(ret);
+                if (ret)
+                {
+
+                    tablemanager = Destiny.GetComponent<TableManager>();
+                    curve = tablemanager.AskPath();
+                    PathControl.SetCurve(curve);
+
+                    //if ()
+                }
+            }
+
+        }
+    }
+
 
 }
