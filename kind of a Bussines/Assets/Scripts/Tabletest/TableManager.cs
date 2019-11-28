@@ -15,7 +15,7 @@ public class TableManager : MonoBehaviour
     public int eating = 0;
 
     private float radius = 1.3f;
-    Activity state;
+    Move state;
     
 
     // Start is called before the first frame update
@@ -70,7 +70,7 @@ public class TableManager : MonoBehaviour
         foreach (Collider cols in hitColliders)
         {
             state = null;
-            state = cols.gameObject.GetComponent<Activity>();
+            state = cols.gameObject.GetComponent<Move>();
             if (state != null)
             {
                 if (state.action == 0)

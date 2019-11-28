@@ -39,8 +39,16 @@ public class Move : MonoBehaviour
     public Vector3 current_velocity = Vector3.zero;
     public float current_rotation_speed = 0.0f; // degrees
 
-
+    public bool useSteer = false;
     Animator anim;
+    public bool finished = false;
+    public enum ACTIVITY
+    {
+        Eat
+    };
+
+    public ACTIVITY action;
+
 
     // Methods for behaviours to set / add velocities
 
@@ -75,6 +83,7 @@ public class Move : MonoBehaviour
      void Start()
     {
        anim= GetComponent<Animator>();
+        action = ACTIVITY.Eat;
 
     }
 
@@ -106,7 +115,7 @@ public class Move : MonoBehaviour
         //linear Velocity
         Velocity = Vector3.zero;
         AccelerateMovement(Vector3.zero);
-
+        //finished = true;
 
     }
 
@@ -149,5 +158,11 @@ public class Move : MonoBehaviour
         transform.rotation *= Quaternion.AngleAxis(Rotation * Time.deltaTime, Vector3.up);
         transform.position += Velocity * Time.deltaTime;
 
+    }
+
+    public void ChangeUseSteer(bool on)
+    {
+        useSteer = on;
+        finished = !on;
     }
 }

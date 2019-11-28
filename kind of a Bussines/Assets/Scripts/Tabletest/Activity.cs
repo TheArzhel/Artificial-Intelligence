@@ -82,28 +82,6 @@ public class Activity : MonoBehaviour
         active = on;
     }
 
-    public bool Update()
-    {
-
-        if (active)
-        {
-            if (!ret)
-            {
-                ret = FindTable();
-                //Debug.Log(ret);
-                if (ret)
-                {
-
-                    tablemanager = Destiny.GetComponent<TableManager>();
-                    curve = tablemanager.AskPath();
-                    PathControl.SetCurve(curve);
-
-                    //if ()
-                }
-            }
-
-        }
-    }
-
+  
 
 }

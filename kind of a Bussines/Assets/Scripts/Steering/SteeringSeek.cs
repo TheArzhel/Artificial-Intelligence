@@ -16,7 +16,10 @@ public class SteeringSeek : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Steer(move.target3);
+        if (move.useSteer)
+        {
+            Steer(move.target3);
+        }
 
         //Steer(move.target.transform.position);
     }

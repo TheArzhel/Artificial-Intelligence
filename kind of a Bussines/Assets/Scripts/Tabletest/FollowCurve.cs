@@ -13,8 +13,11 @@ public class FollowCurve : MonoBehaviour
     //FollowPath path_manager;
     Move move;
     public bool loop = true;
+   
     bool reversed = false;
     Vector3 final_position;
+
+    public bool onGoing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,7 @@ public class FollowCurve : MonoBehaviour
     {
         if (curve != null)
         {
-            Move(curve);
+           onGoing = Move(curve);
         }
        
     }
@@ -48,6 +51,8 @@ public class FollowCurve : MonoBehaviour
             ratio = 1;
         }
 
+        
+
         // --- Whenever an agent reaches end of curve, reverse it (not using Reverse() function of curve since it would affect every agent) ---
         if (reversed)
             final_position = curve.CalcPositionByDistanceRatio(1 - ratio);
@@ -55,19 +60,45 @@ public class FollowCurve : MonoBehaviour
             final_position = curve.CalcPositionByDistanceRatio(ratio);
 
         final_position.y = 0.0f;
+        Vector2 lol;
+        lol.x = (final_position.x - move.transform.position.x);
+        lol.y = (final_position.z - move.transform.position.z);
+        //Vector3 distaceFrom =  final_position - move.transform.position ;
 
-
-        if (final_position.x == curve.CalcPositionByDistanceRatio(ratio).x && final_position.z == curve.CalcPositionByDistanceRatio(ratio).z)
+        if ( ratio < 1)
         {
+            if (lol.magnitude > 1.0f)
+            {
+                move.useSteer = true;
+                move.finished = false;
+                Debug.Log("HI THERe" + ratio + "    " + lol.magnitude);
+                
+
+            }
+            else
+            {
+                ratio += (move.max_speed / curve.GetDistance() * Time.deltaTime);
+
+            }
             // --- Ratio based on speed and curve distance that goes from 0 to 1 and determines next curve waypoint ---
-            ratio += (move.max_speed / curve.GetDistance() * Time.deltaTime);
+            if (ratio >= 0.99f)
+            {
+                move.useSteer = false;
+                curve = null;
+                move.finished = true;
+
+            }
         }
+         
+        
+
+
 
         move.target3 = final_position;
         final_position = Vector3.positiveInfinity;
 
         // --- Return whether end of curve has been reached or not ---
-
+       
         return loop;
     }
 
@@ -80,6 +111,9 @@ public class FollowCurve : MonoBehaviour
 
     public void SetCurve(BGCcMath newcurve)
     {
-        curve = newcurve;   
+        curve = newcurve;
+        move.ChangeUseSteer(true);
     }
+
+    
 }
