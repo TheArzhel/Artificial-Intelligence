@@ -5,7 +5,7 @@ using NodeCanvas.Framework;
 using BansheeGz.BGSpline.Components;
 using BansheeGz.BGSpline.Curve;
 
-public class GotoKitchen : ActionTask
+public class GotoTable : ActionTask
 {
     private BGCcMath curve;
     public bool lol = false;
@@ -19,6 +19,8 @@ public class GotoKitchen : ActionTask
     FollowCurve PathControl;
     TableManager tablemanager = null;
 
+    public BBParameter<GameObject> newgameobj;
+
     public GameObject ThisGameObject;
 
 
@@ -28,7 +30,7 @@ public class GotoKitchen : ActionTask
         ret = false;
         tables = GameObject.FindGameObjectsWithTag("Table");
         //  Debug.Log("Tables numbers  " + tables.Length);
-        
+        //ownerAgent.gameObject.getFUCKEME...
         //ThisGameObject.value.
         move = ThisGameObject.GetComponent<Move>();
         PathControl = ThisGameObject.GetComponent<FollowCurve>();
