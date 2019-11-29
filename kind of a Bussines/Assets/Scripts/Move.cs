@@ -177,5 +177,6 @@ public class Move : MonoBehaviour
     {
         useSteer = on;
         finished = !on;
+        
     }
 }

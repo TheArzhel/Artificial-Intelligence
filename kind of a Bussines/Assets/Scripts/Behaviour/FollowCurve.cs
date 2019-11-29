@@ -6,9 +6,6 @@ using BansheeGz.BGSpline.Curve;
 
 public class FollowCurve : MonoBehaviour
 {
-  
-    public BGCcMath curve;
-
     float ratio = 0.0f;
     //FollowPath path_manager;
     Move move;
@@ -18,6 +15,10 @@ public class FollowCurve : MonoBehaviour
     Vector3 final_position;
 
     public bool onGoing = false;
+
+    [Header("-------- Read Only --------")]
+    public BGCcMath curve;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,11 +68,11 @@ public class FollowCurve : MonoBehaviour
 
         if ( ratio < 1)
         {
-            if (lol.magnitude > 1.0f)
+            if (lol.magnitude > 0.5f)
             {
                 move.useSteer = true;
                 move.finished = false;
-                Debug.Log("HI THERe" + ratio + "    " + lol.magnitude);
+                //Debug.Log("HI THERe" + ratio + "    " + lol.magnitude);
                 
 
             }
@@ -86,6 +87,7 @@ public class FollowCurve : MonoBehaviour
                 move.useSteer = false;
                 curve = null;
                 move.finished = true;
+                Debug.Log("arrive curve editor");
 
             }
         }
@@ -111,8 +113,16 @@ public class FollowCurve : MonoBehaviour
 
     public void SetCurve(BGCcMath newcurve)
     {
-        curve = newcurve;
-        move.ChangeUseSteer(true);
+        if (curve != null)
+        {
+            curve = newcurve;
+            move.ChangeUseSteer(true);
+        }
+        else {
+            move = GetComponent<Move>();
+            curve = newcurve;
+            move.ChangeUseSteer(true);
+        }
     }
 
     

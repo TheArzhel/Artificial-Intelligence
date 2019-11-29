@@ -8,7 +8,6 @@ using BansheeGz.BGSpline.Curve;
 public class GotoTable : ActionTask
 {
     private BGCcMath curve;
-    public bool lol = false;
 
     public GameObject[] tables;
     public bool active = false;
@@ -19,8 +18,6 @@ public class GotoTable : ActionTask
     FollowCurve PathControl;
     TableManager tablemanager = null;
 
-    public BBParameter<GameObject> newgameobj;
-
     public GameObject ThisGameObject;
 
 
@@ -29,8 +26,9 @@ public class GotoTable : ActionTask
     {
         ret = false;
         tables = GameObject.FindGameObjectsWithTag("Table");
-        //  Debug.Log("Tables numbers  " + tables.Length);
-        //ownerAgent.gameObject.getFUCKEME...
+         Debug.Log("ret  " + ret);
+        //to get values:
+        //ownerAgent.gameObject.getcompo...
         //ThisGameObject.value.
         move = ThisGameObject.GetComponent<Move>();
         PathControl = ThisGameObject.GetComponent<FollowCurve>();
@@ -50,17 +48,22 @@ public class GotoTable : ActionTask
                 tablemanager = Destiny.GetComponent<TableManager>();
                 curve = tablemanager.AskPath();
                 PathControl.SetCurve(curve);
+                Debug.Log("set curve" + curve );
+                move.finished = false;
 
-                
 
             }
             else
-                EndAction(false);
+            {
+
+            EndAction(false);
+            }
         }
         if (move.finished && ret)
         {
            
             EndAction(true);
+            Debug.Log("end table");
         }
 
     }
