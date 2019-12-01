@@ -31,7 +31,7 @@ public class SteeringAlign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DirectionMov = move.target.transform.position - transform.position;
+        DirectionMov = move.target3 - transform.position;
 
         if (DirectionMov.magnitude <= min_distance)
         {

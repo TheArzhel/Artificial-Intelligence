@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableItem : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string name;
+   // public string name;
     public Sprite Image;
     public string Interactinfo = "eating";
     public bool InUse = false;

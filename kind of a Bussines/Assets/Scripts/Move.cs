@@ -10,6 +10,7 @@ public class Move : MonoBehaviour
 
     //Agent Data
     public GameObject target;
+    public Vector3 target3;
 
     //Kinematics Data
     [Header("Kinematics Data")]
@@ -38,8 +39,21 @@ public class Move : MonoBehaviour
     public Vector3 current_velocity = Vector3.zero;
     public float current_rotation_speed = 0.0f; // degrees
 
-
+    public bool useSteer = false;
     Animator anim;
+    DayNight Day;
+    public bool finished = false;
+
+    public static bool day = true;
+
+    GameObject scene;
+    public enum ACTIVITY
+    {
+        Eat
+    };
+
+    public ACTIVITY action;
+
 
     // Methods for behaviours to set / add velocities
 
@@ -74,10 +88,17 @@ public class Move : MonoBehaviour
      void Start()
     {
        anim= GetComponent<Animator>();
+        action = ACTIVITY.Eat;
+
+        scene = GameObject.FindGameObjectWithTag("Day");
+
+        //if (Day==null)
+        //    Day = scene.GetComponent<DayNight>();
+
 
     }
 
-        public void Stop()
+    public void Stop()
     {
 
         //anim.SetBool("IsWalking", false);
@@ -105,13 +126,15 @@ public class Move : MonoBehaviour
         //linear Velocity
         Velocity = Vector3.zero;
         AccelerateMovement(Vector3.zero);
-
+        //finished = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //day =Day.getdate();
+
         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
         // cap velocity
@@ -148,5 +171,14 @@ public class Move : MonoBehaviour
         transform.rotation *= Quaternion.AngleAxis(Rotation * Time.deltaTime, Vector3.up);
         transform.position += Velocity * Time.deltaTime;
 
+    }
+
+    public void ChangeUseSteer(bool on)
+    {
+        useSteer = on;
+        finished = !on;
+        if (on == true)
+        Debug.Log("end here ");
+        
     }
 }

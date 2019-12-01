@@ -4,7 +4,7 @@ using System.Collections;
 public class SteeringArrive : MonoBehaviour
 {
 
-    public float min_distance = 0.7f;
+    public float min_distance = 0.1f;
     public float slow_distance = 4.0f;
     public float time_to_target = 0.6f;
 
@@ -32,7 +32,8 @@ public class SteeringArrive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Steer(move.target.transform.position);
+      //  if (move.useSteer)
+            Steer(move.target3);
     }
 
     public void Steer(Vector3 target)
