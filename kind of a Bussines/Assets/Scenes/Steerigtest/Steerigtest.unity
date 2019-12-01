@@ -245,12 +245,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179955943}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1599202983}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &179955946
 MonoBehaviour:
@@ -371,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186027539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0747004, y: 1.97, z: -4.7397995}
+  m_LocalPosition: {x: 3.0747004, y: 1.97, z: -0.64}
   m_LocalScale: {x: 1.9569, y: 1.9569, z: 1.9569}
   m_Children: []
   m_Father: {fileID: 0}
@@ -393,6 +393,250 @@ MonoBehaviour:
   Interactinfo: eating
   InUse: 0
   ocupy: 0
+--- !u!1 &187995721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 187995722}
+  m_Layer: 0
+  m_Name: go to bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &187995722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187995721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.898411, y: -3.757719, z: -10.69504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1013794431}
+  - {fileID: 1485779069}
+  - {fileID: 1600795198}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &222056829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222056830}
+  - component: {fileID: 222056832}
+  - component: {fileID: 222056831}
+  m_Layer: 0
+  m_Name: goaway bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &222056830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222056829}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1896295321}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &222056831
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222056829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &222056832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222056829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -14.549167, y: 0.98800623, z: -27.436398}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 222056832}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -10.392552, y: 0.98800623, z: -27.819}
+    controlFirstLocal: {x: -0.83132285, y: -0, z: 0.07652054}
+    controlSecondLocal: {x: 0.83132285, y: 0, z: -0.07652054}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 222056832}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -7.196744, y: 0.98800623, z: -26.898579}
+    controlFirstLocal: {x: -0.6391617, y: -0, z: -0.18408434}
+    controlSecondLocal: {x: 0.6391617, y: 0, z: 0.18408434}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 222056832}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -6.7718077, y: 0.98800623, z: -29.164639}
+    controlFirstLocal: {x: -0.08498727, y: -0, z: 0.453212}
+    controlSecondLocal: {x: 0.08498727, y: 0, z: -0.453212}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 222056832}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &238604781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238604782}
+  m_Layer: 0
+  m_Name: Kitchen curves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238604782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238604781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.9703007, y: -4.4956417, z: -15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1693198648}
+  - {fileID: 320044475}
+  - {fileID: 608386506}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &268372151
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,9 +671,209 @@ Transform:
   - {fileID: 829478500}
   - {fileID: 657797937}
   - {fileID: 1636366164}
+  - {fileID: 1494391370}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &312134142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312134143}
+  - component: {fileID: 312134145}
+  - component: {fileID: 312134144}
+  m_Layer: 0
+  m_Name: wanderbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &312134143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312134142}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1195291856}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &312134144
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312134142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &312134145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312134142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -9.345564, y: 0.98800623, z: -22.055664}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -12.204014, y: 0.98800623, z: -13.699757}
+    controlFirstLocal: {x: 0.57168996, y: -0, z: -1.6711816}
+    controlSecondLocal: {x: -0.57168996, y: 0, z: 1.6711816}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -14.625881, y: 0.98800623, z: -5.2296376}
+    controlFirstLocal: {x: 0.48437348, y: -0, z: -1.694024}
+    controlSecondLocal: {x: -0.48437348, y: 0, z: 1.694024}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -20.633356, y: 0.98800623, z: -10.316059}
+    controlFirstLocal: {x: 1.2014949, y: -0, z: 1.0172843}
+    controlSecondLocal: {x: -1.2014949, y: 0, z: -1.0172843}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -19.868866, y: 0.98800623, z: -21.706188}
+    controlFirstLocal: {x: -0.15289803, y: -0, z: 2.2780259}
+    controlSecondLocal: {x: 0.15289803, y: 0, z: -2.2780259}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -19.701447, y: 0.98800623, z: -25.33876}
+    controlFirstLocal: {x: -0.03348389, y: -0, z: 0.72651446}
+    controlSecondLocal: {x: 0.03348389, y: 0, z: -0.72651446}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -14.977613, y: 0.98800623, z: -27.605877}
+    controlFirstLocal: {x: -0.9447666, y: -0, z: 0.4534233}
+    controlSecondLocal: {x: 0.9447666, y: 0, z: -0.4534233}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 312134145}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
 --- !u!1 &320044473
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +971,7 @@ MonoBehaviour:
     curve: {fileID: 320044474}
     fieldsValues: []
   - controlType: 0
-    positionLocal: {x: 3.8181756, y: 0.98800623, z: -9.913024}
+    positionLocal: {x: 13.328776, y: 0.98800623, z: -9.913024}
     controlFirstLocal: {x: 0.037944555, y: -0, z: 1.1003928}
     controlSecondLocal: {x: -0.037944555, y: 0, z: -1.1003928}
     pointTransform: {fileID: 0}
@@ -555,12 +999,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320044473}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 238604782}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &320044476
 MonoBehaviour:
@@ -671,7 +1115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412456936}
   m_LocalRotation: {x: 0.35849825, y: -0, z: -0, w: 0.9335304}
-  m_LocalPosition: {x: -4.02, y: 16.88, z: -27.34}
+  m_LocalPosition: {x: -4.02, y: 29.18, z: -40.993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -705,7 +1149,7 @@ Transform:
   m_GameObject: {fileID: 599736995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.92117, y: -1.4534, z: 0.44}
-  m_LocalScale: {x: 1.9569, y: 1.9569, z: 1.9569}
+  m_LocalScale: {x: 4.4764085, y: 1.9569, z: 3.4001136}
   m_Children: []
   m_Father: {fileID: 268372152}
   m_RootOrder: 0
@@ -894,12 +1338,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600634905}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.16, y: 1.74, z: -14.7}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.1303005, y: 6.2356415, z: 0.96667004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1599202983}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &600634908
 MonoBehaviour:
@@ -1030,7 +1474,7 @@ MonoBehaviour:
     curve: {fileID: 608386505}
     fieldsValues: []
   - controlType: 0
-    positionLocal: {x: 1.6451342, y: 0.98800623, z: -13.095754}
+    positionLocal: {x: 11.041433, y: 0.98800623, z: -13.095754}
     controlFirstLocal: {x: -1.3470331, y: -0, z: -1.1952566}
     controlSecondLocal: {x: 1.3470331, y: 0, z: 1.1952566}
     pointTransform: {fileID: 0}
@@ -1058,12 +1502,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608386504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 238604782}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &608386507
 MonoBehaviour:
@@ -1124,7 +1568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657797936}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6388, y: 0.5900301, z: -4.9848}
+  m_LocalPosition: {x: 2.6388, y: 0.5900301, z: -10.62}
   m_LocalScale: {x: 2.0179, y: 2.0179, z: 2.0179}
   m_Children: []
   m_Father: {fileID: 268372152}
@@ -1189,6 +1633,177 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657797936}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &690446936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690446937}
+  - component: {fileID: 690446939}
+  - component: {fileID: 690446938}
+  m_Layer: 0
+  m_Name: go away kitchen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &690446937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690446936}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1896295321}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &690446938
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690446936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &690446939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690446936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -8.295005, y: 0.98800623, z: -18.647202}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 690446939}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -6.633276, y: 0.98800623, z: -24.71397}
+    controlFirstLocal: {x: -0.33234578, y: -0, z: 1.2133538}
+    controlSecondLocal: {x: 0.33234578, y: 0, z: -1.2133538}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 690446939}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -6.717326, y: 0.98800623, z: -28.746437}
+    controlFirstLocal: {x: 0.016810037, y: -0, z: 0.8064934}
+    controlSecondLocal: {x: -0.016810037, y: 0, z: -0.8064934}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 690446939}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
 --- !u!1 &718076521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718076521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7579, y: -0.53999996, z: 4.5598}
+  m_LocalPosition: {x: -14.06, y: -0.53999996, z: 4.5598}
   m_LocalScale: {x: 2.0179, y: 2.0179, z: 2.0179}
   m_Children: []
   m_Father: {fileID: 268372152}
@@ -1301,7 +1916,7 @@ GameObject:
   - component: {fileID: 782420231}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: TableBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1314,25 +1929,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782420229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.0448, y: -0.54, z: 0.98816}
+  m_LocalPosition: {x: -13.31, y: -0.54, z: -4.9}
   m_LocalScale: {x: 2.0179, y: 2.0179, z: 2.0179}
   m_Children: []
   m_Father: {fileID: 268372152}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &782420231
-BoxCollider:
+--- !u!114 &782420231
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782420229}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef414d9fd1bfacc4dae273de503bed23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve1: {fileID: 1791491708}
+  curve2: {fileID: 970986501}
+  curve3: {fileID: 1820690671}
+  curve4: {fileID: 1570788101}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 1024
+  eating: 0
 --- !u!23 &782420232
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1405,7 +2027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829478499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.049, y: -0.53999996, z: 0.98816}
+  m_LocalPosition: {x: 16.3, y: -0.53999996, z: 0.98816}
   m_LocalScale: {x: 5.401667, y: 1.8447844, z: 0.88668543}
   m_Children: []
   m_Father: {fileID: 268372152}
@@ -1567,6 +2189,221 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875299631}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &893804366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: SimplePeople_BeachBabe_Black BehaviourTree
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-1485.0,"y":-1403.0},"zoomFactor":0.3282807,"nodes":[{"_position":{"x":5520.0,"y":5059.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_position":{"x":5047.0,"y":5209.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"3"},{"_position":{"x":4690.0,"y":5245.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"4"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"7d64e6e9-ad8f-41bd-8947-0259acfc3419"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":4617.0,"y":5321.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"},{"_position":{"x":5142.0,"y":5333.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":4780.0,"y":5525.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"},{"_position":{"x":4948.0,"y":5499.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"12"},{"_position":{"x":4822.0,"y":5618.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"13"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4748.0,"y":5681.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"14"},{"_position":{"x":5025.0,"y":5608.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"18"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":5060.0,"y":5682.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"19"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5088.0,"y":5464.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"21"},{"_action":{"Curve":5,"$type":"Wander"},"_position":{"x":5171.0,"y":5533.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"23"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":5297.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"25"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5408.0,"y":5459.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"27"},{"random":true,"_color":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":5600.0,"y":5217.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"29"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":5515.0,"y":5320.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"30"},{"_position":{"x":5670.0,"y":5315.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"32"},{"_action":{"Curve":5,"$type":"Wander"},"_position":{"x":5612.0,"y":5438.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"33"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":5741.0,"y":5437.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"35"},{"random":true,"_position":{"x":6097.0,"y":5187.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"37"},{"_position":{"x":6074.0,"y":5428.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"38"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":5739.0,"y":5626.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"39"},{"_position":{"x":5907.0,"y":5600.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"41"},{"_position":{"x":5781.0,"y":5719.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"42"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5707.0,"y":5782.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"43"},{"_position":{"x":5984.0,"y":5709.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"47"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":6019.0,"y":5783.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"48"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6047.0,"y":5565.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_action":{"Curve":5,"$type":"Wander"},"_position":{"x":6130.0,"y":5634.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"52"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":6256.0,"y":5633.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"54"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6368.0,"y":5563.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"56"},{"_position":{"x":7001.0,"y":5439.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"58"},{"_action":{"Curve":7,"Curve1":8,"Curve2":9,"$type":"GotoBar"},"_position":{"x":6639.0,"y":5630.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"59"},{"_position":{"x":6807.0,"y":5604.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"61"},{"_position":{"x":6675.0,"y":5739.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"62"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":6567.0,"y":5802.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"63"},{"_position":{"x":6884.0,"y":5713.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"67"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTableBar"},"_position":{"x":6914.0,"y":5787.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"68"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6948.0,"y":5570.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"70"},{"_action":{"Curve":10,"$type":"WanderBar"},"_position":{"x":7045.0,"y":5650.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"72"},{"_action":{"Curve":11,"$type":"GoAwayBar"},"_position":{"x":7173.0,"y":5648.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"74"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":7264.0,"y":5564.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"76"},{"_position":{"x":4913.0,"y":5692.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"},{"_position":{"x":6772.0,"y":5797.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"},{"_position":{"x":5872.0,"y":5793.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"33"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"38"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"58"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"54"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"56"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"41"},"_targetNode":{"$ref":"42"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"41"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"43"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"47"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"59"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"70"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"72"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"74"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"76"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"62"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"67"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"62"},"_targetNode":{"$ref":"63"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"67"},"_targetNode":{"$ref":"68"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 1693198649}
+  - {fileID: 320044476}
+  - {fileID: 608386507}
+  - {fileID: 1955563942}
+  - {fileID: 1035175887}
+  - {fileID: 690446938}
+  - {fileID: 1013794432}
+  - {fileID: 1485779070}
+  - {fileID: 1600795199}
+  - {fileID: 312134144}
+  - {fileID: 222056831}
+  _deserializationFailed: 0
+  repeat: 1
+  updateInterval: 0
+--- !u!114 &899983016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: SimplePeople_BeachBabe_Black (1) BehaviourTree
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-5002.0,"y":-4958.0},"nodes":[],"connections":[],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _deserializationFailed: 0
+  repeat: 1
+  updateInterval: 0
+--- !u!1 &970986499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970986500}
+  - component: {fileID: 970986502}
+  - component: {fileID: 970986501}
+  m_Layer: 0
+  m_Name: BGCurve2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970986500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970986499}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1967446252}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970986501
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970986499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &970986502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970986499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -11.864855, y: 0.9880061, z: -5.8409595}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 970986502}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -16.842579, y: 0.9880061, z: -14.294146}
+    controlFirstLocal: {x: 1.1013061, y: -0, z: 0.9136085}
+    controlSecondLocal: {x: -1.1013061, y: 0, z: -0.9136085}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 970986502}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
 --- !u!1001 &980142626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1772,24 +2609,394 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d714ac2c5f4f93d49b94880740d4e6a2, type: 3}
---- !u!114 &1061499875
+--- !u!1 &1013794430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013794431}
+  - component: {fileID: 1013794433}
+  - component: {fileID: 1013794432}
+  m_Layer: 0
+  m_Name: BAR1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013794431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013794430}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.898411, y: 3.757719, z: 10.69504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 187995722}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1013794432
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013794430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1013794433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1013794430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
-  m_Name: SimplePeople_BeachBabe_Black (1) BehaviourTree
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-5002.0,"y":-4958.0},"nodes":[],"connections":[],"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
-  _objectReferences: []
-  _deserializationFailed: 0
-  repeat: 1
-  updateInterval: 0
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: 2.3188257, y: 0.9880061, z: -17.594206}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1013794433}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -24.206797, y: 0.9880061, z: -13.107799}
+    controlFirstLocal: {x: -0.09700336, y: -0, z: -0.89728147}
+    controlSecondLocal: {x: 0.09700336, y: 0, z: 0.89728147}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1013794433}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -24.01091, y: 0.9880061, z: -3.9960089}
+    controlFirstLocal: {x: -0.03917732, y: -0, z: -1.8223579}
+    controlSecondLocal: {x: 0.03917732, y: 0, z: 1.8223579}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1013794433}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &1035175885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035175886}
+  - component: {fileID: 1035175888}
+  - component: {fileID: 1035175887}
+  m_Layer: 0
+  m_Name: wander kitchen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035175886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035175885}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1195291856}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035175887
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035175885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1035175888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035175885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: 4.4939795, y: 0.98800623, z: -12.344561}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1035175888}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: 14.061021, y: 0.98800623, z: -0.976614}
+    controlFirstLocal: {x: -1.9134083, y: -0, z: -2.2735894}
+    controlSecondLocal: {x: 1.9134083, y: 0, z: 2.2735894}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1035175888}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -1.5791831, y: 0.98800623, z: 1.3783398}
+    controlFirstLocal: {x: 3.1280408, y: -0, z: -0.47099078}
+    controlSecondLocal: {x: -3.1280408, y: 0, z: 0.47099078}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1035175888}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -12.0210495, y: 0.98800623, z: -9.49048}
+    controlFirstLocal: {x: 2.0883732, y: -0, z: 2.173764}
+    controlSecondLocal: {x: -2.0883732, y: 0, z: -2.173764}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1035175888}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -8.689416, y: 0.98800623, z: -15.200775}
+    controlFirstLocal: {x: -0.6663267, y: -0, z: 1.1420591}
+    controlSecondLocal: {x: 0.6663267, y: 0, z: -1.1420591}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1035175888}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &1195291855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195291856}
+  m_Layer: 0
+  m_Name: wander
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195291856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195291855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.9703007, y: -4.4956417, z: -15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1035175886}
+  - {fileID: 312134143}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1214038525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2136,12 +3343,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252438976}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1599202983}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1252438979
 MonoBehaviour:
@@ -2175,32 +3382,679 @@ MonoBehaviour:
   spheresScale: 1
   spheresColor: {r: 1, g: 1, b: 1, a: 1}
   spheresCount: 100
---- !u!114 &1524791225
+--- !u!1 &1485779068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485779069}
+  - component: {fileID: 1485779071}
+  - component: {fileID: 1485779070}
+  m_Layer: 0
+  m_Name: bar2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485779069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485779068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.898411, y: 3.757719, z: 10.69504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 187995722}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485779070
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485779068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1485779071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1485779068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
-  m_Name: SimplePeople_BeachBabe_Black BehaviourTree
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-2913.0,"y":-2791.0},"zoomFactor":0.599499,"nodes":[{"_position":{"x":5520.0,"y":5059.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_position":{"x":5047.0,"y":5209.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"3"},{"_position":{"x":4844.0,"y":5275.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"4"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"7d64e6e9-ad8f-41bd-8947-0259acfc3419"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":4825.0,"y":5361.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"},{"_position":{"x":5142.0,"y":5333.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":4780.0,"y":5525.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"},{"_position":{"x":4948.0,"y":5499.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"12"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4832.0,"y":5607.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"13"},{"_position":{"x":5025.0,"y":5608.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"17"},{"_position":{"x":4913.0,"y":5692.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"18"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":5060.0,"y":5682.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"19"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5088.0,"y":5464.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"21"},{"_position":{"x":5169.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"23"},{"_position":{"x":5299.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"24"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5405.0,"y":5459.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"25"},{"random":true,"_color":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":5600.0,"y":5217.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"27"},{"_position":{"x":5571.0,"y":5368.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"28"},{"_position":{"x":5701.0,"y":5368.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"29"},{"random":true,"_position":{"x":6097.0,"y":5187.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"30"},{"_position":{"x":5881.0,"y":5512.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"31"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":5519.0,"y":5703.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"32"},{"_position":{"x":5687.0,"y":5677.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"34"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5571.0,"y":5785.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"35"},{"_position":{"x":5764.0,"y":5786.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"39"},{"_position":{"x":5652.0,"y":5870.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"40"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":5799.0,"y":5860.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"41"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5827.0,"y":5642.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"43"},{"_position":{"x":5908.0,"y":5710.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"45"},{"_position":{"x":6038.0,"y":5710.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"46"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6144.0,"y":5637.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"47"},{"_position":{"x":6766.0,"y":5492.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"49"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":6404.0,"y":5684.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_position":{"x":6572.0,"y":5658.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"52"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":6456.0,"y":5766.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"53"},{"_position":{"x":6649.0,"y":5767.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"57"},{"_position":{"x":6537.0,"y":5851.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"58"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":6684.0,"y":5841.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"59"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6712.0,"y":5623.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"61"},{"_position":{"x":6793.0,"y":5691.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"63"},{"_position":{"x":6923.0,"y":5691.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"64"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":7029.0,"y":5618.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"65"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"31"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"49"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"34"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"43"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"45"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"46"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"63"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"64"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"65"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"52"},"_targetNode":{"$ref":"53"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"52"},"_targetNode":{"$ref":"57"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"57"},"_targetNode":{"$ref":"58"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"57"},"_targetNode":{"$ref":"59"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 1693198649}
-  - {fileID: 320044476}
-  - {fileID: 608386507}
-  - {fileID: 1955563942}
-  _deserializationFailed: 0
-  repeat: 1
-  updateInterval: 0
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: 6.3522835, y: 0.9880061, z: -4.4110594}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1485779071}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -11.575449, y: 0.9880061, z: -9.913024}
+    controlFirstLocal: {x: 0.037944555, y: -0, z: 1.1003928}
+    controlSecondLocal: {x: -0.037944555, y: 0, z: -1.1003928}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1485779071}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -14.378319, y: 0.9880061, z: -4.1808243}
+    controlFirstLocal: {x: 0.56057394, y: -0, z: -1.1464399}
+    controlSecondLocal: {x: -0.56057394, y: 0, z: 1.1464399}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1485779071}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -18.720566, y: 0.9880061, z: -3.7387362}
+    controlFirstLocal: {x: 0.86844945, y: -0, z: -0.08841763}
+    controlSecondLocal: {x: -0.86844945, y: 0, z: 0.08841763}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1485779071}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &1494391369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1494391370}
+  - component: {fileID: 1494391373}
+  - component: {fileID: 1494391372}
+  - component: {fileID: 1494391371}
+  m_Layer: 0
+  m_Name: Cube (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &1494391370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494391369}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.36, y: -0.53999996, z: 10.83}
+  m_LocalScale: {x: 5.40167, y: 1.84478, z: 0.88668996}
+  m_Children: []
+  m_Father: {fileID: 268372152}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1494391371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494391369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1494391372
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494391369}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1494391373
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494391369}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1570788099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1570788100}
+  - component: {fileID: 1570788102}
+  - component: {fileID: 1570788101}
+  m_Layer: 0
+  m_Name: BGCurve4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1570788100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570788099}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1967446252}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570788101
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570788099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1570788102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570788099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -10.799305, y: 0.9880061, z: -24.625172}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1570788102}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -16.301556, y: 0.9880061, z: -19.363201}
+    controlFirstLocal: {x: 0.032965183, y: -0, z: -1.1776423}
+    controlSecondLocal: {x: -0.032965183, y: 0, z: 1.1776423}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1570788102}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &1599202982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599202983}
+  m_Layer: 0
+  m_Name: table curves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599202983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599202982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.9703007, y: -4.4956417, z: -15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 600634907}
+  - {fileID: 1252438978}
+  - {fileID: 2058161878}
+  - {fileID: 179955945}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1600795197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600795198}
+  - component: {fileID: 1600795200}
+  - component: {fileID: 1600795199}
+  m_Layer: 0
+  m_Name: bar3 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1600795198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600795197}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.898411, y: 3.757719, z: 10.69504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 187995722}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600795199
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600795197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1600795200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600795197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -5.0900316, y: 0.98800623, z: -19.072037}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -10.2372875, y: 0.9880061, z: -13.095754}
+    controlFirstLocal: {x: -1.3470331, y: -0, z: -1.1952566}
+    controlSecondLocal: {x: 1.3470331, y: 0, z: 1.1952566}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -10.704301, y: 0.9880061, z: -20.549446}
+    controlFirstLocal: {x: 0.093402684, y: -0, z: 1.4907386}
+    controlSecondLocal: {x: -0.093402684, y: 0, z: -1.4907386}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -14.0272, y: 0.9880061, z: -10.995659}
+    controlFirstLocal: {x: 0.6645798, y: -0, z: -1.9107574}
+    controlSecondLocal: {x: -0.6645798, y: 0, z: 1.9107574}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -13.544999, y: 0.9880061, z: -4.43162}
+    controlFirstLocal: {x: -0.09644013, y: -0, z: -1.3128078}
+    controlSecondLocal: {x: 0.09644013, y: 0, z: 1.3128078}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -15.424111, y: 0.9880061, z: -12.901115}
+    controlFirstLocal: {x: 0.37582245, y: -0, z: 1.6938992}
+    controlSecondLocal: {x: -0.37582245, y: 0, z: -1.6938992}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -21.258625, y: 0.9880061, z: -12.64085}
+    controlFirstLocal: {x: 1.1669028, y: -0, z: -0.05205307}
+    controlSecondLocal: {x: -1.1669028, y: 0, z: 0.05205307}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -21.941498, y: 0.9880061, z: -3.2768383}
+    controlFirstLocal: {x: 0.13657455, y: -0, z: -1.8728023}
+    controlSecondLocal: {x: -0.13657455, y: 0, z: 1.8728023}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1600795200}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
 --- !u!1 &1636366163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +4082,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636366163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.8857, y: 0.5900301, z: -4.9848}
+  m_LocalPosition: {x: -12.22, y: 0.5900301, z: -11.31}
   m_LocalScale: {x: 2.0179, y: 2.0179, z: 2.0179}
   m_Children: []
   m_Father: {fileID: 268372152}
@@ -2390,7 +4244,7 @@ MonoBehaviour:
     curve: {fileID: 1693198647}
     fieldsValues: []
   - controlType: 0
-    positionLocal: {x: 4.9860725, y: 0.98800623, z: -13.107799}
+    positionLocal: {x: 13.902155, y: 0.98800623, z: -13.107799}
     controlFirstLocal: {x: -0.09700336, y: -0, z: -0.89728147}
     controlSecondLocal: {x: 0.09700336, y: 0, z: 0.89728147}
     pointTransform: {fileID: 0}
@@ -2418,12 +4272,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693198646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 238604782}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1693198649
 MonoBehaviour:
@@ -2651,7 +4505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705662097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.85, y: 1.97, z: -20.16}
+  m_LocalPosition: {x: 14.79, y: 1.97, z: -21.51}
   m_LocalScale: {x: 1.9569, y: 1.9569, z: 1.9569}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2817,7 +4671,7 @@ MonoBehaviour:
   boundGraphObjectReferences: []
   enableAction: 0
   disableAction: 0
-  _graph: {fileID: 1061499875}
+  _graph: {fileID: 899983016}
   _blackboard: {fileID: 1710644429}
 --- !u!65 &1710644432
 BoxCollider:
@@ -2832,6 +4686,366 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.76, z: 1}
   m_Center: {x: 0.17, y: 1.8, z: 0}
+--- !u!1 &1791491706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791491707}
+  - component: {fileID: 1791491709}
+  - component: {fileID: 1791491708}
+  m_Layer: 0
+  m_Name: BGCurve1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1791491707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791491706}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.1303005, y: 6.2356415, z: 0.96667004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1967446252}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791491708
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791491706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1791491709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791491706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -8.694694, y: -0.75199366, z: -3.9576025}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1791491709}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -17.727196, y: -0.75199366, z: -2.5611238}
+    controlFirstLocal: {x: 1.2138375, y: -0, z: -0.55418056}
+    controlSecondLocal: {x: -1.2138375, y: 0, z: 0.55418056}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1791491709}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &1820690669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820690670}
+  - component: {fileID: 1820690672}
+  - component: {fileID: 1820690671}
+  m_Layer: 0
+  m_Name: BGCurve3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1820690670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820690669}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1967446252}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820690671
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820690669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d20671ad38ded4fa2362df353b9a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHandles: 1
+  hidden: 0
+  parent: {fileID: 0}
+  ccName: 
+  fields: 1
+  mathType: 0
+  sectionParts: 30
+  optimizeStraightLines: 0
+  tolerance: 0.2
+  usePositionToCalculateTangents: 0
+  updateMode: 0
+  rendererForUpdateCheck: {fileID: 0}
+  mathChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: BansheeGz.BGSpline.Components.BGCcMath+MathChangedEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  spheresScale: 1
+  spheresColor: {r: 1, g: 1, b: 1, a: 1}
+  spheresCount: 100
+--- !u!114 &1820690672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820690669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70f079e2a6bf364e8185b765fbe61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    hideHandles: 0
+    newPointDistance: 2
+    showCurve: 1
+    showCurveMode: 1
+    showCurveOption: 0
+    sections: 20
+    showPointMenu: 1
+    showTangents: 0
+    tangentsSize: 0.7
+    tangentsColor: {r: 1, g: 1, b: 1, a: 1}
+    tangentsPerSection: 1
+    controlType: 0
+    vRay: 0
+    lineColor: {r: 1, g: 0, b: 0, a: 1}
+    restrictGizmoz: 
+    showPointControlType: 1
+    showPointPosition: 1
+    showHandles: 1
+    handlesType: 0
+    handlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 1
+      PlanesScale: 1
+      Alpha: 1
+    showLabels: 1
+    labelColor: {r: 1, g: 1, b: 1, a: 1}
+    showPositions: 0
+    labelColorSelected: {r: 0, g: 1, b: 0, a: 1}
+    showSpheres: 1
+    sphereRadius: 0.1
+    sphereColor: {r: 1, g: 0, b: 0, a: 1}
+    showPointControlPositions: 1
+    showControlHandles: 1
+    controlHandlesType: 0
+    controlHandlesSettings:
+      RemoveX: 0
+      RemoveY: 0
+      RemoveZ: 0
+      RemoveXZ: 0
+      RemoveXY: 0
+      RemoveYZ: 0
+      AxisScale: 0.7
+      PlanesScale: 0.7
+      Alpha: 0.7
+    controlHandlesColor: {r: 0, g: 1, b: 1, a: 1}
+    showControlLabels: 1
+    showControlPositions: 0
+    labelControlColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    showTransformField: 0
+    existing: 1
+  mode2D: 0
+  closed: 0
+  points:
+  - controlType: 0
+    positionLocal: {x: -24.40385, y: 0.9880061, z: -15.174719}
+    controlFirstLocal: {x: 1, y: 0, z: 0}
+    controlSecondLocal: {x: -1, y: -0, z: -0}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1820690672}
+    fieldsValues: []
+  - controlType: 0
+    positionLocal: {x: -18.31794, y: 0.9880061, z: -17.23737}
+    controlFirstLocal: {x: -0.93198204, y: -0, z: 0.8087855}
+    controlSecondLocal: {x: 0.93198204, y: 0, z: -0.8087855}
+    pointTransform: {fileID: 0}
+    curve: {fileID: 1820690672}
+    fieldsValues: []
+  pointsComponents: []
+  pointsGameObjects: []
+  fields: []
+  snapType: 0
+  snapAxis: 1
+  snapDistance: 10
+  snapLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  snapTriggerInteraction: 0
+  snapToBackFaces: 0
+  snapMonitoring: 0
+  eventMode: 0
+  pointsMode: 0
+  forceChangedEventMode: 0
+--- !u!1 &1896295320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896295321}
+  m_Layer: 0
+  m_Name: go away
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896295321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896295320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.9703007, y: -4.4956417, z: -15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 690446937}
+  - {fileID: 222056830}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1932014629
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +5149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932014629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.18, y: 1.97, z: -11.62}
+  m_LocalPosition: {x: -8.18, y: 1.97, z: -2.85}
   m_LocalScale: {x: 1.9569, y: 1.9569, z: 1.9569}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3033,7 +5247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _serializedBlackboard: '{"_variables":{"ThisGameObject":{"_value":1,"_name":"ThisGameObject","_id":"aa897f06-61dd-47fa-a661-9102b722fe8a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"day":{"_propertyPath":"Move.day","_name":"day","_id":"7d64e6e9-ad8f-41bd-8947-0259acfc3419","_protected":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"food":{"_name":"food","_id":"8cc72cef-e044-436d-931b-b0e050b4d92d","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"food":{"_value":true,"_name":"food","_id":"8cc72cef-e044-436d-931b-b0e050b4d92d","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -3050,10 +5264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundGraphSerialization: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-2913.0,"y":-2791.0},"zoomFactor":0.599499,"nodes":[{"_position":{"x":5520.0,"y":5059.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_position":{"x":5047.0,"y":5209.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"3"},{"_position":{"x":4844.0,"y":5275.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"4"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"7d64e6e9-ad8f-41bd-8947-0259acfc3419"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":4825.0,"y":5361.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"},{"_position":{"x":5142.0,"y":5333.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":4780.0,"y":5525.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"},{"_position":{"x":4948.0,"y":5499.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"12"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4832.0,"y":5607.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"13"},{"_position":{"x":5025.0,"y":5608.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"17"},{"_position":{"x":4913.0,"y":5692.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"18"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":5060.0,"y":5682.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"19"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5088.0,"y":5464.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"21"},{"_position":{"x":5169.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"23"},{"_position":{"x":5299.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"24"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5405.0,"y":5459.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"25"},{"random":true,"_color":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":5600.0,"y":5217.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"27"},{"_position":{"x":5571.0,"y":5368.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"28"},{"_position":{"x":5701.0,"y":5368.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"29"},{"random":true,"_position":{"x":6097.0,"y":5187.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"30"},{"_position":{"x":5881.0,"y":5512.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"31"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":5519.0,"y":5703.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"32"},{"_position":{"x":5687.0,"y":5677.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"34"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5571.0,"y":5785.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"35"},{"_position":{"x":5764.0,"y":5786.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"39"},{"_position":{"x":5652.0,"y":5870.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"40"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":5799.0,"y":5860.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"41"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5827.0,"y":5642.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"43"},{"_position":{"x":5908.0,"y":5710.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"45"},{"_position":{"x":6038.0,"y":5710.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"46"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6144.0,"y":5637.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"47"},{"_position":{"x":6766.0,"y":5492.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"49"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":6404.0,"y":5684.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_position":{"x":6572.0,"y":5658.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"52"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":6456.0,"y":5766.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"53"},{"_position":{"x":6649.0,"y":5767.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"57"},{"_position":{"x":6537.0,"y":5851.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"58"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":6684.0,"y":5841.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"59"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6712.0,"y":5623.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"61"},{"_position":{"x":6793.0,"y":5691.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"63"},{"_position":{"x":6923.0,"y":5691.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"64"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":7029.0,"y":5618.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"65"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"31"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"49"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"34"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"43"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"45"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"46"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"31"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"63"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"64"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"49"},"_targetNode":{"$ref":"65"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"52"},"_targetNode":{"$ref":"53"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"52"},"_targetNode":{"$ref":"57"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"57"},"_targetNode":{"$ref":"58"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"57"},"_targetNode":{"$ref":"59"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+  boundGraphSerialization: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-1485.0,"y":-1403.0},"zoomFactor":0.3282807,"nodes":[{"_position":{"x":5520.0,"y":5059.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_position":{"x":5047.0,"y":5209.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"3"},{"_position":{"x":4690.0,"y":5245.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"4"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"7d64e6e9-ad8f-41bd-8947-0259acfc3419"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":4617.0,"y":5321.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"},{"_position":{"x":5142.0,"y":5333.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":4780.0,"y":5525.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"},{"_position":{"x":4948.0,"y":5499.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"12"},{"_position":{"x":4822.0,"y":5618.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"13"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4748.0,"y":5681.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"14"},{"_position":{"x":5025.0,"y":5608.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"18"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":5060.0,"y":5682.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"19"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5088.0,"y":5464.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"21"},{"_action":{"Curve":5,"$type":"Wander"},"_position":{"x":5171.0,"y":5533.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"23"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":5297.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"25"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":5408.0,"y":5459.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"27"},{"random":true,"_color":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":5600.0,"y":5217.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"29"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":5515.0,"y":5320.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"30"},{"_position":{"x":5670.0,"y":5315.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"32"},{"_action":{"Curve":5,"$type":"Wander"},"_position":{"x":5612.0,"y":5438.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"33"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":5741.0,"y":5437.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"35"},{"random":true,"_position":{"x":6097.0,"y":5187.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"37"},{"_position":{"x":6074.0,"y":5428.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"38"},{"_action":{"Curve":1,"Curve1":2,"Curve2":3,"$type":"GotoKitchen"},"_position":{"x":5739.0,"y":5626.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"39"},{"_position":{"x":5907.0,"y":5600.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"41"},{"_position":{"x":5781.0,"y":5719.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"42"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5707.0,"y":5782.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"43"},{"_position":{"x":5984.0,"y":5709.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"47"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTable"},"_position":{"x":6019.0,"y":5783.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"48"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6047.0,"y":5565.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_action":{"Curve":5,"$type":"Wander"},"_position":{"x":6130.0,"y":5634.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"52"},{"_action":{"Curve":6,"$type":"GoAway"},"_position":{"x":6256.0,"y":5633.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"54"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6368.0,"y":5563.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"56"},{"_position":{"x":7001.0,"y":5439.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"58"},{"_action":{"Curve":7,"Curve1":8,"Curve2":9,"$type":"GotoBar"},"_position":{"x":6639.0,"y":5630.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"59"},{"_position":{"x":6807.0,"y":5604.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"61"},{"_position":{"x":6675.0,"y":5739.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"62"},{"_condition":{"valueA":{"_name":"food","_targetVariableID":"8cc72cef-e044-436d-931b-b0e050b4d92d"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":6567.0,"y":5802.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"63"},{"_position":{"x":6884.0,"y":5713.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"67"},{"_action":{"tables":[],"ThisGameObject":4,"$type":"GotoTableBar"},"_position":{"x":6914.0,"y":5787.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"68"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6948.0,"y":5570.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"70"},{"_action":{"Curve":10,"$type":"WanderBar"},"_position":{"x":7045.0,"y":5650.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"72"},{"_action":{"Curve":11,"$type":"GoAwayBar"},"_position":{"x":7173.0,"y":5648.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"74"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":7264.0,"y":5564.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"76"},{"_position":{"x":4913.0,"y":5692.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"},{"_position":{"x":6772.0,"y":5797.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"},{"_position":{"x":5872.0,"y":5793.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"29"},"_targetNode":{"$ref":"32"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"33"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"32"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"38"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"37"},"_targetNode":{"$ref":"58"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"54"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"38"},"_targetNode":{"$ref":"56"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"41"},"_targetNode":{"$ref":"42"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"41"},"_targetNode":{"$ref":"47"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"43"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"47"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"59"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"70"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"72"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"74"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"76"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"62"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"67"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"62"},"_targetNode":{"$ref":"63"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"67"},"_targetNode":{"$ref":"68"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
     Blackboard","_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   boundGraphObjectReferences:
   - {fileID: 0}
@@ -3061,9 +5275,16 @@ MonoBehaviour:
   - {fileID: 320044476}
   - {fileID: 608386507}
   - {fileID: 1955563942}
+  - {fileID: 1035175887}
+  - {fileID: 690446938}
+  - {fileID: 1013794432}
+  - {fileID: 1485779070}
+  - {fileID: 1600795199}
+  - {fileID: 312134144}
+  - {fileID: 222056831}
   enableAction: 0
   disableAction: 0
-  _graph: {fileID: 1524791225}
+  _graph: {fileID: 893804366}
   _blackboard: {fileID: 1955563947}
 --- !u!114 &1955563949
 MonoBehaviour:
@@ -3129,6 +5350,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.38, z: 1}
   m_Center: {x: 0, y: 1.31, z: 0}
+--- !u!1 &1967446251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967446252}
+  m_Layer: 0
+  m_Name: 'tablebar curves '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1967446252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967446251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.9703007, y: -4.4956417, z: -15.66667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1791491707}
+  - {fileID: 970986500}
+  - {fileID: 1820690670}
+  - {fileID: 1570788100}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058161876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3254,12 +5509,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058161876}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9703007, y: 4.4956417, z: 15.66667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1599202983}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2058161879
 MonoBehaviour:
