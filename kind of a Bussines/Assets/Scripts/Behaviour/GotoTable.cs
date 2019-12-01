@@ -49,17 +49,17 @@ public class GotoTable : ActionTask
                 curve = tablemanager.AskPath();
                 PathControl.SetCurve(curve);
                // Debug.Log("set curve" + curve );
-                move.finished = false;
+               // move.finished = false;
 
 
             }
             else
             {
 
-            EndAction(false);
+                EndAction(false);
             }
         }
-        if (move.finished && ret)
+        else if (move.finished && ret)
         {
            
             EndAction(true);

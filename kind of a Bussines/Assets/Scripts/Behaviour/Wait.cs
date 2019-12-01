@@ -35,7 +35,7 @@ public class Wait : ActionTask
         //id the time passes correctly end in true. otherwise false
         if (Timer >= Expecedwait)
         {
-            move.finished = false;
+            //move.finished = false;
             EndAction(true);
         }
         else if (Timer >= MaxTime+1)
@@ -43,10 +43,13 @@ public class Wait : ActionTask
             EndAction(false);
         }
     }
+
     void Randomice(float min, float max)
     {
         Expecedwait = Random.Range(min,max);
     }
+
+
     void CleanValues()
     {
         move.StopLinera();

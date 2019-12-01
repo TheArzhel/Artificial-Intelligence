@@ -72,7 +72,7 @@ public class FollowCurve : MonoBehaviour
             {
                 move.useSteer = true;
                 move.finished = false;
-                //Debug.Log("HI THERe" + ratio + "    " + lol.magnitude);
+               // Debug.Log("HI THERe" + ratio + "    " + lol.magnitude);
                 
 
             }
@@ -87,12 +87,19 @@ public class FollowCurve : MonoBehaviour
                 move.useSteer = false;
                 curve = null;
                 move.finished = true;
-                Debug.Log("arrive curve editor");
+               // Debug.Log("arrive curve editor");
 
             }
         }
-         
-        
+        else if (ratio > 1.00f)
+        {
+            move.useSteer = false;
+            curve = null;
+            move.finished = true;
+           // Debug.Log("arrive curve editor");
+
+        }
+
 
 
 
@@ -123,7 +130,10 @@ public class FollowCurve : MonoBehaviour
             curve = newcurve;
             move.ChangeUseSteer(false);
         }
+        ratio = 0;
+        Debug.Log("set curve" + curve);
+
     }
 
-    
+
 }

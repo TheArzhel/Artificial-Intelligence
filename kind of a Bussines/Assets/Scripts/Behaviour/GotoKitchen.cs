@@ -26,7 +26,10 @@ public class GotoKitchen : ActionTask
         ret=false;
         CurrentCurve = null;
         move = ownerAgent.gameObject.GetComponent<Move>();
+        move.finished = false;
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
+        Debug.Log("ret" + ret + CurrentCurve);
+
     }
 
     // Update is called once per frame
@@ -36,22 +39,28 @@ public class GotoKitchen : ActionTask
         {
             if (CurrentCurve == null)
             {
-                ret= ChooseCurve();
+                ret = ChooseCurve();
+                Debug.Log("choose curve ret " + ret + CurrentCurve);
+                
+
             }
-            
-            //Debug.Log(ret);
+
+            Debug.Log(ret);
             if (ret)
             {
-                PathControl.SetCurve(CurrentCurve);
 
+                PathControl.SetCurve(CurrentCurve);
+               
+                // move.finished = false;
             }
             else
                 EndAction(false);
         }
-        if (move.finished && ret)
+        else if (move.finished && ret)
         {
 
             EndAction(true);
+            Debug.Log("end " + CurrentCurve);
         }
 
     }
@@ -77,6 +86,8 @@ public class GotoKitchen : ActionTask
             ret = true;
 
         }
+
+
 
         return ret;
     }
