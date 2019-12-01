@@ -20,7 +20,7 @@ public class DayNight : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
-        if (Timer % 60 >= 60)
+        if (Timer % 20 >= 20)
         {
             Timer = 0.0f;
             dayorNight = !dayorNight;

@@ -19,11 +19,12 @@ public class GotoTable : ActionTask
     TableManager tablemanager = null;
 
     public GameObject ThisGameObject;
-
+    
 
     //Called only the first time the action is executed and before anything else.
     protected override void OnExecute()
     {
+        ThisGameObject = ownerAgent.gameObject;
         ret = false;
         tables = GameObject.FindGameObjectsWithTag("Table");
          Debug.Log("ret  " + ret);

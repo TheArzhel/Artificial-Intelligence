@@ -24,6 +24,7 @@ public class GotoTableBar : ActionTask
     //Called only the first time the action is executed and before anything else.
     protected override void OnExecute()
     {
+        ThisGameObject = ownerAgent.gameObject;
         ret = false;
         tables = GameObject.FindGameObjectsWithTag("TableBar");
         Debug.Log("ret  " + ret);

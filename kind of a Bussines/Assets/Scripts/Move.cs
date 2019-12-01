@@ -92,8 +92,8 @@ public class Move : MonoBehaviour
 
         scene = GameObject.FindGameObjectWithTag("Day");
 
-        //if (Day==null)
-        //    Day = scene.GetComponent<DayNight>();
+        if (Day == null)
+            Day = scene.GetComponent<DayNight>();
 
 
     }
@@ -133,7 +133,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //day =Day.getdate();
+        day =Day.getdate();
 
         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
