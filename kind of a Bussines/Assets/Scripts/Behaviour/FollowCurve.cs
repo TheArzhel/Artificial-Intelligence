@@ -121,7 +121,7 @@ public class FollowCurve : MonoBehaviour
         else {
             move = GetComponent<Move>();
             curve = newcurve;
-            move.ChangeUseSteer(true);
+            move.ChangeUseSteer(false);
         }
     }
 

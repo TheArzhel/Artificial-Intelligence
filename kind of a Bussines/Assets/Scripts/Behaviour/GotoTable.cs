@@ -48,7 +48,7 @@ public class GotoTable : ActionTask
                 tablemanager = Destiny.GetComponent<TableManager>();
                 curve = tablemanager.AskPath();
                 PathControl.SetCurve(curve);
-                Debug.Log("set curve" + curve );
+               // Debug.Log("set curve" + curve );
                 move.finished = false;
 
 

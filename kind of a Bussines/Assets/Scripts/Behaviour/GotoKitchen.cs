@@ -24,6 +24,7 @@ public class GotoKitchen : ActionTask
     protected override void OnExecute()
     {
         ret=false;
+        CurrentCurve = null;
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
     }
