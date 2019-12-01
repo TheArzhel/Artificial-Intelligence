@@ -144,16 +144,9 @@ public class Move : MonoBehaviour
 		}
 
 
-        if (Velocity.magnitude > 3)
-        {
-            anim.SetBool("IsWalking", true);
+     
+            anim.SetFloat("Speed", Velocity.magnitude);
 
-        }
-        else if (Velocity.magnitude == 0 || Velocity.magnitude < 3)
-        {
-            anim.SetBool("IsWalking", false);
-
-        }
 
         //if (Rotation > 0 && Rotation > max_rot_speed)
         //{
