@@ -212,57 +212,69 @@ public class KitchenScrip : MonoBehaviour
 
    public BGCcMath AskPath() {
         BGCcMath curve = null;
-        int random = Random.Range(1, 10);
-        if (random <= 1 && !timerON1)
+        int random =  Random.Range(1, 8);
+
+        Debug.Log(random);
+        if (random <= 1 && timerON1==false)
         {
             curve = curve1;
             timerON1 = true;
+            Debug.Log("inside");
         }
-        if (random <= 2 && !timerON2)
+        if (random <= 2 && timerON2 == false)
         {
             curve = curve2;
             timerON2 = true;
+            Debug.Log("inside");
         }
-        if (random <= 3 && !timerON3)
+        if (random <= 3 && timerON3 == false)
         {
             curve = curve3;
             timerON3 = true;
+            Debug.Log("inside");
         }
-        if (random <= 4 && !timerON4)
+        if (random <= 4 && timerON4 == false)
         {
             curve = curve4;
             timerON4 = true;
+            Debug.Log("inside");
         }
-        if (random <= 5 && !timerON5)
+        if (random <= 5 && timerON5 == false)
         {
-            curve = curve5 ;
+            curve = curve5;
             timerON5 = true;
+            Debug.Log("inside");
         }
-        if (random <= 6 && !timerON6)
+        if (random <= 6 && timerON6 == false)
         {
             curve = curve6;
             timerON6 = true;
+            Debug.Log("inside");
         }
-        if (random <= 7 && !timerON7)
+        if (random <= 7 && timerON7 == false)
         {
             curve = curve7;
             timerON7 = true;
+            Debug.Log("inside");
         }
-        if (random <= 8 && !timerON8)
+        if (random <= 8 && timerON8 == false)
         {
             curve = curve8;
             timerON8 = true;
+            Debug.Log("inside");
         }
-        if (random <= 9 && !timerON9)
-        {
-            curve = curve9;
-            timerON9 = true;
-        }
-        if (random <= 10 && !timerON10)
-        {
-            curve = curve10;
-            timerON10 = true;
-        }
+        //if (random <= 9 && timerON9 == false)
+        //{
+        //    curve = curve9;
+        //    timerON9 = true;
+        //    Debug.Log("inside");
+        //}
+        //if (random <= 10 && timerON10 == false)
+        //{
+        //    curve = curve10;
+        //    timerON10 = true;
+        //    Debug.Log("inside");
+        //}
 
         return curve;
     }

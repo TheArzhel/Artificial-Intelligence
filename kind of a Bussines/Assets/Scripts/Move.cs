@@ -55,7 +55,7 @@ public class Move : MonoBehaviour
     public ACTIVITY action;
 
     //Food
-    private bool IsThereFood = false;
+    public bool IsThereFood = false;
 
 
     // Methods for behaviours to set / add velocities

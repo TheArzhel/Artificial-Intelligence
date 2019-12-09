@@ -63,7 +63,7 @@ public class GotoKitchen : ActionTask
         {
 
             EndAction(true);
-            Debug.Log("end " + CurrentCurve);
+            //Debug.Log("end " + CurrentCurve);
         }
 
     }
@@ -98,8 +98,12 @@ public class GotoKitchen : ActionTask
     private void FindCurve()
     {
         Kitchen = GameObject.FindGameObjectWithTag ( "Kitchen" );
+        if (Kitchen!=null)
+            Debug.Log("exist");
         KitchenScrip KitchenControler;
         KitchenControler = Kitchen.GetComponent<KitchenScrip>();
+        if (Kitchen != null)
+            Debug.Log("exis2t");
         CurrentCurve = KitchenControler.AskPath();
     }
 }
