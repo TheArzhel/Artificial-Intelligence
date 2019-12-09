@@ -8,9 +8,9 @@ using BansheeGz.BGSpline.Curve;
 
 public class GotoKitchen : ActionTask
 {
-    public BGCcMath Curve;
-    public BGCcMath Curve1;
-    public BGCcMath Curve2;
+    //public BGCcMath Curve;
+    //public BGCcMath Curve1;
+    //public BGCcMath Curve2;
 
     private BGCcMath CurrentCurve;
 
@@ -23,7 +23,7 @@ public class GotoKitchen : ActionTask
     // Start is called before the first frame update
     protected override void OnExecute()
     {
-        ret=false;
+        ret = false;
         CurrentCurve = null;
         move = ownerAgent.gameObject.GetComponent<Move>();
         move.finished = false;
@@ -39,9 +39,9 @@ public class GotoKitchen : ActionTask
         {
             if (CurrentCurve == null)
             {
-                ret = ChooseCurve();
+                ret = //ChooseCurve();
                 Debug.Log("choose curve ret " + ret + CurrentCurve);
-                
+
 
             }
 
@@ -50,7 +50,7 @@ public class GotoKitchen : ActionTask
             {
 
                 PathControl.SetCurve(CurrentCurve);
-               
+
                 // move.finished = false;
             }
             else
@@ -65,30 +65,35 @@ public class GotoKitchen : ActionTask
 
     }
 
-    public bool ChooseCurve()
+    //public bool ChooseCurve()
+    //{
+    //    bool ret=false;
+    //    //must choose random
+    //    int a= Random.Range(1, 3);
+    //    if (a <= 1)
+    //    {
+    //        CurrentCurve = Curve;
+    //        ret = true;
+    //    }
+    //    else if (a <= 2)
+    //    {
+    //        CurrentCurve = Curve1;
+    //        ret = true;
+    //    }
+    //    else
+    //    {
+    //        CurrentCurve = Curve2;
+    //        ret = true;
+
+    //    }
+
+
+
+    //    return ret;
+    //}
+
+    private void FindCurve()
     {
-        bool ret=false;
-        //must choose random
-        int a= Random.Range(1, 3);
-        if (a <= 1)
-        {
-            CurrentCurve = Curve;
-            ret = true;
-        }
-        else if (a <= 2)
-        {
-            CurrentCurve = Curve1;
-            ret = true;
-        }
-        else
-        {
-            CurrentCurve = Curve2;
-            ret = true;
 
-        }
-
-
-
-        return ret;
     }
 }
