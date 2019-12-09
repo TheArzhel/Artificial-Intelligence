@@ -16,6 +16,7 @@ public class GotoKitchen : ActionTask
 
     private bool ret = false;
 
+    private GameObject Kitchen;
 
     Move move;
     FollowCurve PathControl;
@@ -28,7 +29,8 @@ public class GotoKitchen : ActionTask
         move = ownerAgent.gameObject.GetComponent<Move>();
         move.finished = false;
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
-        Debug.Log("ret" + ret + CurrentCurve);
+        
+        //Debug.Log("ret" + ret + CurrentCurve);
 
     }
 
@@ -39,9 +41,10 @@ public class GotoKitchen : ActionTask
         {
             if (CurrentCurve == null)
             {
-                ret = //ChooseCurve();
-                Debug.Log("choose curve ret " + ret + CurrentCurve);
-
+                FindCurve();
+                if (CurrentCurve!=null)
+                { ret = true; }
+                //Debug.Log("choose curve ret " + ret + CurrentCurve);
 
             }
 
@@ -94,6 +97,9 @@ public class GotoKitchen : ActionTask
 
     private void FindCurve()
     {
-
+        Kitchen = GameObject.FindGameObjectWithTag ( "Kitchen" );
+        KitchenScrip KitchenControler;
+        KitchenControler = Kitchen.GetComponent<KitchenScrip>();
+        CurrentCurve = KitchenControler.AskPath();
     }
 }

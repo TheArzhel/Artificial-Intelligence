@@ -60,15 +60,28 @@ public class KitchenScrip : MonoBehaviour
     private bool timerON10 = false;
     public int TimeToStop10 = 0;
 
+    //Food controllers
+    public int foodAmount = 10;
+    public bool FoodExist = true;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if (foodAmount > 0)
+        { FoodExist = true; }
+        else
+            FoodExist = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (foodAmount > 0)
+        { FoodExist = true; }
+        else
+            FoodExist = false;
+
         TimerUpdate();
     }
 
@@ -197,7 +210,7 @@ public class KitchenScrip : MonoBehaviour
         }
     }
 
-    BGCcMath AskPath() {
+   public BGCcMath AskPath() {
         BGCcMath curve = null;
         int random = Random.Range(1, 10);
         if (random <= 1 && !timerON1)

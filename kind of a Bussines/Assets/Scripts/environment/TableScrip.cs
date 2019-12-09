@@ -197,7 +197,7 @@ public class TableScrip : MonoBehaviour
         }
     }
 
-    BGCcMath AskPath()
+    public BGCcMath AskPath()
     {
         BGCcMath curve = null;
         int random = Random.Range(1, 10);
@@ -254,4 +254,5 @@ public class TableScrip : MonoBehaviour
 
         return curve;
     }
+
 }

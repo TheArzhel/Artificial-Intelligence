@@ -54,8 +54,18 @@ public class Move : MonoBehaviour
 
     public ACTIVITY action;
 
+    //Food
+    private bool IsThereFood = false;
+
 
     // Methods for behaviours to set / add velocities
+    public void CheckFood()
+    {
+        GameObject Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
+        KitchenScrip KitchenControler;
+        KitchenControler = Kitchen.GetComponent<KitchenScrip>();
+        IsThereFood = KitchenControler.FoodExist;
+    }
 
     public void SetMovementVelocity(Vector3 velocity)
     {
@@ -134,7 +144,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         day =Day.getdate();
-
+        CheckFood();
         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
         // cap velocity
