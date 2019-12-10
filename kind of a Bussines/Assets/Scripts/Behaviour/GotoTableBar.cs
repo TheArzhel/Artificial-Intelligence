@@ -9,35 +9,32 @@ public class GotoTableBar : ActionTask
 {
     private BGCcMath curve;
 
-    public GameObject[] tables;
-    public bool active = false;
-
-    private GameObject Destiny;
+   
     private bool ret = false;
     Move move;
     FollowCurve PathControl;
-    TableManager tablemanager = null;
-
-    public GameObject ThisGameObject;
 
 
     //Called only the first time the action is executed and before anything else.
     protected override void OnExecute()
     {
-        ThisGameObject = ownerAgent.gameObject;
         ret = false;
-        tables = GameObject.FindGameObjectsWithTag("TableBar");
-        Debug.Log("ret  " + ret);
+        //Debug.Log("ret  " + ret);
         //to get values:
         //ownerAgent.gameObject.getcompo...
         //ThisGameObject.value.
-        move = ThisGameObject.GetComponent<Move>();
-        PathControl = ThisGameObject.GetComponent<FollowCurve>();
+        move = ownerAgent.gameObject.GetComponent<Move>();
+        PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
     }
 
     //Called every frame while the action is running.
     protected override void OnUpdate()
     {
+
+        if (move.day == true)
+        {
+            EndAction(false);
+        }
 
         if (!ret)
         {
@@ -46,11 +43,10 @@ public class GotoTableBar : ActionTask
             if (ret)
             {
 
-                tablemanager = Destiny.GetComponent<TableManager>();
-                curve = tablemanager.AskPath();
+
                 PathControl.SetCurve(curve);
                 // Debug.Log("set curve" + curve );
-                // move.finished = false;
+
 
 
             }
@@ -72,28 +68,18 @@ public class GotoTableBar : ActionTask
 
     bool FindTable()
     {
-        foreach (GameObject GO in tables)
-        {
-            tablemanager = null;
-            tablemanager = GO.GetComponent<TableManager>();
-            if (tablemanager != null)
-            {
-                if (tablemanager.AskDisponibility())
-                {
-                    Destiny = GO;
-                    // Debug.Log("Found");
-                    return true;
 
-                }
-            }
+        GameObject Bar = GameObject.FindGameObjectWithTag("Bar");
+        TableScrip TableControler;
+        TableControler = Bar.GetComponent<TableScrip>();
+        curve = TableControler.AskPath();
+        if (curve != null)
+        {
+            return true;
         }
+
         return false;
     }
 
-    public void EnableACtivityScript(bool on)
-    {
-        active = on;
-    }
 
-    //public void EndAction(bool);
 }

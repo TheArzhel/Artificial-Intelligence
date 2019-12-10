@@ -9,8 +9,6 @@ public class GotoTable : ActionTask
 {
     private BGCcMath curve;
 
-    public GameObject kitchen;
-
     private bool ret = false;
     Move move;
     FollowCurve PathControl;
@@ -32,10 +30,10 @@ public class GotoTable : ActionTask
     protected override void OnUpdate()
     {
 
-        if (move.day == false)
-        {
-            EndAction(false);
-        }
+        //if (move.day == false)
+        //{
+        //    EndAction(false);
+        //}
 
         if (!ret)
         {

@@ -34,6 +34,12 @@ public class GoAwayBar : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
+
+        if (move.day == true)
+        {
+            EndAction(false);
+        }
+
         if (!ret)
         {
             if (CurrentCurve == null)

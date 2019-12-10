@@ -8,14 +8,15 @@ using BansheeGz.BGSpline.Curve;
 
 public class GotoBar : ActionTask
 {
-    public BGCcMath Curve;
-    public BGCcMath Curve1;
-    public BGCcMath Curve2;
+    //public BGCcMath Curve;
+    //public BGCcMath Curve1;
+    //public BGCcMath Curve2;
 
     private BGCcMath CurrentCurve;
 
     private bool ret = false;
 
+    private GameObject Kitchen;
 
     Move move;
     FollowCurve PathControl;
@@ -28,20 +29,27 @@ public class GotoBar : ActionTask
         move = ownerAgent.gameObject.GetComponent<Move>();
         move.finished = false;
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
-        Debug.Log("ret" + ret + CurrentCurve);
+
+        //Debug.Log("ret" + ret + CurrentCurve);
 
     }
 
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        if (move.day == true)
+        {
+            EndAction(false);
+        }
+
         if (!ret)
         {
             if (CurrentCurve == null)
             {
-                ret = ChooseCurve();
-                Debug.Log("choose curve ret " + ret + CurrentCurve);
-
+                FindCurve();
+                if (CurrentCurve != null)
+                { ret = true; }
+                //Debug.Log("choose curve ret " + ret + CurrentCurve);
 
             }
 
@@ -60,35 +68,47 @@ public class GotoBar : ActionTask
         {
 
             EndAction(true);
-            Debug.Log("end " + CurrentCurve);
+            //Debug.Log("end " + CurrentCurve);
         }
 
     }
 
-    public bool ChooseCurve()
+    //public bool ChooseCurve()
+    //{
+    //    bool ret=false;
+    //    //must choose random
+    //    int a= Random.Range(1, 3);
+    //    if (a <= 1)
+    //    {
+    //        CurrentCurve = Curve;
+    //        ret = true;
+    //    }
+    //    else if (a <= 2)
+    //    {
+    //        CurrentCurve = Curve1;
+    //        ret = true;
+    //    }
+    //    else
+    //    {
+    //        CurrentCurve = Curve2;
+    //        ret = true;
+
+    //    }
+
+
+
+    //    return ret;
+    //}
+
+    private void FindCurve()
     {
-        bool ret = false;
-        //must choose random
-        int a = Random.Range(1, 3);
-        if (a <= 1)
-        {
-            CurrentCurve = Curve;
-            ret = true;
-        }
-        else if (a <= 2)
-        {
-            CurrentCurve = Curve1;
-            ret = true;
-        }
-        else
-        {
-            CurrentCurve = Curve2;
-            ret = true;
-
-        }
-
-
-
-        return ret;
+        Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
+        if (Kitchen != null)
+            Debug.Log("exist");
+        KitchenScrip KitchenControler;
+        KitchenControler = Kitchen.GetComponent<KitchenScrip>();
+        if (Kitchen != null)
+            Debug.Log("exis2t");
+        CurrentCurve = KitchenControler.AskPath();
     }
 }
