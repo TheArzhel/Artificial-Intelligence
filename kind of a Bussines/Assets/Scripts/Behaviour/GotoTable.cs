@@ -30,10 +30,7 @@ public class GotoTable : ActionTask
     protected override void OnUpdate()
     {
 
-        //if (move.day == false)
-        //{
-        //    EndAction(false);
-        //}
+
 
         if (!ret)
         {

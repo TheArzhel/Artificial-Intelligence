@@ -16,7 +16,7 @@ public class GotoBar : ActionTask
 
     private bool ret = false;
 
-    private GameObject Kitchen;
+    private GameObject Bar;
 
     Move move;
     FollowCurve PathControl;
@@ -37,10 +37,7 @@ public class GotoBar : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
-        if (move.day == true)
-        {
-            EndAction(false);
-        }
+        
 
         if (!ret)
         {
@@ -102,13 +99,13 @@ public class GotoBar : ActionTask
 
     private void FindCurve()
     {
-        Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
-        if (Kitchen != null)
+        Bar = GameObject.FindGameObjectWithTag("Bar");
+        if (Bar != null)
             Debug.Log("exist");
-        KitchenScrip KitchenControler;
-        KitchenControler = Kitchen.GetComponent<KitchenScrip>();
-        if (Kitchen != null)
+        BarScrip BarController;
+        BarController = Bar.GetComponent<BarScrip>();
+        if (Bar != null)
             Debug.Log("exis2t");
-        CurrentCurve = KitchenControler.AskPath();
+        CurrentCurve = BarController.AskPath();
     }
 }

@@ -31,10 +31,7 @@ public class GotoTableBar : ActionTask
     protected override void OnUpdate()
     {
 
-        if (move.day == true)
-        {
-            EndAction(false);
-        }
+        
 
         if (!ret)
         {
@@ -70,8 +67,8 @@ public class GotoTableBar : ActionTask
     {
 
         GameObject Bar = GameObject.FindGameObjectWithTag("Bar");
-        TableScrip TableControler;
-        TableControler = Bar.GetComponent<TableScrip>();
+        TableBarScrip TableControler;
+        TableControler = Bar.GetComponent<TableBarScrip>();
         curve = TableControler.AskPath();
         if (curve != null)
         {

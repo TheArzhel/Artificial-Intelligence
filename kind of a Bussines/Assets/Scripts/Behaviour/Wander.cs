@@ -42,10 +42,7 @@ public class Wander : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
-        //if (move.day == false)
-        //{
-        //    EndAction(false);
-        //}
+
 
         if (!ret)
         {

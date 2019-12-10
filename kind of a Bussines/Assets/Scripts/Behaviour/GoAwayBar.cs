@@ -35,10 +35,7 @@ public class GoAwayBar : ActionTask
     protected override void OnUpdate()
     {
 
-        if (move.day == true)
-        {
-            EndAction(false);
-        }
+       
 
         if (!ret)
         {

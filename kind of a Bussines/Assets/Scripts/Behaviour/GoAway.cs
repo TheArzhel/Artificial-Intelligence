@@ -34,10 +34,7 @@ public class GoAway : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
-        //if (move.day == false)
-        //{
-        //    EndAction(false);
-        //}
+
         if (!ret)
         {
             if (CurrentCurve == null)

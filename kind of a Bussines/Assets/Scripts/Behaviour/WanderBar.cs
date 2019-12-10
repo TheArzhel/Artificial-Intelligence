@@ -34,10 +34,7 @@ public class WanderBar : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
-        if (move.day == true)
-        {
-            EndAction(false);
-        }
+       
 
         if (!ret)
         {
