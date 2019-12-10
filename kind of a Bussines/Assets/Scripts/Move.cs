@@ -110,13 +110,13 @@ public class Move : MonoBehaviour
     public void Stop()
     {
 
-        //anim.SetBool("IsWalking", false);
+        
         //linear Velocity
         Velocity = Vector3.zero;
 
         //rot velocity
         Rotation = 0;
-        SetRotationVelocity(0);
+        //SetRotationVelocity(0);
         AccelerateRotation(0);
         
     }
@@ -124,9 +124,9 @@ public class Move : MonoBehaviour
     public void StopRotation()
     {
       
-        Rotation = 0;
-        SetRotationVelocity(0);
-        AccelerateRotation(0);
+        //Rotation = 0;
+        //SetRotationVelocity(0);
+        //AccelerateRotation(0);
 
     }
 
@@ -156,6 +156,11 @@ public class Move : MonoBehaviour
 
      
             anim.SetFloat("Speed", Velocity.magnitude);
+
+        //Rotating character
+        float angle = Mathf.Atan2(Velocity.x, Velocity.z);
+        if (Velocity.magnitude != 0)
+            transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.up);
 
 
         //if (Rotation > 0 && Rotation > max_rot_speed)
