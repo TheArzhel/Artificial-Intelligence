@@ -19,6 +19,8 @@ public class KitchenScrip : MonoBehaviour
     public BGCcMath curve9;
     public BGCcMath curve10;
 
+    public BGCcMath policepath;
+
     //timer variables
     private float Timer1 = 0.0f;
     private bool timerON1 = false;
@@ -344,4 +346,8 @@ public class KitchenScrip : MonoBehaviour
 
         return curve;
     }
+
+
+    public BGCcMath askPolicePath()
+    { return policepath; }
 }

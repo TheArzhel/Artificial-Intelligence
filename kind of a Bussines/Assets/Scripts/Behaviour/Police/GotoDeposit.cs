@@ -13,7 +13,7 @@ public class GotoDeposit : ActionTask
 
     private bool ret = false;
 
-    private GameObject Kitchen;
+    private GameObject Cargo;
 
     Move move;
     FollowCurve PathControl;
@@ -67,42 +67,17 @@ public class GotoDeposit : ActionTask
 
     }
 
-    //public bool ChooseCurve()
-    //{
-    //    bool ret=false;
-    //    //must choose random
-    //    int a= Random.Range(1, 3);
-    //    if (a <= 1)
-    //    {
-    //        CurrentCurve = Curve;
-    //        ret = true;
-    //    }
-    //    else if (a <= 2)
-    //    {
-    //        CurrentCurve = Curve1;
-    //        ret = true;
-    //    }
-    //    else
-    //    {
-    //        CurrentCurve = Curve2;
-    //        ret = true;
-
-    //    }
-
-
-
-    //    return ret;
-    //}
+    
 
     private void FindCurve()
     {
-        Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
-        if (Kitchen != null)
-            Debug.Log("exist");
-        KitchenScrip KitchenControler;
-        KitchenControler = Kitchen.GetComponent<KitchenScrip>();
-        if (Kitchen != null)
-            Debug.Log("exis2t");
-        CurrentCurve = KitchenControler.AskPath();
+        Cargo = GameObject.FindGameObjectWithTag("Cargo");
+        //if (Cargo != null)
+           // Debug.Log("exist");
+        DepositScrip DepositControler;
+        DepositControler = Cargo.GetComponent<DepositScrip>();
+        //if (Cargo != null)
+            //Debug.Log("exis2t");
+        CurrentCurve = DepositControler.AskPath();
     }
 }
