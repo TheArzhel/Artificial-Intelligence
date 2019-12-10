@@ -12,7 +12,8 @@ public class SteeringArrive : MonoBehaviour
 
     float DistanceFromTarget;
     float NeededSpeed;
-    Vector3 DirectionMov;
+
+    Vector3 Distance;
     Vector3 NeededVelocity;
 
 
@@ -42,47 +43,52 @@ public class SteeringArrive : MonoBehaviour
             move = GetComponent<Move>();
 
         //Get the target direction and distance
-        DirectionMov = target - transform.position;
-       DistanceFromTarget = DirectionMov.magnitude;
+       Distance = target - transform.position;
+       DistanceFromTarget = Distance.magnitude;
+       Vector3 DistanceToEnd = target - transform.position;
 
         //check if it's the min distance
-        if (DistanceFromTarget < min_distance)
+        if (DistanceToEnd.magnitude < min_distance)
             ArriveActive = false;
         else
             ArriveActive = true;
 
         if (ArriveActive)
         {
-            //check slow speed is needed
-            //if not keep it max, else reduce depending on distance
-            //if (DistanceFromTarget > slow_distance)
-                //NeededSpeed = move.max_speed;
-            if (DistanceFromTarget > slow_distance)
-            {
-                NeededSpeed = move.max_speed * (DistanceFromTarget / slow_distance);
-            }
+           
 
-            //set the direction of agent to target and assing the speed needed
-            NeededVelocity = DirectionMov;
-            NeededVelocity = NeededVelocity.normalized * NeededSpeed;
 
-            //obtain de desired acceleration in order slow on target:
-            //a=(Vf-Vo)/time_taken
-            Vector3 steering_linear;
-            steering_linear = (NeededVelocity - move.Velocity) / time_to_target;
+            NeededVelocity = target - transform.position;
+            NeededVelocity.Normalize();
+            NeededVelocity *= move.max_speed;
 
-            //if a>max_a then cap
-            if (steering_linear.magnitude > move.max_acceleration)
-                steering_linear = steering_linear.normalized * move.max_acceleration;
 
-            //Apply force
-            steering_linear.y = 0.0f;
             if (DistanceFromTarget <= slow_distance)
             {
-                move.AccelerateMovement(steering_linear);
+               
+                NeededVelocity *= DistanceFromTarget / slow_distance * 1.5f;
+
+            }
+
+            Vector3 NeededAccel = NeededVelocity - move.Velocity;
+            NeededVelocity /= time_to_target;
+
+
+            //if a>max_a then cap
+            if (NeededAccel.magnitude > move.max_acceleration)
+            {
+
+                NeededAccel.Normalize();
+                NeededAccel *= move.max_acceleration;
+
             }
 
 
+            //Apply force
+
+             NeededAccel.y = 0;
+              move.AccelerateMovement(NeededAccel);
+            
         }
         else
         {
