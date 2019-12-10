@@ -43,8 +43,7 @@ public class Move : MonoBehaviour
     Animator anim;
     DayNight Day;
     public bool finished = false;
-
-    public static bool day = true;
+    public bool day = true;
 
     GameObject scene;
     public enum ACTIVITY
@@ -144,6 +143,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         day =Day.getdate();
+
         CheckFood();
         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 

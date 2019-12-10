@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class DayNight : MonoBehaviour
 {
-    public static bool dayorNight = true;
+    public bool dayorNight = true;
+    public int DaySec=10;
     private float Timer = 0.0f;
 
-    CharacterObj characters;
+  
 
     // Start is called before the first frame update
     void Start()
     {
-        characters = GetComponent<CharacterObj>();  
+        
     }
 
     // Update is called once per frame
@@ -20,7 +21,7 @@ public class DayNight : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
-        if (Timer % 20 >= 20)
+        if (Timer % 60 >= DaySec)
         {
             Timer = 0.0f;
             dayorNight = !dayorNight;
@@ -29,4 +30,6 @@ public class DayNight : MonoBehaviour
     }
 
     public bool getdate() { return dayorNight; }
+
+    public int getDaySec() { return DaySec; }
 }
