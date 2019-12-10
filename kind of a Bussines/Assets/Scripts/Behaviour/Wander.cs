@@ -29,11 +29,24 @@ public class Wander : ActionTask
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
         Debug.Log("ret" + ret + CurrentCurve);
 
+        int random = Random.Range(1, 10);
+
+        if (random >=8)
+        {
+            EndAction(true);
+        }
+
+
     }
 
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        if (move.day == false)
+        {
+            EndAction(false);
+        }
+
         if (!ret)
         {
             if (CurrentCurve == null)
