@@ -5,9 +5,15 @@ using UnityEngine;
 public class Currencies : MonoBehaviour
 {
 
+   public enum AdquisitionalState
+    {
+        RICH,
+        MEDIUM,
+        POOR
 
+    }
 
-   public enum Bill_Type
+    public enum Bill_Type
     {
         FOOD,
         ALCOHOL
@@ -36,30 +42,40 @@ public class Currencies : MonoBehaviour
 
 
     //popularity 
-
     public int GamePopularity = 50;
     public int PopularityStreak=0;
     public int popularityGoalStreak = 5;//max value to arrive for popularity rise
     public int RisePopularityRate = 5;//Rate of quantitivity increasement popularity
     public int LowePopularityRate = 10;
 
+
+
+    public float MaximumBillCost;
+
     // Start is called before the first frame update
     void Start()
     {
+    
+        MaximumBillCost=GamePopularity*0.15f;
 
-  
+
     }
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
         
     }
 
 
-    public void Pay(Bill_Type type) { 
+    public bool Pay(Bill_Type type) { 
     
      
+
+        
+
+
+
          switch (type)
          {
         
@@ -73,10 +89,12 @@ public class Currencies : MonoBehaviour
                 CashIn(PriceAlcohol);
   
                 break;
-
          }
-     
-  
+
+
+
+
+        return true;
     }
 
     public void CashIn(float income)

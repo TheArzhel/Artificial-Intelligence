@@ -15,19 +15,33 @@ public class Pay : ActionTask
 
     public bool FoodService;
 
+    
+
     Move move;
+    
     private GameObject SceneCurrency;
     Currencies GameCurrency;
 
 
+
     FollowCurve PathControl;
-  
+
+
+    Currencies.AdquisitionalState EntityCapitalState;
+
+
 
     protected override void OnExecute()
     {
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         GameCurrency = SceneCurrency.GetComponent<Currencies>();
+      
+
+        //stablishing the max of what the costumer is going to pay
+        int State;
+        State = Random.Range(0,2);
+        EntityCapitalState = (Currencies.AdquisitionalState)State;
 
 
         move = ownerAgent.gameObject.GetComponent<Move>();
@@ -48,6 +62,9 @@ public class Pay : ActionTask
         //id the time passes correctly end in true. otherwise false
         if (Timer >= Expecedwait)
         {
+
+
+            bool ret = false;
             //move.finished = false;
             if(FoodService)
             GameCurrency.Pay(Currencies.Bill_Type.FOOD);
