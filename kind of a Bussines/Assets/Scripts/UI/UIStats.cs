@@ -9,28 +9,27 @@ public class UIStats : MonoBehaviour
 
 
 
-    private float Money =100.00f;
-    private int Popularity = 50;
+    private float Money;
+    private int Popularity;
 
-    private int UnitsFood = 20;
-    private int UnitsAlcohol = 0;
+    private int UnitsFood;
+    private int UnitsAlcohol;
 
-    private float PriceFood = 5.99f;//selling to
-    private float PriceAlcohol = 10.99f;
+    private float PriceFood;//selling to
+    private float PriceAlcohol;
 
-    public float FoodStockPrice = 10.50f;//buying to
-    public float AlcoholStockPrice = 20.50f;
+    private float FoodStockPrice;//buying to
+    private float AlcoholStockPrice;
 
-    public float RisePriceRate = 5.99f;// selling to values
-    public float LowePriceRate = 10.50f;
-
-
-    public int FoodUnitPerBuy = 20;//quantity of food/alcohol recieved everytime u buy
-    public int AlcoholUnitPerBuy = 5;
+    private float RisePriceRate;// selling to values
+    private float LowePriceRate;
 
 
+    private int FoodUnitPerBuy;//quantity of food/alcohol recieved everytime u buy
+    private int AlcoholUnitPerBuy;
 
 
+    
     public Text MoneyText;
     public Text PopularityText;
 
@@ -44,10 +43,34 @@ public class UIStats : MonoBehaviour
     public Text CostAlcoholUnitText;
 
     public GameObject Layer;
+    private GameObject scene;//scenario
 
+
+    Currencies Curr;
 
     void Start()
     {
+
+        scene = GameObject.FindGameObjectWithTag("Day");
+        Curr=scene.GetComponent<Currencies>();
+
+
+        Money=Curr.GameMoney;
+        Popularity= Curr.GamePopularity;
+
+        UnitsFood=Curr.UnitsFood;
+        UnitsAlcohol = Curr.UnitsAlcohol;
+
+        PriceFood = Curr.PriceFood;
+        PriceAlcohol = Curr.PriceAlcohol;
+
+        FoodStockPrice = Curr.FoodStockPrice;
+        AlcoholStockPrice = Curr.AlcoholStockPrice;
+
+        RisePriceRate = Curr.RisePriceRate;
+        LowePriceRate = Curr.LowePriceRate;
+
+
 
         Layer.SetActive(false);
         MoneyText.text = Money.ToString();
@@ -90,62 +113,48 @@ public class UIStats : MonoBehaviour
     public void BuyFoodUnits()
     {
 
-        if (Money > 0)
-        {
-            if (Money > FoodStockPrice)
-            {
-                Money -= FoodStockPrice;
-
-              if (Money < 0)
-                Money = 0;
-
-            MoneyText.text = Money.ToString();
 
 
-          
-                UnitsFood += FoodUnitPerBuy;
-                UnitsFoodText.text = UnitsFood.ToString();
-            }
-        }
+        Curr.BuyFoodUnits();
+        
+        MoneyText.text = Curr.GameMoney.ToString();              
+        UnitsFoodText.text = Curr.UnitsFood.ToString();
+       
     }
 
     public void BuyAlcoholUnits()
     {
 
-        if (Money > 0)
-        {
-            if (Money > AlcoholStockPrice)
-            {
-                Money -= AlcoholStockPrice;
-
-            if (Money < 0)
-                Money = 0;
-
-            MoneyText.text = Money.ToString();
 
 
-          
-                UnitsAlcohol += AlcoholUnitPerBuy;
-                UnitsAlcoholText.text = UnitsAlcohol.ToString();
-            }
-        }
+
+        Curr.BuyAlcoholUnits();
+
+        MoneyText.text = Curr.GameMoney.ToString();
+        UnitsAlcoholText.text = Curr.UnitsAlcohol.ToString();
+                
+               
+    
+        
+        
 
     }
 
 
     public void RiseFoodPrice()
     {
-        
-            PriceFood += RisePriceRate;
-            PriceFoodText.text = PriceFood.ToString() + "€/Unit";
+
+
+        Curr.RiseFoodPrice();
+        PriceFoodText.text = Curr.PriceFood.ToString() + "€/Unit";
        
     }
 
     public void RiseAlcoholPrice()
     {
 
-            PriceAlcohol += LowePriceRate;
-            PriceAlcoholText.text = PriceAlcohol.ToString() + "€/Unit";
+        Curr.RiseAlcoholPrice();
+        PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
         
 
     }
@@ -153,23 +162,19 @@ public class UIStats : MonoBehaviour
 
     public void LowerFoodPrice()
     {
-       
-            PriceFood -= RisePriceRate;
-        if (PriceFood < 0)
-            PriceFood = 0.00f;
 
-        PriceFoodText.text = PriceFood.ToString() + "€/Unit";
+
+
+        Curr.LowerFoodPrice();
+        PriceFoodText.text = Curr.PriceFood.ToString() + "€/Unit";
         
     }
 
     public void LowerAlcoholPrice()
     {
-       
-            PriceAlcohol -= LowePriceRate;
 
-        if (PriceAlcohol < 0)
-            PriceAlcohol = 0.00f;
-            PriceAlcoholText.text = PriceAlcohol.ToString() + "€/Unit";
+        Curr.LowerAlcoholPrice();
+        PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
 
         
     }
