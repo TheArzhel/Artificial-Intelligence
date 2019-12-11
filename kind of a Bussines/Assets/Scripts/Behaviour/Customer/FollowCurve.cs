@@ -61,14 +61,14 @@ public class FollowCurve : MonoBehaviour
             final_position = curve.CalcPositionByDistanceRatio(ratio);
 
         final_position.y = 0.0f;
-        Vector2 lol;
-        lol.x = (final_position.x - move.transform.position.x);
-        lol.y = (final_position.z - move.transform.position.z);
+        Vector2 TargetPos;
+        TargetPos.x = (final_position.x - move.transform.position.x);
+        TargetPos.y = (final_position.z - move.transform.position.z);
         //Vector3 distaceFrom =  final_position - move.transform.position ;
 
         if ( ratio < 1)
         {
-            if (lol.magnitude > 0.5f)
+            if (TargetPos.magnitude > 0.5f)
             {
                 move.useSteer = true;
                 move.finished = false;

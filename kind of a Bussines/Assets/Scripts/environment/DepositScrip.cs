@@ -9,7 +9,7 @@ public class DepositScrip : MonoBehaviour
 {
     //public curves how to get in kithcen
     public BGCcMath curve1;
-    
+
 
     //timer variables
     private float Timer1 = 0.0f;
@@ -91,8 +91,8 @@ public class DepositScrip : MonoBehaviour
     {
         BGCcMath curve = null;
         
-            curve = curve1;
-            timerON1 = true;
+        curve = curve1;
+        timerON1 = true;
 
         return curve;
     }
