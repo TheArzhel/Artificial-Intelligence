@@ -4,19 +4,32 @@ using UnityEngine;
 using NodeCanvas.Framework;
 
 
-public class Wait : ActionTask
+public class Pay : ActionTask
 {
     public float MinTime = 1.0f;
-    public float MaxTime = 15.0f;
+    public float MaxTime = 10.0f;
 
     private float Timer = 0.0f;
     private float Expecedwait = 0.0f;
 
+
+    public bool FoodService;
+
     Move move;
+    private GameObject SceneCurrency;
+    Currencies GameCurrency;
+
+
     FollowCurve PathControl;
-    // Start is called before the first frame update
+  
+
     protected override void OnExecute()
     {
+
+        SceneCurrency = GameObject.FindGameObjectWithTag("Day");
+        GameCurrency = SceneCurrency.GetComponent<Currencies>();
+
+
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
         Timer = 0.0f;
@@ -36,10 +49,18 @@ public class Wait : ActionTask
         if (Timer >= Expecedwait)
         {
             //move.finished = false;
+            if(FoodService)
+            GameCurrency.Pay(Currencies.Bill_Type.FOOD);
+            else
+            GameCurrency.Pay(Currencies.Bill_Type.ALCOHOL);
+
+
+            GameCurrency.PopularityStreak++;
+
             EndAction(true);
 
         }
-        else if (Timer >= MaxTime+1)
+        else if (Timer >= MaxTime + 1)
         {
             EndAction(false);
         }
@@ -47,7 +68,7 @@ public class Wait : ActionTask
 
     void Randomice(float min, float max)
     {
-        Expecedwait = Random.Range(min,max);
+        Expecedwait = Random.Range(min, max);
     }
 
 

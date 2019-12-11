@@ -15,7 +15,7 @@ public class Currencies : MonoBehaviour
 
 
     public float GameMoney=100.00f;
-    public int GamePopularity=50;
+    
 
     public int UnitsFood = 20;
     public int UnitsAlcohol = 0;
@@ -32,6 +32,16 @@ public class Currencies : MonoBehaviour
 
     public int FoodUnitPerBuy = 20;//quantity of food/alcohol recieved everytime u buy
     public int AlcoholUnitPerBuy = 5;
+
+
+
+    //popularity 
+
+    public int GamePopularity = 50;
+    public int PopularityStreak=0;
+    public int popularityGoalStreak = 5;//max value to arrive for popularity rise
+    public int RisePopularityRate = 5;//Rate of quantitivity increasement popularity
+    public int LowePopularityRate = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -86,13 +96,28 @@ public class Currencies : MonoBehaviour
     }
 
 
+    public void IncreasePopularity()
+    {
+
+        if(PopularityStreak == popularityGoalStreak)
+        {
+
+            GamePopularity += RisePopularityRate;
+            PopularityStreak = 0;
+                       
+        }
+                     
+    }
+
+    public void DecreasePopularity()
+    {
+
+        GamePopularity -= LowePopularityRate;
+
+    }
 
 
-
-
-
-
-
+    //Food supplies 
     public void BuyFoodUnits()
     {
 
