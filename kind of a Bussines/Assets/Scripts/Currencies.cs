@@ -38,7 +38,7 @@ public class Currencies : MonoBehaviour
     //popularity 
     public int GamePopularity = 0;
     public int PopularityStreak=0;
-    public int popularityGoalStreak = 5;//max value to arrive for popularity rise
+    public int popularityGoalStreak = 1;//max value to arrive for popularity rise
     public int RisePopularityRate = 50;//Rate of quantitivity increasement popularity
     public int LowePopularityRate = 40;
 
@@ -71,16 +71,7 @@ public class Currencies : MonoBehaviour
 
 // Update is called once per frame
 
-    void Update()
-    {
-
-
-        if(Input.GetKey("e"))
-        UIstats.ShowMoneySum();
-
-
-    }
-
+  
     public void CashIn(float income)
     {
 
@@ -119,6 +110,9 @@ public class Currencies : MonoBehaviour
 
 
             UIstats.UpdateUIGlobalCurrencies();
+         
+
+
         }
                      
     }
