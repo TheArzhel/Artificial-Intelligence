@@ -19,6 +19,7 @@ TagManager:
   - Customer
   - TableBar
   - UI
+  - Worker
   layers:
   - Default
   - TransparentFX
