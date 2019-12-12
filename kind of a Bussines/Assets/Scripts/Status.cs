@@ -13,7 +13,7 @@ public enum AdquisitionalState
 
 
 
-public class State : MonoBehaviour
+public class Status : MonoBehaviour
 {
 
 

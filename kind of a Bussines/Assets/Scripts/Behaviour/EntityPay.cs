@@ -4,7 +4,7 @@ using UnityEngine;
 using NodeCanvas.Framework;
 
 
-public class Pay : ActionTask
+public class EntityPay : ActionTask
 {
     public float MinTime = 1.0f;
     public float MaxTime = 7.0f;
@@ -27,7 +27,7 @@ public class Pay : ActionTask
     FollowCurve PathControl;
 
 
-    State EntityStates;//entity states 
+    Status EntityStates;//entity states 
 
 
 
@@ -36,7 +36,7 @@ public class Pay : ActionTask
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         GameCurrency = SceneCurrency.GetComponent<Currencies>();
-        EntityStates = ownerAgent.gameObject.GetComponent<State>();
+        EntityStates = ownerAgent.gameObject.GetComponent<Status>();
 
 
         move = ownerAgent.gameObject.GetComponent<Move>();
