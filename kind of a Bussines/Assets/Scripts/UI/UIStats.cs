@@ -8,7 +8,7 @@ public class UIStats : MonoBehaviour
 {
 
 
-
+    //float & integers
     private float Money;
     private int Popularity;
 
@@ -29,7 +29,8 @@ public class UIStats : MonoBehaviour
     private int AlcoholUnitPerBuy;
 
 
-    
+    //Text
+
     public Text MoneyText;
     public Text PopularityText;
 
@@ -45,9 +46,16 @@ public class UIStats : MonoBehaviour
     public GameObject Layer;
     private GameObject scene;//scenario
 
+    //slider
     public Slider PopularitySlider;
 
 
+
+    //Feedback var tools
+    public GameObject FloatingTextMoney;
+
+
+    //Currency class
     Currencies Curr;
 
     void Start()
@@ -207,6 +215,19 @@ public class UIStats : MonoBehaviour
 
     }
 
+
+
+
+   public void ShowMoneySum()
+    {
+
+
+        Vector3 offset=new Vector3(0,-50, 0);
+        var go=Instantiate(FloatingTextMoney, MoneyText.transform.position + offset, Quaternion.identity, MoneyText.transform);
+        go.GetComponent<Text>().text = "+"+Curr.GameMoney.ToString();
+
+
+    }
 
 
 }

@@ -12,27 +12,28 @@ public class Currencies : MonoBehaviour
         ALCOHOL
     }
 
-
+    //Money
     public float GameMoney=100.00f;
     
-
+    //Food Units
     public int UnitsFood = 20;
     public int UnitsAlcohol = 0;
 
+    //price food
     public float PriceFood = 5.99f;//selling to
     public float PriceAlcohol = 10.99f;
 
+    //StockPrice
     public float FoodStockPrice = 10.50f;//buying to
     public float AlcoholStockPrice = 20.50f;
 
+    //rates
     public float RisePriceRate = 1.99f;// selling to values
     public float LowePriceRate = 2.99f;
 
-
+    //RateQuantities per buy
     public int FoodUnitPerBuy = 20;//quantity of food/alcohol recieved everytime u buy
     public int AlcoholUnitPerBuy = 5;
-
-
 
     //popularity 
     public int GamePopularity = 0;
@@ -44,15 +45,19 @@ public class Currencies : MonoBehaviour
     float factorA = 100;
 
 
-
+    //canvas vars
     GameObject UICanvas;
     UIStats UIstats;
 
+
+    //Status var 
     public float MinimumBillCost;//Currently for food& alcohol 
 
-    
 
-    // Start is called before the first frame update
+   
+
+
+
     void Start()
     {
 
@@ -65,6 +70,16 @@ public class Currencies : MonoBehaviour
     }
 
 // Update is called once per frame
+
+    void Update()
+    {
+
+
+        if(Input.GetKey("e"))
+        UIstats.ShowMoneySum();
+
+
+    }
 
     public void CashIn(float income)
     {
@@ -204,6 +219,7 @@ public class Currencies : MonoBehaviour
 
 
 
+   
 
 
 
