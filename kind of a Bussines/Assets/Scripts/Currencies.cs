@@ -5,14 +5,7 @@ using UnityEngine;
 public class Currencies : MonoBehaviour
 {
 
-   public enum AdquisitionalState
-    {
-        RICH,
-        MEDIUM,
-        POOR
-
-    }
-
+  
     public enum Bill_Type
     {
         FOOD,
@@ -42,21 +35,24 @@ public class Currencies : MonoBehaviour
 
 
     //popularity 
-    public int GamePopularity = 50;
+    public int GamePopularity = 0;
     public int PopularityStreak=0;
     public int popularityGoalStreak = 5;//max value to arrive for popularity rise
-    public int RisePopularityRate = 5;//Rate of quantitivity increasement popularity
-    public int LowePopularityRate = 10;
+    public int RisePopularityRate = 50;//Rate of quantitivity increasement popularity
+    public int LowePopularityRate = 40;
 
+    float factorA = 100;
+   
 
-
-    public float MaximumBillCost;
+    public float MinimumBillCost;
 
     // Start is called before the first frame update
     void Start()
     {
-    
-        MaximumBillCost=GamePopularity*0.15f;
+
+
+        float factorB = factorA * 0.2f;
+        MinimumBillCost = factorB - (factorB / 2);
 
 
     }
@@ -64,37 +60,8 @@ public class Currencies : MonoBehaviour
 // Update is called once per frame
 void Update()
     {
-        
-    }
-
-
-    public bool Pay(Bill_Type type) { 
-    
-     
 
         
-
-
-
-         switch (type)
-         {
-        
-            case Bill_Type.FOOD:
-
-                CashIn(PriceFood);
-                
-                break;
-
-            case Bill_Type.ALCOHOL:
-                CashIn(PriceAlcohol);
-  
-                break;
-         }
-
-
-
-
-        return true;
     }
 
     public void CashIn(float income)
@@ -122,7 +89,14 @@ void Update()
 
             GamePopularity += RisePopularityRate;
             PopularityStreak = 0;
-                       
+
+
+            if (GamePopularity > 100)
+            {
+                factorA = GamePopularity;
+                float factorB = factorA * 0.2f;
+                MinimumBillCost = factorB - (factorB / 2);
+            }
         }
                      
     }

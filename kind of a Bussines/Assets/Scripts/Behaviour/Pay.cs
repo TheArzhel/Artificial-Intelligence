@@ -7,7 +7,7 @@ using NodeCanvas.Framework;
 public class Pay : ActionTask
 {
     public float MinTime = 1.0f;
-    public float MaxTime = 10.0f;
+    public float MaxTime = 7.0f;
 
     private float Timer = 0.0f;
     private float Expecedwait = 0.0f;
@@ -27,7 +27,7 @@ public class Pay : ActionTask
     FollowCurve PathControl;
 
 
-    Currencies.AdquisitionalState EntityCapitalState;
+    State EntityStates;//entity states 
 
 
 
@@ -36,12 +36,7 @@ public class Pay : ActionTask
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         GameCurrency = SceneCurrency.GetComponent<Currencies>();
-      
-
-        //stablishing the max of what the costumer is going to pay
-        int State;
-        State = Random.Range(0,2);
-        EntityCapitalState = (Currencies.AdquisitionalState)State;
+        EntityStates = ownerAgent.gameObject.GetComponent<State>();
 
 
         move = ownerAgent.gameObject.GetComponent<Move>();
@@ -66,15 +61,25 @@ public class Pay : ActionTask
 
             bool ret = false;
             //move.finished = false;
+
+
             if(FoodService)
-            GameCurrency.Pay(Currencies.Bill_Type.FOOD);
+               ret= EntityStates.Pay(Currencies.Bill_Type.FOOD);
             else
-            GameCurrency.Pay(Currencies.Bill_Type.ALCOHOL);
+               ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
 
 
             GameCurrency.PopularityStreak++;
 
-            EndAction(true);
+            if (ret)
+            {
+                EndAction(true);
+            }
+            else
+            {
+                EndAction(false);
+            }
+
 
         }
         else if (Timer >= MaxTime + 1)
