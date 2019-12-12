@@ -4,19 +4,41 @@ using UnityEngine;
 using NodeCanvas.Framework;
 
 
-public class Wait : ActionTask
+public class Pay : ActionTask
 {
     public float MinTime = 1.0f;
-    public float MaxTime = 15.0f;
+    public float MaxTime = 7.0f;
 
     private float Timer = 0.0f;
     private float Expecedwait = 0.0f;
 
+
+    public bool FoodService;
+
+    
+
     Move move;
+    
+    private GameObject SceneCurrency;
+    Currencies GameCurrency;
+
+
+
     FollowCurve PathControl;
-    // Start is called before the first frame update
+
+
+    State EntityStates;//entity states 
+
+
+
     protected override void OnExecute()
     {
+
+        SceneCurrency = GameObject.FindGameObjectWithTag("Day");
+        GameCurrency = SceneCurrency.GetComponent<Currencies>();
+        EntityStates = ownerAgent.gameObject.GetComponent<State>();
+
+
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
         Timer = 0.0f;
@@ -35,11 +57,32 @@ public class Wait : ActionTask
         //id the time passes correctly end in true. otherwise false
         if (Timer >= Expecedwait)
         {
+
+
+            bool ret = false;
             //move.finished = false;
-            EndAction(true);
+
+
+            if(FoodService)
+               ret= EntityStates.Pay(Currencies.Bill_Type.FOOD);
+            else
+               ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
+
+
+            GameCurrency.PopularityStreak++;
+
+            if (ret)
+            {
+                EndAction(true);
+            }
+            else
+            {
+                EndAction(false);
+            }
+
 
         }
-        else if (Timer >= MaxTime+1)
+        else if (Timer >= MaxTime + 1)
         {
             EndAction(false);
         }
@@ -47,7 +90,7 @@ public class Wait : ActionTask
 
     void Randomice(float min, float max)
     {
-        Expecedwait = Random.Range(min,max);
+        Expecedwait = Random.Range(min, max);
     }
 
 
