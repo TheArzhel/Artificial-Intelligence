@@ -70,32 +70,7 @@ public class GotoBar : ActionTask
 
     }
 
-    //public bool ChooseCurve()
-    //{
-    //    bool ret=false;
-    //    //must choose random
-    //    int a= Random.Range(1, 3);
-    //    if (a <= 1)
-    //    {
-    //        CurrentCurve = Curve;
-    //        ret = true;
-    //    }
-    //    else if (a <= 2)
-    //    {
-    //        CurrentCurve = Curve1;
-    //        ret = true;
-    //    }
-    //    else
-    //    {
-    //        CurrentCurve = Curve2;
-    //        ret = true;
-
-    //    }
-
-
-
-    //    return ret;
-    //}
+   
 
     private void FindCurve()
     {

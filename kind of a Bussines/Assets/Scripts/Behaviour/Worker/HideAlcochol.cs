@@ -20,6 +20,7 @@ public class HideAlcochol : ActionTask
 
     Move move;
     FollowCurve PathControl;
+    Status StatusController;
 
     // Start is called before the first frame update
     protected override void OnExecute()
@@ -30,6 +31,7 @@ public class HideAlcochol : ActionTask
         move.finished = false;
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
         //Debug.Log("ret" + ret + CurrentCurve);
+        StatusController = ownerAgent.gameObject.GetComponent<Status>();
 
     }
 
@@ -66,7 +68,34 @@ public class HideAlcochol : ActionTask
     public bool ChooseCurve()
     {
         bool ret = false;
-        //CurrentCurve = Curve;
+        switch (StatusController.PreviousAction)
+        {
+            case WorkerState.CLOSEBAR:
+                CurrentCurve = BarDoor;
+
+                break;
+
+
+            case WorkerState.HIDEALCOHOL:
+                CurrentCurve = DepositHide;
+
+                break;
+
+            case WorkerState.RESTOCK:
+                CurrentCurve = DepositRestock;
+
+                break;
+
+            case WorkerState.SELLBAR:
+                CurrentCurve =BarSeel ;
+
+                break;
+            case WorkerState.SELLKITCHEN:
+                CurrentCurve = Kitchen;
+
+                break;
+        }
+        
         ret = true;
         return ret;
     }
