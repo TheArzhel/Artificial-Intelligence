@@ -5,7 +5,7 @@ using NodeCanvas.Framework;
 using BansheeGz.BGSpline.Components;
 using BansheeGz.BGSpline.Curve;
 
-public class HideAlcochol : ActionTask
+public class GotoKitchenWorker: ActionTask
 {
     public BGCcMath DepositRestock;
     public BGCcMath DepositHide;
@@ -44,10 +44,10 @@ public class HideAlcochol : ActionTask
             if (CurrentCurve == null)
             {
                 ret = ChooseCurve();
-               // Debug.Log("choose curve ret " + ret + CurrentCurve);
+                // Debug.Log("choose curve ret " + ret + CurrentCurve);
             }
 
-           // Debug.Log(ret);
+            // Debug.Log(ret);
             if (ret)
             {
                 PathControl.SetCurve(CurrentCurve);
@@ -87,7 +87,7 @@ public class HideAlcochol : ActionTask
                 break;
 
             case WorkerState.SELLBAR:
-                CurrentCurve =BarSeel ;
+                CurrentCurve = BarSeel;
 
                 break;
             case WorkerState.SELLKITCHEN:
@@ -95,7 +95,7 @@ public class HideAlcochol : ActionTask
 
                 break;
         }
-        
+
         ret = true;
         return ret;
     }

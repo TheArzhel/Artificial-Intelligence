@@ -66,6 +66,9 @@ public class KitchenScrip : MonoBehaviour
     public int foodAmount = 10;
     public bool FoodExist = true;
 
+    //attendat
+    public bool attendant = true;
+
     // Start is called before the first frame update
     void Start()
     {
