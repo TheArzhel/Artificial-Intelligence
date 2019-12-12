@@ -42,14 +42,15 @@ public class Status : MonoBehaviour
     GameObject scene;
 
     //WorkerVariables
-    WorkerState TodoAction;
-
+    public WorkerState TodoAction;
+    public WorkerState PreviousAction;
 
 
     // Start is called before the first frame update
     void Start()
     {
         TodoAction = WorkerState.NONE;
+        PreviousAction = WorkerState.NONE;
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         Curr= SceneCurrency.GetComponent<Currencies>();
