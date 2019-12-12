@@ -18,6 +18,7 @@ TagManager:
   - VisualEmissor
   - Customer
   - TableBar
+  - UI
   layers:
   - Default
   - TransparentFX

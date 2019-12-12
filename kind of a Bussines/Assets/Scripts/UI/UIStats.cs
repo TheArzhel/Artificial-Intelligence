@@ -45,6 +45,8 @@ public class UIStats : MonoBehaviour
     public GameObject Layer;
     private GameObject scene;//scenario
 
+    public Slider PopularitySlider;
+
 
     Currencies Curr;
 
@@ -87,10 +89,12 @@ public class UIStats : MonoBehaviour
 
         CostFoodUnitText.text = FoodStockPrice.ToString() + "€/Unit";
         CostAlcoholUnitText.text = AlcoholStockPrice.ToString() + "€/Unit";
+
+        PopularitySlider.value = Curr.GamePopularity; ;
+
     }
 
- 
-  
+
 
   public void OpenMenu()
     {
@@ -177,6 +181,30 @@ public class UIStats : MonoBehaviour
         PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
 
         
+    }
+
+
+
+    public void UpdateUIValues()
+    {
+
+        MoneyText.text = Curr.GameMoney.ToString();
+        UnitsFoodText.text = Curr.UnitsFood.ToString();
+        UnitsAlcoholText.text = Curr.UnitsFood.ToString();
+        PriceFoodText.text = Curr.PriceFood.ToString() + "€/Unit";
+        PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
+        PopularityText.text = Curr.GamePopularity.ToString();
+
+    }
+
+
+    public void UpdateUIGlobalCurrencies()
+    {
+
+        MoneyText.text = Curr.GameMoney.ToString();
+        PopularityText.text = Curr.GamePopularity.ToString();
+        PopularitySlider.value = Curr.GamePopularity;
+
     }
 
 

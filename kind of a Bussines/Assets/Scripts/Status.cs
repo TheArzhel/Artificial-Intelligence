@@ -16,9 +16,7 @@ public enum AdquisitionalState
 public class Status : MonoBehaviour
 {
 
-
-
-    AdquisitionalState CapitalStatus;
+    public AdquisitionalState CapitalStatus;
     private GameObject SceneCurrency;
     Currencies Curr;
 
