@@ -11,7 +11,16 @@ public enum AdquisitionalState
 
 }
 
+public enum WorkerState
+{
+    NONE,
+    SELLKITCHEN,
+    SELLBAR,
+    HIDEALCOHOL,
+    CLOSEBAR,
+    RESTOCK
 
+}
 
 public class Status : MonoBehaviour
 {
@@ -27,10 +36,20 @@ public class Status : MonoBehaviour
     float AuxPriceFood;
     float AuxPriceAlcohol;
 
+    //DaynightControlVariables
+    DayNight Day;
+    public bool day = true;
+    GameObject scene;
+
+    //WorkerVariables
+    WorkerState TodoAction;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        TodoAction = WorkerState.NONE;
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         Curr= SceneCurrency.GetComponent<Currencies>();
@@ -42,13 +61,21 @@ public class Status : MonoBehaviour
         AuxPriceFood = Curr.PriceFood;
         AuxPriceAlcohol = Curr.PriceAlcohol;
 
+        //day or night chechk
+        scene = GameObject.FindGameObjectWithTag("Day");
+
+        if (Day == null)
+            Day = scene.GetComponent<DayNight>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //check day or night
+        day = Day.getdate();
+
     }
 
 

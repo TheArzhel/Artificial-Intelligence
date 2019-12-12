@@ -41,9 +41,7 @@ public class Move : MonoBehaviour
 
     public bool useSteer = false;
     Animator anim;
-    DayNight Day;
     public bool finished = false;
-    public bool day = true;
 
     GameObject scene;
     public enum ACTIVITY
@@ -95,17 +93,13 @@ public class Move : MonoBehaviour
     }
 
      void Start()
-    {
+     {
        anim= GetComponent<Animator>();
         action = ACTIVITY.Eat;
 
         scene = GameObject.FindGameObjectWithTag("Day");
 
-        if (Day == null)
-            Day = scene.GetComponent<DayNight>();
-
-
-    }
+     }
 
     public void Stop()
     {
@@ -142,7 +136,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        day =Day.getdate();
+        
 
         CheckFood();
         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
