@@ -61,28 +61,45 @@ public class BarScrip : MonoBehaviour
     public int TimeToStop10 = 0;
 
     //Food controllers
-    public int foodAmount = 10;
-    public bool FoodExist = true;
+    public int DrinkAmount = 10;
+    public bool DrinkExist = true;
+
+    //open controler
+    public bool IsOpen = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (foodAmount > 0)
-        { FoodExist = true; }
+        if (DrinkAmount > 0)
+        { DrinkExist = true; }
         else
-            FoodExist = false;
+            DrinkExist = false;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (foodAmount > 0)
-        { FoodExist = true; }
+        if (DrinkAmount > 0)
+        { DrinkExist = true; }
         else
-            FoodExist = false;
+            DrinkExist = false;
 
         TimerUpdate();
+    }
+
+    public void CloseBar()
+    {
+        IsOpen = false;
+    }
+    public void OpenBar()
+    {
+        IsOpen = true;
+    }
+
+    public bool IsitOpen()
+    {
+        return IsOpen;
     }
 
     void TimerUpdate()

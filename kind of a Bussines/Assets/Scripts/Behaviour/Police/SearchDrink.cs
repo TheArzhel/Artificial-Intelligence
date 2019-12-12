@@ -45,7 +45,7 @@ public class SearchDrink : ActionTask
             //if (Cargo != null)
             //Debug.Log("exis2t");
             
-            DepositControler.SeeDrink();
+            found = DepositControler.SeeDrink();
         }
         //id the time passes correctly end in true. otherwise false
         if (Timer * 2 >= MinTime && found == true)
