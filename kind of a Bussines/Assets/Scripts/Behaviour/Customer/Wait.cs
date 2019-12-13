@@ -35,6 +35,7 @@ public class Wait : ActionTask
         //id the time passes correctly end in true. otherwise false
         if (Timer >= Expecedwait)
         {
+            ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
             //move.finished = false;
             EndAction(true);
 
