@@ -87,6 +87,7 @@ public class CharacterActionUI : MonoBehaviour
         {
 
             Debug.Log("Wait");
+            DataOfSelectedGO.TodoAction = WorkerState.NONE;
 
         }
 
@@ -97,11 +98,11 @@ public class CharacterActionUI : MonoBehaviour
     public void CloseBarActionSend()
     {
 
-
         if (DataOfSelectedGO != null)
         {
 
             Debug.Log("Close bar");
+            DataOfSelectedGO.TodoAction = WorkerState.CLOSEBAR;
 
         }
 
@@ -113,12 +114,64 @@ public class CharacterActionUI : MonoBehaviour
 
         if (DataOfSelectedGO != null)
         {
-
-            Debug.Log("Hide");
+            if (DataOfSelectedGO.TodoAction == WorkerState.NONE) {
+                Debug.Log("Hide");
+                DataOfSelectedGO.TodoAction = WorkerState.HIDEALCOHOL;
+            }
 
         }
 
 
+
+    }
+
+
+    public void GoToKitchenSell()
+    {
+
+        if (DataOfSelectedGO != null)
+        {
+            if (DataOfSelectedGO.TodoAction == WorkerState.NONE)
+            {
+                Debug.Log("Go to Cash in at kitchen");
+                DataOfSelectedGO.TodoAction = WorkerState.SELLKITCHEN;
+            }
+        }
+
+
+    }
+
+
+    public void GoToBarSell()
+    {
+
+
+        if (DataOfSelectedGO != null)
+        {
+            if (DataOfSelectedGO.TodoAction == WorkerState.NONE)
+            {
+                Debug.Log("Go to Cash in at bar");
+                DataOfSelectedGO.TodoAction = WorkerState.SELLBAR;
+            }
+        }
+
+
+
+
+    }
+
+    public void GoToRestock()
+    {
+
+        if (DataOfSelectedGO != null)
+        {
+
+            if (DataOfSelectedGO.TodoAction == WorkerState.NONE)
+            {
+                Debug.Log("Go to Restock");
+                DataOfSelectedGO.TodoAction = WorkerState.RESTOCK;
+            }
+        }
 
     }
 
