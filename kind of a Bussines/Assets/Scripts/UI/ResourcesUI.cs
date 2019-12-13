@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UIStats : MonoBehaviour
+public class ResourcesUI : MonoBehaviour
 {
 
 
@@ -49,14 +49,14 @@ public class UIStats : MonoBehaviour
     //slider
     public Slider PopularitySlider;
 
-
-
     //Feedback var tools
-    public GameObject FloatingTextMoney;
-
+   // public GameObject FloatingTextMoney;
 
     //Currency class
     Currencies Curr;
+    CharacterActionUI ActionsUI;
+
+    bool PanelIsActive;
 
     void Start()
     {
@@ -83,6 +83,8 @@ public class UIStats : MonoBehaviour
 
 
         Layer.SetActive(false);
+        PanelIsActive = false;
+
         MoneyText.text = Money.ToString();
         PopularityText.text = Popularity.ToString();
 
@@ -100,6 +102,11 @@ public class UIStats : MonoBehaviour
 
         PopularitySlider.value = Curr.GamePopularity; ;
 
+
+
+
+        ActionsUI = gameObject.GetComponent<CharacterActionUI>();
+
     }
 
 
@@ -107,8 +114,18 @@ public class UIStats : MonoBehaviour
   public void OpenMenu()
     {
 
-        if (!Layer.activeSelf)
+        if (Layer.activeSelf==false)
+        {
+
             Layer.SetActive(true);
+            PanelIsActive = true;
+
+
+            //if the other panel is open then close
+
+            ActionsUI.CloseActionMenu();
+
+        }
         else
             Layer.SetActive(false);
 
@@ -119,7 +136,7 @@ public class UIStats : MonoBehaviour
     {
 
         Layer.SetActive(false);
-
+        PanelIsActive = false;
     }
 
     public void BuyFoodUnits()
@@ -222,9 +239,9 @@ public class UIStats : MonoBehaviour
     {
 
 
-        Vector3 offset=new Vector3(0,-50, 0);
-        var go=Instantiate(FloatingTextMoney, MoneyText.transform.position + offset, Quaternion.identity, MoneyText.transform);
-        go.GetComponent<Text>().text = "+"+Curr.GameMoney.ToString();
+        //Vector3 offset=new Vector3(0,-50, 0);
+        //var go=Instantiate(FloatingTextMoney, MoneyText.transform.position + offset, Quaternion.identity, MoneyText.transform);
+        //go.GetComponent<Text>().text = "+"+Curr.GameMoney.ToString();
 
 
     }

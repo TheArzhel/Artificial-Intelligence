@@ -19,12 +19,17 @@ public class CharacterActionUI : MonoBehaviour
     bool TargetHit;
 
     float RayLenght = 100f;
-    public LayerMask layermask;
 
+    public LayerMask layermask;
     Status DataOfSelectedGO;
+
+    ResourcesUI panelResources;
+
+    bool PanelIsActive;
 
     void Start()
     {
+        panelResources=gameObject.GetComponent<ResourcesUI>();
         
     }
 
@@ -54,6 +59,12 @@ public class CharacterActionUI : MonoBehaviour
                 TargetHit = true;
                 SelectedEntity=hit.collider.gameObject;
                 CharacterUIaction.SetActive(true);
+                PanelIsActive = true;
+
+
+                //if the other panel is open then close
+                panelResources.CloseMenu();
+
 
             }
               
@@ -66,7 +77,7 @@ public class CharacterActionUI : MonoBehaviour
     public void CloseActionMenu()
     {
        CharacterUIaction.SetActive(false);
-
+        PanelIsActive = false;
     }
 
     public void WaitActionSend()

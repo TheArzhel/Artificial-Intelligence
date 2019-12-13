@@ -47,7 +47,7 @@ public class Currencies : MonoBehaviour
 
     //canvas vars
     GameObject UICanvas;
-    UIStats UIstats;
+    ResourcesUI UIstats;
 
 
     //Status var 
@@ -66,7 +66,7 @@ public class Currencies : MonoBehaviour
         float factorB = factorA * 0.2f;
         MinimumBillCost = factorB - (factorB / 2);
         UICanvas = GameObject.FindGameObjectWithTag("UI");
-        UIstats = UICanvas.GetComponent<UIStats>();
+        UIstats = UICanvas.GetComponent<ResourcesUI>();
     }
 
 // Update is called once per frame
