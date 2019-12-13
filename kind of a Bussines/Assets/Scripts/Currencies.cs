@@ -12,71 +12,81 @@ public class Currencies : MonoBehaviour
         ALCOHOL
     }
 
-
+    //Money
     public float GameMoney=100.00f;
     
-
+    //Food Units
     public int UnitsFood = 20;
     public int UnitsAlcohol = 0;
 
+    //price food
     public float PriceFood = 5.99f;//selling to
     public float PriceAlcohol = 10.99f;
 
+    //StockPrice
     public float FoodStockPrice = 10.50f;//buying to
     public float AlcoholStockPrice = 20.50f;
 
-    public float RisePriceRate = 5.99f;// selling to values
-    public float LowePriceRate = 10.50f;
+    //rates
+    public float RisePriceRate = 1.99f;// selling to values
+    public float LowePriceRate = 2.99f;
 
-
+    //RateQuantities per buy
     public int FoodUnitPerBuy = 20;//quantity of food/alcohol recieved everytime u buy
     public int AlcoholUnitPerBuy = 5;
-
-
 
     //popularity 
     public int GamePopularity = 0;
     public int PopularityStreak=0;
-    public int popularityGoalStreak = 5;//max value to arrive for popularity rise
+    public int popularityGoalStreak = 1;//max value to arrive for popularity rise
     public int RisePopularityRate = 50;//Rate of quantitivity increasement popularity
     public int LowePopularityRate = 40;
 
     float factorA = 100;
+
+
+    //canvas vars
+    GameObject UICanvas;
+    ResourcesUI UIstats;
+
+
+    //Status var 
+    public float MinimumBillCost;//Currently for food& alcohol 
+
+
    
 
-    public float MinimumBillCost;
 
-    // Start is called before the first frame update
+
     void Start()
     {
 
+       //if factorA is 100 the fisrt price is 10 
 
         float factorB = factorA * 0.2f;
         MinimumBillCost = factorB - (factorB / 2);
-
-
+        UICanvas = GameObject.FindGameObjectWithTag("UI");
+        UIstats = UICanvas.GetComponent<ResourcesUI>();
     }
 
 // Update is called once per frame
-void Update()
-    {
 
-        
-    }
-
+  
     public void CashIn(float income)
     {
 
         GameMoney += income;
 
+        UIstats.UpdateUIGlobalCurrencies();
 
-       
+
     }
    
     public void CashOut(float bill)
     {
 
         GameMoney -= bill;
+        UIstats.UpdateUIGlobalCurrencies();
 
     }
 
@@ -97,6 +107,12 @@ void Update()
                 float factorB = factorA * 0.2f;
                 MinimumBillCost = factorB - (factorB / 2);
             }
+
+
+            UIstats.UpdateUIGlobalCurrencies();
+         
+
+
         }
                      
     }
@@ -105,6 +121,7 @@ void Update()
     {
 
         GamePopularity -= LowePopularityRate;
+        UIstats.UpdateUIGlobalCurrencies();
 
     }
 
@@ -196,6 +213,7 @@ void Update()
 
 
 
+   
 
 
 

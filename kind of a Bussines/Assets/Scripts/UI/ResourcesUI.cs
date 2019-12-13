@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UIStats : MonoBehaviour
+public class ResourcesUI : MonoBehaviour
 {
 
 
-
+    //float & integers
     private float Money;
     private int Popularity;
 
@@ -29,7 +29,8 @@ public class UIStats : MonoBehaviour
     private int AlcoholUnitPerBuy;
 
 
-    
+    //Text
+
     public Text MoneyText;
     public Text PopularityText;
 
@@ -45,8 +46,17 @@ public class UIStats : MonoBehaviour
     public GameObject Layer;
     private GameObject scene;//scenario
 
+    //slider
+    public Slider PopularitySlider;
 
+    //Feedback var tools
+   // public GameObject FloatingTextMoney;
+
+    //Currency class
     Currencies Curr;
+    CharacterActionUI ActionsUI;
+
+    bool PanelIsActive;
 
     void Start()
     {
@@ -73,6 +83,8 @@ public class UIStats : MonoBehaviour
 
 
         Layer.SetActive(false);
+        PanelIsActive = false;
+
         MoneyText.text = Money.ToString();
         PopularityText.text = Popularity.ToString();
 
@@ -85,18 +97,35 @@ public class UIStats : MonoBehaviour
         FoodStockPrice = 10.50f;
         AlcoholStockPrice = 20.50f;
 
-        CostFoodUnitText.text = FoodStockPrice.ToString() + "€/Unit";
-        CostAlcoholUnitText.text = AlcoholStockPrice.ToString() + "€/Unit";
+        CostFoodUnitText.text = "-" + FoodStockPrice.ToString() + "€/Unit";
+        CostAlcoholUnitText.text = "-" + AlcoholStockPrice.ToString() + "€/Unit";
+
+        PopularitySlider.value = Curr.GamePopularity; ;
+
+
+
+
+        ActionsUI = gameObject.GetComponent<CharacterActionUI>();
+
     }
 
- 
-  
+
 
   public void OpenMenu()
     {
 
-        if (!Layer.activeSelf)
+        if (Layer.activeSelf==false)
+        {
+
             Layer.SetActive(true);
+            PanelIsActive = true;
+
+
+            //if the other panel is open then close
+
+            ActionsUI.CloseActionMenu();
+
+        }
         else
             Layer.SetActive(false);
 
@@ -107,7 +136,7 @@ public class UIStats : MonoBehaviour
     {
 
         Layer.SetActive(false);
-
+        PanelIsActive = false;
     }
 
     public void BuyFoodUnits()
@@ -179,6 +208,43 @@ public class UIStats : MonoBehaviour
         
     }
 
+
+
+    public void UpdateUIValues()
+    {
+
+        MoneyText.text = Curr.GameMoney.ToString();
+        UnitsFoodText.text = Curr.UnitsFood.ToString();
+        UnitsAlcoholText.text = Curr.UnitsFood.ToString();
+        PriceFoodText.text = Curr.PriceFood.ToString() + "€/Unit";
+        PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
+        PopularityText.text = Curr.GamePopularity.ToString();
+
+    }
+
+
+    public void UpdateUIGlobalCurrencies()
+    {
+
+        MoneyText.text = Curr.GameMoney.ToString();
+        PopularityText.text = Curr.GamePopularity.ToString();
+        PopularitySlider.value = Curr.GamePopularity;
+
+    }
+
+
+
+
+   public void ShowMoneySum()
+    {
+
+
+        //Vector3 offset=new Vector3(0,-50, 0);
+        //var go=Instantiate(FloatingTextMoney, MoneyText.transform.position + offset, Quaternion.identity, MoneyText.transform);
+        //go.GetComponent<Text>().text = "+"+Curr.GameMoney.ToString();
+
+
+    }
 
 
 }

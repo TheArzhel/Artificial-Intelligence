@@ -25,9 +25,7 @@ public enum WorkerState
 public class Status : MonoBehaviour
 {
 
-
-
-    AdquisitionalState CapitalStatus;
+    public AdquisitionalState CapitalStatus;
     private GameObject SceneCurrency;
     Currencies Curr;
 
@@ -114,7 +112,8 @@ public class Status : MonoBehaviour
 
 
                 if (moneyOwner >= Curr.PriceFood)
-                    Curr.CashIn(AuxPriceFood);
+                      Curr.CashIn(AuxPriceFood);
+
                 else
                     ret = false;
 
@@ -134,6 +133,11 @@ public class Status : MonoBehaviour
 
 
 
+        if (ret)
+        {
+            Curr.PopularityStreak++;
+            Curr.IncreasePopularity();
+        }
 
         return ret;
     }
