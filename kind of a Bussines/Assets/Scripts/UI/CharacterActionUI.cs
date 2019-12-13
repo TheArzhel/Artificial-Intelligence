@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+
+
+
+
+
 public class CharacterActionUI : MonoBehaviour
 {
 
@@ -15,6 +21,7 @@ public class CharacterActionUI : MonoBehaviour
     float RayLenght = 100f;
     public LayerMask layermask;
 
+    Status DataOfSelectedGO;
 
     void Start()
     {
@@ -25,6 +32,12 @@ public class CharacterActionUI : MonoBehaviour
     void Update()
     {
 
+        if (TargetHit)
+        {
+
+            DataOfSelectedGO=SelectedEntity.GetComponent<Status>();
+            TargetHit = false;
+        }
 
 
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -38,17 +51,65 @@ public class CharacterActionUI : MonoBehaviour
             {
 
 
+                TargetHit = true;
+                SelectedEntity=hit.collider.gameObject;
                 CharacterUIaction.SetActive(true);
 
-
-
             }
+              
+        }
+
+    }
 
 
-            
-                       
+
+    public void CloseActionMenu()
+    {
+       CharacterUIaction.SetActive(false);
+
+    }
+
+    public void WaitActionSend()
+    {
+
+        if (DataOfSelectedGO != null)
+        {
+
+            Debug.Log("Wait");
+
         }
 
 
     }
+
+
+    public void CloseBarActionSend()
+    {
+
+
+        if (DataOfSelectedGO != null)
+        {
+
+            Debug.Log("Close bar");
+
+        }
+
+
+    }
+
+    public void HideAlcoholActionSend()
+    {
+
+        if (DataOfSelectedGO != null)
+        {
+
+            Debug.Log("Hide");
+
+        }
+
+
+
+    }
+
+
 }

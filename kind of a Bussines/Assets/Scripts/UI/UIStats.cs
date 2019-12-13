@@ -95,8 +95,8 @@ public class UIStats : MonoBehaviour
         FoodStockPrice = 10.50f;
         AlcoholStockPrice = 20.50f;
 
-        CostFoodUnitText.text = FoodStockPrice.ToString() + "€/Unit";
-        CostAlcoholUnitText.text = AlcoholStockPrice.ToString() + "€/Unit";
+        CostFoodUnitText.text = "-" + FoodStockPrice.ToString() + "€/Unit";
+        CostAlcoholUnitText.text = "-" + AlcoholStockPrice.ToString() + "€/Unit";
 
         PopularitySlider.value = Curr.GamePopularity; ;
 
