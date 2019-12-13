@@ -63,8 +63,8 @@ public class KitchenScrip : MonoBehaviour
     public int TimeToStop10 = 0;
 
     //Food controllers
-    public int foodAmount = 10;
-    public bool FoodExist = true;
+    public int foodAmount = 0;
+    public bool FoodExist = false;
 
     //attendat
     public bool attendant = true;

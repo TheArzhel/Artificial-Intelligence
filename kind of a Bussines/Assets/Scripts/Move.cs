@@ -138,7 +138,7 @@ public class Move : MonoBehaviour
     {
         
 
-        CheckFood();
+        //CheckFood();
         orientation = Vector3.SignedAngle(Vector3.forward, transform.forward, Vector3.up);
 
         // cap velocity
