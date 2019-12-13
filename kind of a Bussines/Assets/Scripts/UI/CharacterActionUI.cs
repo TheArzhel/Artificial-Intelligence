@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterActionUI : MonoBehaviour
 {
 
     public GameObject CharacterUIaction;
     GameObject SelectedEntity;
+
+
     bool TargetHit;
+
+    float RayLenght = 100f;
+    public LayerMask layermask;
+
 
     void Start()
     {
@@ -17,35 +24,28 @@ public class CharacterActionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+
+
+
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
 
-            RaycastHit hit;
+          
+              RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, RayLenght, layermask))
             {
-                if (hit.rigidbody.gameObject.CompareTag("Worker"))
-                {
 
-                    SelectedEntity = hit.rigidbody.gameObject;
-                    TargetHit = true;
-
-                }
-
-
-            }
-
-
-            if (TargetHit){
 
                 CharacterUIaction.SetActive(true);
-                
-
 
 
 
             }
+
+
+            
                        
         }
 
