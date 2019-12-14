@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public enum PopUp_Type { Inspect, Detected,Money, Food, Alcohol }
+public enum PopUp_Type { Inspect, Detected,Money, Food, Alcohol,Angry,Waiting}
 
 public class DisplayPopUps : MonoBehaviour
 {

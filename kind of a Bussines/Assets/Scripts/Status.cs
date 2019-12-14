@@ -22,6 +22,21 @@ public enum WorkerState
 
 }
 
+
+public enum Mood
+{
+    NONE,
+    ANGRY,
+    HUNGRY,
+    THIRSTY,
+    CONFUSE,
+    FOCUSED,
+    PAYING
+
+
+
+}
+
 public class Status : MonoBehaviour
 {
 
@@ -48,8 +63,8 @@ public class Status : MonoBehaviour
     public bool IsThereFood = false;
     //Drinks
     public bool IsThereDrinks = false;
-    
 
+   public Mood AgentMood=Mood.ANGRY;
 
     // Start is called before the first frame update
     void Start()
