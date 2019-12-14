@@ -133,12 +133,14 @@ public class BarScrip : MonoBehaviour
     public void unlockBar()
     {
         unlocked = true;
+        IsOpen = true;
         cube_mat.color = transparent;
     }
 
     public void lockBar()
     {
         unlocked = false;
+        IsOpen = false;
         cube_mat.color = opaque;
     }
 
