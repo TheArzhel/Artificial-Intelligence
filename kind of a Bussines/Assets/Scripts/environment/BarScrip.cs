@@ -66,6 +66,9 @@ public class BarScrip : MonoBehaviour
 
     //open controler
     public bool IsOpen = true;
+    GameObject cube;
+    Material cube_mat;
+    public bool unlocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +77,9 @@ public class BarScrip : MonoBehaviour
         { DrinkExist = true; }
         else
             DrinkExist = false;
+
+        cube = GameObject.FindGameObjectWithTag("Block cube");
+        cube_mat = cube.GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -90,11 +96,31 @@ public class BarScrip : MonoBehaviour
 
     public void CloseBar()
     {
-        IsOpen = false;
+        if (unlocked==true)
+        {
+         IsOpen = false;
+         cube_mat.color.a.Equals(130/255);
+        }
     }
+
     public void OpenBar()
     {
-        IsOpen = true;
+        if (unlocked == true)
+        {
+
+            IsOpen = true;
+            cube_mat.color.a.Equals(0);
+        }
+    }
+
+    public void unlockBar()
+    {
+        unlocked = true;
+    }
+
+    public void lockBar()
+    {
+        unlocked = false;
     }
 
     public bool IsitOpen()
