@@ -131,7 +131,7 @@ public class FollowCurve : MonoBehaviour
             move.ChangeUseSteer(false);
         }
         ratio = 0;
-        //Debug.Log("set curve" + curve);
+        Debug.Log("set curve" + curve);
 
     }
 

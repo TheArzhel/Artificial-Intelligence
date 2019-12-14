@@ -27,7 +27,7 @@ public class ActivateBar : ActionTask
         ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
         ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         BarScrip.attendant = true;
-
+        //ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
         EndAction(true);
 
     }

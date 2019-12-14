@@ -90,14 +90,14 @@ public class EnablePopUps : MonoBehaviour
             }
             
           
-            Debug.Log("Instantiate");
+           // Debug.Log("Instantiate");
             Instantiate(PopPrefab, transform.position + offset, Quaternion.identity, transform);
 
         }
         else
         {
 
-            Debug.Log("No status component detected");
+           // Debug.Log("No status component detected");
 
 
 

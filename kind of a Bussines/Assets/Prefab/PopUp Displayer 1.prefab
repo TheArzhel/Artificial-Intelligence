@@ -95,6 +95,6 @@ MonoBehaviour:
   offset: {x: 0, y: 2, z: 0}
   SpriteScale: {x: 5, y: 5, z: 5}
   DestroyTimePopUp: 3
-  current: 0
+  current: 1
   PopAtlas: {fileID: 4343727234628468602, guid: 0a87dcd7d6ddc044eb8fa49305e682ae,
     type: 2}

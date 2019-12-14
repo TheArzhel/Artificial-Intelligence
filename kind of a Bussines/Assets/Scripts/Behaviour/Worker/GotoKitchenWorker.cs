@@ -50,9 +50,9 @@ public class GotoKitchenWorker: ActionTask
             // Debug.Log(ret);
             if (ret)
             {
+                PathControl.SetCurve(CurrentCurve);
                 ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
                 ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
-                PathControl.SetCurve(CurrentCurve);
                 // move.finished = false;
             }
             else
@@ -61,6 +61,7 @@ public class GotoKitchenWorker: ActionTask
         else if (move.finished && ret)
         {
 
+                
             EndAction(true);
             //Debug.Log("end " + CurrentCurve);
         }
@@ -76,13 +77,10 @@ public class GotoKitchenWorker: ActionTask
                 CurrentCurve = BarDoor;
 
                 break;
-
-
             case WorkerState.HIDEALCOHOL:
                 CurrentCurve = DepositHide;
 
                 break;
-
             case WorkerState.RESTOCK:
                 CurrentCurve = DepositRestock;
 
@@ -94,6 +92,7 @@ public class GotoKitchenWorker: ActionTask
                 break;
             case WorkerState.SELLKITCHEN:
                 CurrentCurve = Kitchen;
+                
 
                 break;
         }

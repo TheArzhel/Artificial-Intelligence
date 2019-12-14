@@ -49,7 +49,7 @@ public class MovetoKitchen : ActionTask
 
             }
 
-            Debug.Log(ret);
+            //Debug.Log(ret);
             if (ret)
             {
 

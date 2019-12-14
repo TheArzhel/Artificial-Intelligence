@@ -55,8 +55,8 @@ public class Status : MonoBehaviour
     GameObject scene;
 
     //WorkerVariables
-    public WorkerState TodoAction = WorkerState.NONE;
-    public WorkerState PreviousAction = WorkerState.NONE;
+    public WorkerState TodoAction;
+    public WorkerState PreviousAction;
 
     //FoodandDrinkControlVars
     //Food

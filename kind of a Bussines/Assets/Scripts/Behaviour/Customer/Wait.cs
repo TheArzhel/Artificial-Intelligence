@@ -35,7 +35,7 @@ public class Wait : ActionTask
         //id the time passes correctly end in true. otherwise false
         if (Timer >= Expecedwait)
         {
-            ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
+           // ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
             //move.finished = false;
             EndAction(true);
 
@@ -58,7 +58,7 @@ public class Wait : ActionTask
         move.finished = true;
         PathControl.SetCurve(null);
         move.ChangeUseSteer(false);
-        Debug.Log("end on clean value wait");
+       // Debug.Log("end on clean value wait");
     }
 
 }

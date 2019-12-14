@@ -30,7 +30,7 @@ public class Restock : ActionTask
         ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
         ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         DepositController.Hidedrink();
-
+        //ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
         EndAction(true);
 
     }
