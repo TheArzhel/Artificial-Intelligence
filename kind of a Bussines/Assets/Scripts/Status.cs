@@ -43,6 +43,13 @@ public class Status : MonoBehaviour
     public WorkerState TodoAction;
     public WorkerState PreviousAction;
 
+    //FoodandDrinkControlVars
+    //Food
+    public bool IsThereFood = false;
+    //Drinks
+    public bool IsThereDrinks = false;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +59,17 @@ public class Status : MonoBehaviour
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         Curr= SceneCurrency.GetComponent<Currencies>();
+
+        if (Curr.UnitsAlcohol > 0)
+            IsThereDrinks = true;
+        else
+            IsThereDrinks = false;
+
+        if (Curr.UnitsFood > 0)
+            IsThereFood = true;
+        else
+            IsThereFood = false;
+
 
         int i = Random.Range(0,2);
         CapitalStatus = (AdquisitionalState)i;
@@ -75,6 +93,15 @@ public class Status : MonoBehaviour
         //check day or night
         day = Day.getdate();
 
+        if (Curr.UnitsAlcohol > 0)
+            IsThereDrinks = true;
+        else
+            IsThereDrinks = false;
+
+        if (Curr.UnitsFood > 0)
+            IsThereFood = true;
+        else
+            IsThereFood = false;
     }
 
 

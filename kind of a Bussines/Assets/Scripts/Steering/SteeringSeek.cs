@@ -5,7 +5,7 @@ public class SteeringSeek : MonoBehaviour
 {
     SteeringArrive arrive;
     Move move;
-    public float mind_distance = 1.0f;
+    public float mind_distance = 0.4f;
     // Use this for initialization
     void Start()
     {

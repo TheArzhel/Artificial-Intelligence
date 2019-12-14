@@ -65,6 +65,7 @@ public class KitchenScrip : MonoBehaviour
     //Food controllers
     public int foodAmount = 0;
     public bool FoodExist = false;
+    Currencies Currencies;
 
     //attendat
     public bool attendant = true;
@@ -72,6 +73,10 @@ public class KitchenScrip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject Scene = GameObject.FindGameObjectWithTag("Day");
+        Currencies = Scene.GetComponent<Currencies>();
+        foodAmount = Currencies.UnitsFood;
+
         if (foodAmount > 0)
         { FoodExist = true; }
         else
@@ -81,6 +86,7 @@ public class KitchenScrip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foodAmount = Currencies.UnitsFood;
 
         if (foodAmount > 0)
         { FoodExist = true; }

@@ -63,6 +63,7 @@ public class BarScrip : MonoBehaviour
     //Food controllers
     public int DrinkAmount = 10;
     public bool DrinkExist = true;
+    Currencies Currencies;
 
     //open controler
     public bool IsOpen = true;
@@ -70,9 +71,15 @@ public class BarScrip : MonoBehaviour
     Material cube_mat;
     public bool unlocked = false;
 
+    //attendat
+    public bool attendant = true;
+
     // Start is called before the first frame update
     void Start()
     {
+        GameObject Scene = GameObject.FindGameObjectWithTag("Day");
+        Currencies = Scene.GetComponent<Currencies>();
+        DrinkAmount = Currencies.UnitsAlcohol;
         if (DrinkAmount > 0)
         { DrinkExist = true; }
         else
@@ -85,7 +92,7 @@ public class BarScrip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        DrinkAmount = Currencies.UnitsAlcohol;
         if (DrinkAmount > 0)
         { DrinkExist = true; }
         else

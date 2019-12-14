@@ -51,8 +51,7 @@ public class Move : MonoBehaviour
 
     public ACTIVITY action;
 
-    //Food
-    public bool IsThereFood = false;
+   
 
 
     // Methods for behaviours to set / add velocities
@@ -61,7 +60,7 @@ public class Move : MonoBehaviour
         GameObject Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
         KitchenScrip KitchenControler;
         KitchenControler = Kitchen.GetComponent<KitchenScrip>();
-        IsThereFood = KitchenControler.FoodExist;
+        
     }
 
     public void SetMovementVelocity(Vector3 velocity)
