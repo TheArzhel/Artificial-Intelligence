@@ -21,8 +21,8 @@ public class EntityPay : ActionTask
     
     private GameObject SceneCurrency;
     Currencies GameCurrency;
-
-
+    private GameObject Kitchen;
+    private GameObject Bar;
 
     FollowCurve PathControl;
 
@@ -37,7 +37,8 @@ public class EntityPay : ActionTask
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         GameCurrency = SceneCurrency.GetComponent<Currencies>();
         EntityStates = ownerAgent.gameObject.GetComponent<Status>();
-
+        Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
+        Bar = GameObject.FindGameObjectWithTag("Bar");
 
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
@@ -63,20 +64,36 @@ public class EntityPay : ActionTask
             //move.finished = false;
 
 
-            if(FoodService)
-               ret= EntityStates.Pay(Currencies.Bill_Type.FOOD);
+            if (FoodService)
+            {
+                ret = EntityStates.Pay(Currencies.Bill_Type.FOOD);
+                if (Kitchen.GetComponent<KitchenScrip>().attendant != true)
+                {
+                    ret = false;
+                }
+            }
             else
+            {
                ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
+                if (Bar.GetComponent<BarScrip>().attendant != true)
+                {
+                    ret = false;
+                }
+            }
 
 
             GameCurrency.PopularityStreak++;
 
             if (ret)
             {
+                EntityStates.AgentMood = Mood.PAYING;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
                 EndAction(true);
             }
             else
             {
+                EntityStates.AgentMood = Mood.ANGRY;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
                 EndAction(false);
             }
 

@@ -64,6 +64,10 @@ public class Status : MonoBehaviour
     //Drinks
     public bool IsThereDrinks = false;
 
+    //bar control vars
+    public bool BarIsOpen = false;
+    BarScrip BarControl;
+
    public Mood AgentMood=Mood.ANGRY;
 
     // Start is called before the first frame update
@@ -74,6 +78,10 @@ public class Status : MonoBehaviour
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         Curr= SceneCurrency.GetComponent<Currencies>();
+
+        GameObject Bar = GameObject.FindGameObjectWithTag("Bar");
+        BarControl = Bar.GetComponent<BarScrip>();
+        BarIsOpen = BarControl.IsitOpen();
 
         if (Curr.UnitsAlcohol > 0)
             IsThereDrinks = true;
@@ -105,6 +113,8 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BarIsOpen = BarControl.IsitOpen();
+
         //check day or night
         day = Day.getdate();
 
@@ -154,8 +164,10 @@ public class Status : MonoBehaviour
 
 
                 if (moneyOwner >= Curr.PriceFood)
+                {
                       Curr.CashIn(AuxPriceFood);
-
+                    Curr.UnitsFood -= 1;
+                }
                 else
                     ret = false;
 
@@ -166,7 +178,10 @@ public class Status : MonoBehaviour
 
 
                 if (moneyOwner >= Curr.PriceAlcohol)
+                {
                     Curr.CashIn(AuxPriceAlcohol);
+                    Curr.UnitsAlcohol -= 1;
+                }
                 else
                     ret = false;
 

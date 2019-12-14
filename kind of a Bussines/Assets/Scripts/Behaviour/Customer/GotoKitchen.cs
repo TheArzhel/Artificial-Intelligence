@@ -50,7 +50,7 @@ public class GotoKitchen : ActionTask
 
             }
 
-            Debug.Log(ret);
+            //Debug.Log(ret);
             if (ret)
             {
 
@@ -100,12 +100,12 @@ public class GotoKitchen : ActionTask
     private void FindCurve()
     {
         Kitchen = GameObject.FindGameObjectWithTag ( "Kitchen" );
-        if (Kitchen!=null)
-            Debug.Log("exist");
+        //if (Kitchen!=null)
+            //Debug.Log("exist");
         KitchenScrip KitchenControler;
         KitchenControler = Kitchen.GetComponent<KitchenScrip>();
-        if (Kitchen != null)
-            Debug.Log("exis2t");
+        //if (Kitchen != null)
+            //Debug.Log("exis2t");
         CurrentCurve = KitchenControler.AskPath();
     }
 }

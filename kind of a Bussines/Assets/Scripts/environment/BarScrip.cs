@@ -70,6 +70,12 @@ public class BarScrip : MonoBehaviour
     GameObject cube;
     Material cube_mat;
     public bool unlocked = false;
+    Color transparent;
+    Color opaque;
+
+    private float TimerClose = 0.0f;
+    private bool timerONClose = false;
+    public int TimeToStopClose = 60;
 
     //attendat
     public bool attendant = true;
@@ -87,6 +93,9 @@ public class BarScrip : MonoBehaviour
 
         cube = GameObject.FindGameObjectWithTag("Block cube");
         cube_mat = cube.GetComponent<Renderer>().material;
+        opaque = cube_mat.color;
+        transparent = opaque;
+        transparent.a = 0;
     }
 
     // Update is called once per frame
@@ -106,7 +115,8 @@ public class BarScrip : MonoBehaviour
         if (unlocked==true)
         {
          IsOpen = false;
-         cube_mat.color.a.Equals(130/255);
+         cube_mat.color = opaque;
+            timerONClose = true;
         }
     }
 
@@ -116,27 +126,45 @@ public class BarScrip : MonoBehaviour
         {
 
             IsOpen = true;
-            cube_mat.color.a.Equals(0);
+            cube_mat.color = transparent;
         }
     }
 
     public void unlockBar()
     {
         unlocked = true;
+        cube_mat.color = transparent;
     }
 
     public void lockBar()
     {
         unlocked = false;
+        cube_mat.color = opaque;
     }
 
     public bool IsitOpen()
     {
-        return IsOpen;
+        if (unlocked == true && IsOpen == true)
+            return true;
+        else
+            return false;
     }
 
     void TimerUpdate()
     {
+        if (timerONClose)
+        {
+            TimerClose += Time.deltaTime;
+
+            if (TimerClose % 60 >= TimeToStopClose)//timetostop)
+            {
+                TimerClose = 0.0f;
+                timerONClose = false;
+                OpenBar();
+
+
+            }
+        }
         if (timerON1)
         {
             Timer1 += Time.deltaTime;
