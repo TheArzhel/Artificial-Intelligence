@@ -215,7 +215,7 @@ public class ResourcesUI : MonoBehaviour
 
         MoneyText.text = Curr.GameMoney.ToString();
         UnitsFoodText.text = Curr.UnitsFood.ToString();
-        UnitsAlcoholText.text = Curr.UnitsFood.ToString();
+        UnitsAlcoholText.text = Curr.UnitsAlcohol.ToString();
         PriceFoodText.text = Curr.PriceFood.ToString() + "€/Unit";
         PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
         PopularityText.text = Curr.GamePopularity.ToString();

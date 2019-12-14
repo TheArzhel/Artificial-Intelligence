@@ -22,6 +22,8 @@ public class DisplayPopUps : MonoBehaviour
 
     private SpriteRenderer myrender;
 
+
+    GameObject mainCam;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +33,11 @@ public class DisplayPopUps : MonoBehaviour
         myrender = GetComponent<SpriteRenderer>();
         ShowSprite();
         Destroy(gameObject, DestroyTimePopUp);
-
+        mainCam = GameObject.Find("Main Camera");
     }
 
-    // Update is called once per frame
   
+
 
     void ShowSprite()
     {

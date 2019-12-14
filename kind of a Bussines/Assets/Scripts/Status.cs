@@ -68,6 +68,11 @@ public class Status : MonoBehaviour
     public bool BarIsOpen = false;
     BarScrip BarControl;
 
+
+    //ResourcesUI
+
+
+
    public Mood AgentMood=Mood.ANGRY;
 
     // Start is called before the first frame update
@@ -165,8 +170,9 @@ public class Status : MonoBehaviour
 
                 if (moneyOwner >= Curr.PriceFood)
                 {
-                      Curr.CashIn(AuxPriceFood);
+                    Curr.CashIn(AuxPriceFood);
                     Curr.UnitsFood -= 1;
+                   
                 }
                 else
                     ret = false;

@@ -77,8 +77,8 @@ public class Currencies : MonoBehaviour
 
         GameMoney += income;
 
-        UIstats.UpdateUIGlobalCurrencies();
-
+        //UIstats.UpdateUIGlobalCurrencies();
+        UIstats.UpdateUIValues();
 
     }
    
@@ -86,8 +86,8 @@ public class Currencies : MonoBehaviour
     {
 
         GameMoney -= bill;
-        UIstats.UpdateUIGlobalCurrencies();
-
+        //UIstats.UpdateUIGlobalCurrencies();
+        UIstats.UpdateUIValues();
     }
 
 

@@ -21,7 +21,7 @@ public class EnablePopUps : MonoBehaviour
     {
         AuxPrefab = PopPrefab;
         offset = new Vector3(0, 4, 0);
-        mainCam = GameObject.Find("Main Camera");
+        //mainCam = GameObject.Find("Main Camera");
         AuxPopUp = PopPrefab.GetComponent<DisplayPopUps>();
         AgentState = GetComponent<Status>();
 
@@ -36,17 +36,14 @@ public class EnablePopUps : MonoBehaviour
             PopPrefab = AuxPrefab;
 
 
-        if (PopPrefab != null)
-        {
-
-            PopPrefab.transform.LookAt(mainCam.transform);
-
-        }
+        //if (PopPrefab != null)
+        //{
 
 
+        //    Debug.Log("align with camera");
+        //    PopPrefab.transform.LookAt(Camera.main.transform);
 
-        if (Input.GetKey("e"))
-            ShowPopUp();
+        //}
 
 
     }
@@ -91,7 +88,7 @@ public class EnablePopUps : MonoBehaviour
             
           
             Debug.Log("Instantiate");
-            Instantiate(PopPrefab, transform.position + offset, Quaternion.identity, transform);
+            Instantiate(PopPrefab, transform.position + offset, Quaternion.identity,transform);
 
         }
         else
