@@ -28,7 +28,7 @@ public class GotoDeposit : ActionTask
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
 
         //Debug.Log("ret" + ret + CurrentCurve);
-
+       
     }
 
     // Update is called once per frame
@@ -47,10 +47,12 @@ public class GotoDeposit : ActionTask
 
             }
 
-            Debug.Log(ret);
+           /// Debug.Log(ret);
             if (ret)
             {
 
+                ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.CONFUSE;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
                 PathControl.SetCurve(CurrentCurve);
 
                 // move.finished = false;
