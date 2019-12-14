@@ -27,6 +27,8 @@ public class Restock : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         DepositController.Hidedrink();
 
         EndAction(true);

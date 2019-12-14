@@ -50,6 +50,8 @@ public class GotoBarWorker: ActionTask
             // Debug.Log(ret);
             if (ret)
             {
+                ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
                 PathControl.SetCurve(CurrentCurve);
                 // move.finished = false;
             }
@@ -95,6 +97,7 @@ public class GotoBarWorker: ActionTask
 
                 break;
         }
+        StatusController.PreviousAction = StatusController.TodoAction;
 
         ret = true;
         return ret;

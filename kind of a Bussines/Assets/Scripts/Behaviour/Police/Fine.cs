@@ -13,13 +13,13 @@ public class Fine : ActionTask
     {
         GameObject scene = GameObject.FindGameObjectWithTag("Day");
         curr = scene.GetComponent<Currencies>();
-        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
-        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
     }
 
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         curr.CashOut(cashout);
         curr.DecreasePopularity();
         EndAction(true);

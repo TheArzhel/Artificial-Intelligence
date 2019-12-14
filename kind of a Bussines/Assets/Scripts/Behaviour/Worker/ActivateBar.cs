@@ -4,7 +4,7 @@ using UnityEngine;
 using NodeCanvas.Framework;
 
 
-public class ActivateBAr : ActionTask
+public class ActivateBar : ActionTask
 {
     Move move;
     FollowCurve PathControl;
@@ -24,6 +24,8 @@ public class ActivateBAr : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         BarScrip.attendant = true;
 
         EndAction(true);
