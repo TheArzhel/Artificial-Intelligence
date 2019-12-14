@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100066, guid: 4f2d47505ddfc604a9f702e0599aa2ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 4f2d47505ddfc604a9f702e0599aa2ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -293,7 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"day":{"_propertyPath":"Status.day","_name":"day","_id":"0c370fc3-1b9f-4b19-885f-c3be89eb0f3a","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
 --- !u!114 &8055418
 MonoBehaviour:
@@ -327,7 +328,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &8055420
 BoxCollider:
@@ -403,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612fefe37772540c8bb2bcc1639f521e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mind_distance: 1
+  mind_distance: 0.5
 --- !u!114 &8055425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ MonoBehaviour:
   Rotation: 0
   Steering_linear: {x: 0, y: 0, z: 0}
   Steering_angular: 0
-  max_speed: 5
+  max_speed: 3.17
   max_rot_speed: 5
   max_acceleration: 0.1
   max_rot_acceleration: 0.5
@@ -14146,7 +14147,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &358898482
 BoxCollider:
@@ -14222,7 +14223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612fefe37772540c8bb2bcc1639f521e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mind_distance: 1
+  mind_distance: 0.5
 --- !u!114 &358898487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14263,7 +14264,7 @@ MonoBehaviour:
   Rotation: 0
   Steering_linear: {x: 0, y: 0, z: 0}
   Steering_angular: 0
-  max_speed: 5
+  max_speed: 3.17
   max_rot_speed: 5
   max_acceleration: 0.1
   max_rot_acceleration: 0.5
@@ -32686,36 +32687,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 873270226}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &874038276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
-  m_Name: BusinessMan BehaviourTree
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-2826.0,"y":-2647.0},"zoomFactor":0.4919958,"nodes":[{"_position":{"x":5824.0,"y":4855.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"dynamic":true,"_position":{"x":5413.0,"y":4970.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"3"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":5189.0,"y":5087.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"4"},{"_position":{"x":5412.0,"y":5118.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"8"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":4993.0,"y":5302.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":5219.0,"y":5331.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"11"},{"_position":{"x":5046.0,"y":5433.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"12"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4985.0,"y":5504.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"13"},{"_position":{"x":5296.0,"y":5435.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"17"},{"_action":{"FoodService":true,"$type":"EntityPay"},"_position":{"x":5219.0,"y":5502.0},"_tag":"Pay","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"18"},{"_action":{"$type":"GotoTable"},"_position":{"x":5376.0,"y":5503.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"20"},{"_action":{"MinTime":11.82,"MaxTime":29.53,"$type":"Wait"},"_position":{"x":5359.0,"y":5296.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"22"},{"_action":{"Curve":1,"$type":"Wander"},"_position":{"x":5441.0,"y":5366.0},"_tag":"wander","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"24"},{"_action":{"Curve":2,"$type":"GoAway"},"_position":{"x":5608.0,"y":5368.0},"_tag":"go
-    away","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"26"},{"_action":{"MinTime":24.0,"MaxTime":26.84,"$type":"Wait"},"_position":{"x":5679.0,"y":5291.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"28"},{"dynamic":true,"_position":{"x":6295.0,"y":4990.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"30"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":6174.0,"y":5147.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"31"},{"random":true,"_position":{"x":6422.0,"y":5156.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"35"},{"_position":{"x":6127.0,"y":5354.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"36"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":5708.0,"y":5538.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"37"},{"_position":{"x":5934.0,"y":5567.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"39"},{"_position":{"x":5761.0,"y":5669.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"40"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5700.0,"y":5740.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"41"},{"_position":{"x":6011.0,"y":5671.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"45"},{"_action":{"FoodService":true,"$type":"EntityPay"},"_position":{"x":5934.0,"y":5738.0},"_tag":"Pay","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"46"},{"_action":{"$type":"GotoTable"},"_position":{"x":6091.0,"y":5739.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"48"},{"_action":{"MinTime":11.82,"MaxTime":29.53,"$type":"Wait"},"_position":{"x":6074.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_action":{"Curve":1,"$type":"Wander"},"_position":{"x":6156.0,"y":5602.0},"_tag":"wander","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"52"},{"_action":{"Curve":2,"$type":"GoAway"},"_position":{"x":6322.0,"y":5603.0},"_tag":"go
-    away","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"54"},{"_action":{"MinTime":24.0,"MaxTime":26.84,"$type":"Wait"},"_position":{"x":6394.0,"y":5527.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"56"},{"_position":{"x":7077.0,"y":5329.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"58"},{"dynamic":true,"_position":{"x":6893.0,"y":5445.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"59"},{"_condition":{"valueA":{"_name":"BarIsOpen","_targetVariableID":"fdccf64b-f4bb-4f41-b3b1-4f1d232cff55"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":6707.0,"y":5550.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"60"},{"_position":{"x":6949.0,"y":5547.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"64"},{"_action":{"$type":"GotoBar"},"_position":{"x":6561.0,"y":5671.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"65"},{"_position":{"x":6745.0,"y":5710.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"67"},{"_position":{"x":6592.0,"y":5808.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"68"},{"_condition":{"valueA":{"_name":"IsThereDrinks","_targetVariableID":"96d15d16-fac8-435e-a09f-2f151cc99f1f"},"valueB":{"_value":true},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":6505.0,"y":5908.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"69"},{"_position":{"x":6822.0,"y":5819.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"73"},{"_action":{"$type":"EntityPay"},"_position":{"x":6710.0,"y":5903.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"74"},{"_action":{"$type":"GotoTableBar"},"_position":{"x":6913.0,"y":5909.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"76"},{"_action":{"MaxTime":5.0,"$type":"Wait"},"_position":{"x":6882.0,"y":5693.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"78"},{"_action":{"Curve":3,"$type":"WanderBar"},"_position":{"x":6990.0,"y":5756.0},"_tag":"wander
-    bar","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"80"},{"_action":{"Curve":4,"$type":"GoAwayBar"},"_position":{"x":7186.0,"y":5763.0},"_tag":"go
-    away bar","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"82"},{"_action":{"MinTime":10.0,"$type":"Wait"},"_position":{"x":7202.0,"y":5670.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"84"},{"_action":{"MinTime":65.0,"MaxTime":70.0,"$type":"Wait"},"_position":{"x":7582.0,"y":5510.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"86"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"30"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"31"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"30"},"_targetNode":{"$ref":"35"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"35"},"_targetNode":{"$ref":"36"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"35"},"_targetNode":{"$ref":"58"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"37"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"39"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"50"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"52"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"54"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"36"},"_targetNode":{"$ref":"56"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"45"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"40"},"_targetNode":{"$ref":"41"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"45"},"_targetNode":{"$ref":"46"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"45"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"59"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"58"},"_targetNode":{"$ref":"86"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"59"},"_targetNode":{"$ref":"60"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"59"},"_targetNode":{"$ref":"64"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"65"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"67"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"78"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"80"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"82"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"64"},"_targetNode":{"$ref":"84"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"67"},"_targetNode":{"$ref":"68"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"67"},"_targetNode":{"$ref":"73"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"68"},"_targetNode":{"$ref":"69"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"73"},"_targetNode":{"$ref":"74"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"73"},"_targetNode":{"$ref":"76"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 1021472493}
-  - {fileID: 1680550350}
-  - {fileID: 1758983904}
-  - {fileID: 291686095}
-  _deserializationFailed: 0
-  repeat: 1
-  updateInterval: 0
 --- !u!4 &874343268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d80c7433031fdee44bf3910c4b046ce7,
@@ -43549,7 +43520,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &1188984827
 BoxCollider:
@@ -43625,7 +43596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612fefe37772540c8bb2bcc1639f521e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mind_distance: 1
+  mind_distance: 0.5
 --- !u!114 &1188984832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43666,7 +43637,7 @@ MonoBehaviour:
   Rotation: 0
   Steering_linear: {x: 0, y: 0, z: 0}
   Steering_angular: 0
-  max_speed: 5
+  max_speed: 3.17
   max_rot_speed: 5
   max_acceleration: 0.1
   max_rot_acceleration: 0.5
@@ -53126,7 +53097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
   m_Name: BusinessMan BehaviourTree
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-2826.0,"y":-2647.0},"zoomFactor":0.4919958,"nodes":[{"_position":{"x":5824.0,"y":4855.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"dynamic":true,"_position":{"x":5413.0,"y":4970.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"3"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":5189.0,"y":5087.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"4"},{"_position":{"x":5412.0,"y":5118.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"8"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":4993.0,"y":5302.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":5219.0,"y":5331.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"11"},{"_position":{"x":5046.0,"y":5433.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"12"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+  _serializedGraph: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-1186.0,"y":-1182.0},"zoomFactor":0.2500092,"nodes":[{"_position":{"x":5824.0,"y":4855.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"dynamic":true,"_position":{"x":5413.0,"y":4970.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"3"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":5189.0,"y":5087.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"4"},{"_position":{"x":5412.0,"y":5118.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"8"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":4993.0,"y":5302.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":5219.0,"y":5331.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"11"},{"_position":{"x":5046.0,"y":5433.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"12"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4985.0,"y":5504.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"13"},{"_position":{"x":5296.0,"y":5435.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"17"},{"_action":{"FoodService":true,"$type":"EntityPay"},"_position":{"x":5219.0,"y":5502.0},"_tag":"Pay","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"18"},{"_action":{"$type":"GotoTable"},"_position":{"x":5376.0,"y":5503.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"20"},{"_action":{"MinTime":11.82,"MaxTime":29.53,"$type":"Wait"},"_position":{"x":5359.0,"y":5296.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"22"},{"_action":{"Curve":1,"$type":"Wander"},"_position":{"x":5441.0,"y":5366.0},"_tag":"wander","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"24"},{"_action":{"Curve":2,"$type":"GoAway"},"_position":{"x":5608.0,"y":5368.0},"_tag":"go
     away","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"26"},{"_action":{"MinTime":24.0,"MaxTime":26.84,"$type":"Wait"},"_position":{"x":5679.0,"y":5291.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"28"},{"dynamic":true,"_position":{"x":6295.0,"y":4990.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"30"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":6174.0,"y":5147.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"31"},{"random":true,"_position":{"x":6422.0,"y":5156.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"35"},{"_position":{"x":6127.0,"y":5354.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"36"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":5708.0,"y":5538.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"37"},{"_position":{"x":5934.0,"y":5567.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"39"},{"_position":{"x":5761.0,"y":5669.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"40"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5700.0,"y":5740.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"41"},{"_position":{"x":6011.0,"y":5671.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"45"},{"_action":{"FoodService":true,"$type":"EntityPay"},"_position":{"x":5934.0,"y":5738.0},"_tag":"Pay","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"46"},{"_action":{"$type":"GotoTable"},"_position":{"x":6091.0,"y":5739.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"48"},{"_action":{"MinTime":11.82,"MaxTime":29.53,"$type":"Wait"},"_position":{"x":6074.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_action":{"Curve":1,"$type":"Wander"},"_position":{"x":6156.0,"y":5602.0},"_tag":"wander","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"52"},{"_action":{"Curve":2,"$type":"GoAway"},"_position":{"x":6322.0,"y":5603.0},"_tag":"go
@@ -78371,7 +78342,7 @@ PrefabInstance:
     - target: {fileID: 8320278355158439829, guid: 43a9a2516ddc18b4baffc1dcf1547bfe,
         type: 3}
       propertyPath: boundGraphSerialization
-      value: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-2826.0,"y":-2647.0},"zoomFactor":0.4919958,"nodes":[{"_position":{"x":5824.0,"y":4855.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"dynamic":true,"_position":{"x":5413.0,"y":4970.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"3"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":5189.0,"y":5087.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"4"},{"_position":{"x":5412.0,"y":5118.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"8"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":4993.0,"y":5302.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":5219.0,"y":5331.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"11"},{"_position":{"x":5046.0,"y":5433.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"12"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
+      value: '{"version":2.85,"type":"NodeCanvas.BehaviourTrees.BehaviourTree","translation":{"x":-1186.0,"y":-1182.0},"zoomFactor":0.2500092,"nodes":[{"_position":{"x":5824.0,"y":4855.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"dynamic":true,"_position":{"x":5413.0,"y":4970.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"3"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":5189.0,"y":5087.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"4"},{"_position":{"x":5412.0,"y":5118.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"8"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":4993.0,"y":5302.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_position":{"x":5219.0,"y":5331.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"11"},{"_position":{"x":5046.0,"y":5433.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"12"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":4985.0,"y":5504.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"13"},{"_position":{"x":5296.0,"y":5435.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"17"},{"_action":{"FoodService":true,"$type":"EntityPay"},"_position":{"x":5219.0,"y":5502.0},"_tag":"Pay","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"18"},{"_action":{"$type":"GotoTable"},"_position":{"x":5376.0,"y":5503.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"20"},{"_action":{"MinTime":11.82,"MaxTime":29.53,"$type":"Wait"},"_position":{"x":5359.0,"y":5296.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"22"},{"_action":{"Curve":1,"$type":"Wander"},"_position":{"x":5441.0,"y":5366.0},"_tag":"wander","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"24"},{"_action":{"Curve":2,"$type":"GoAway"},"_position":{"x":5608.0,"y":5368.0},"_tag":"go
         away","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"26"},{"_action":{"MinTime":24.0,"MaxTime":26.84,"$type":"Wait"},"_position":{"x":5679.0,"y":5291.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"28"},{"dynamic":true,"_position":{"x":6295.0,"y":4990.0},"$type":"NodeCanvas.BehaviourTrees.Parallel","$id":"30"},{"_condition":{"valueA":{"_name":"day","_targetVariableID":"488addf1-fc4f-40d4-abab-fc50a0f153f8"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_position":{"x":6174.0,"y":5147.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"31"},{"random":true,"_position":{"x":6422.0,"y":5156.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"35"},{"_position":{"x":6127.0,"y":5354.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"36"},{"_action":{"$type":"GotoKitchen"},"_position":{"x":5708.0,"y":5538.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"37"},{"_position":{"x":5934.0,"y":5567.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"39"},{"_position":{"x":5761.0,"y":5669.0},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"40"},{"_condition":{"valueA":{"_name":"IsThereFood","_targetVariableID":"caa4d9d1-ea1c-4aee-82dc-5953e9335ba5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Boolean,
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_position":{"x":5700.0,"y":5740.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"41"},{"_position":{"x":6011.0,"y":5671.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"45"},{"_action":{"FoodService":true,"$type":"EntityPay"},"_position":{"x":5934.0,"y":5738.0},"_tag":"Pay","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"46"},{"_action":{"$type":"GotoTable"},"_position":{"x":6091.0,"y":5739.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"48"},{"_action":{"MinTime":11.82,"MaxTime":29.53,"$type":"Wait"},"_position":{"x":6074.0,"y":5532.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"50"},{"_action":{"Curve":1,"$type":"Wander"},"_position":{"x":6156.0,"y":5602.0},"_tag":"wander","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"52"},{"_action":{"Curve":2,"$type":"GoAway"},"_position":{"x":6322.0,"y":5603.0},"_tag":"go
@@ -78405,7 +78376,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 874038276}
+      objectReference: {fileID: 1489212711}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a9a2516ddc18b4baffc1dcf1547bfe, type: 3}
 --- !u!1001 &8450299057184036159
