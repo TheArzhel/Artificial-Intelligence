@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
-enum PopUp_Type { Inspect, Detected,Money, Food, Alcohol }
+public enum PopUp_Type { Inspect, Detected,Money, Food, Alcohol }
 
 public class DisplayPopUps : MonoBehaviour
 {
@@ -11,11 +11,11 @@ public class DisplayPopUps : MonoBehaviour
 
 
     public Vector3 offset = new Vector3(0,2,0);
-    public Vector3 SpriteScale = new Vector3(3, 3, 3);
+    public Vector3 SpriteScale = new Vector3(5, 5, 5);
     public float DestroyTimePopUp = 3.0f;
 
     [SerializeField]
-    private PopUp_Type current;
+    public PopUp_Type current;
 
     [SerializeField]
     private SpriteAtlas PopAtlas;
@@ -26,14 +26,10 @@ public class DisplayPopUps : MonoBehaviour
     void Start()
     {
 
-        transform.localPosition += offset;
+       
         transform.localScale = SpriteScale;
-
         myrender = GetComponent<SpriteRenderer>();
-
-        current = PopUp_Type.Inspect;
-        ChangeSprite();
-
+        ShowSprite();
         Destroy(gameObject, DestroyTimePopUp);
 
     }
@@ -41,14 +37,10 @@ public class DisplayPopUps : MonoBehaviour
     // Update is called once per frame
   
 
-    void ChangeSprite()
+    void ShowSprite()
     {
 
-
-        //TODO:switch
         myrender.sprite = PopAtlas.GetSprite(current.ToString());
-
-
 
     }
 }
