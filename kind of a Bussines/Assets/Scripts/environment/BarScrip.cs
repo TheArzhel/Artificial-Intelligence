@@ -72,6 +72,7 @@ public class BarScrip : MonoBehaviour
     public bool unlocked = false;
     Color transparent;
     Color opaque;
+    Color Black;
 
     private float TimerClose = 0.0f;
     private bool timerONClose = false;
@@ -96,6 +97,9 @@ public class BarScrip : MonoBehaviour
         opaque = cube_mat.color;
         transparent = opaque;
         transparent.a = 0;
+        Black = opaque;
+        Black.a = 1;
+        cube_mat.color = Black;
     }
 
     // Update is called once per frame
@@ -141,7 +145,7 @@ public class BarScrip : MonoBehaviour
     {
         unlocked = false;
         IsOpen = false;
-        cube_mat.color = opaque;
+        cube_mat.color = Black;
     }
 
     public bool IsitOpen()
