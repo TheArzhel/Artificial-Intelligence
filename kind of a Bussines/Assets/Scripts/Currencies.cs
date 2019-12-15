@@ -59,6 +59,16 @@ public class Currencies : MonoBehaviour
 
     ChangeScene changer;
 
+  
+    public AudioSource audioSRC;
+    public AudioClip Clip;
+    public AudioClip LoseClip;
+    public AudioClip WinClip;
+
+
+
+    bool playWin = true;
+    bool playLose = true;
 
     void Start()
     {
@@ -73,6 +83,14 @@ public class Currencies : MonoBehaviour
 
         GameObject aux = GameObject.Find("LevelChanger");
         changer = aux.GetComponent<ChangeScene>();
+
+
+    
+      
+
+
+
+
     }
 
     // Update is called once per frame
@@ -81,7 +99,8 @@ public class Currencies : MonoBehaviour
     {
 
 
-
+        if (Input.GetMouseButton(0))
+            GamePopularity=-250;
 
         if (GameMoney < 0)
         {
@@ -95,8 +114,13 @@ public class Currencies : MonoBehaviour
             TimerForFade += Time.deltaTime;
             UIstats.LoseGame.SetActive(true);
 
-
-            if(TimerForFade>=4.00f)
+            if (playLose)
+            {
+                audioSRC.clip = LoseClip;
+                audioSRC.Play();
+                playLose = false;
+            }
+            if (TimerForFade>=4.00f)
             Lose();
 
 
@@ -106,6 +130,13 @@ public class Currencies : MonoBehaviour
 
             TimerForFade += Time.deltaTime;
             UIstats.winGame.SetActive(true);
+
+            if (playWin)
+            {
+                audioSRC.clip = WinClip;
+                audioSRC.Play();
+                playWin = false;
+            }
 
             if (TimerForFade >= 4.00f)
                 Win();
@@ -119,9 +150,11 @@ public class Currencies : MonoBehaviour
     {
 
         GameMoney += income;
-
         //UIstats.UpdateUIGlobalCurrencies();
         UIstats.UpdateUIValues();
+
+        audioSRC.clip=Clip;
+        audioSRC.Play();
 
     }
 
@@ -279,14 +312,14 @@ public class Currencies : MonoBehaviour
     public void Win()
     {
 
-       
+        
         changer.FadeTolevel(0);
 
     }
 
     public void Lose()
     {
-       
+      
         changer.FadeTolevel(0);
 
     }
