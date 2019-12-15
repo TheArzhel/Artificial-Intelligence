@@ -89,6 +89,13 @@ public class BarScrip : MonoBehaviour
     //Unlock buttom
     public GameObject UnlockBarButton;
 
+    public AudioSource audioSRC;
+    public AudioClip CloseBarClip;
+    public AudioClip DetectedClip;
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -113,6 +120,9 @@ public class BarScrip : MonoBehaviour
         Black = opaque;
         Black.a = 1;
         cube_mat.color = Black;
+
+
+
     }
 
     // Update is called once per frame
@@ -168,6 +178,9 @@ public class BarScrip : MonoBehaviour
          IsOpen = false;
          cube_mat.color = opaque;
             timerONClose = true;
+
+            PlayCloseClip();
+
         }
     }
 
@@ -178,6 +191,10 @@ public class BarScrip : MonoBehaviour
 
             IsOpen = true;
             cube_mat.color = transparent;
+
+
+            PlayCloseClip();
+
         }
     }
 
@@ -191,9 +208,11 @@ public class BarScrip : MonoBehaviour
             cube_mat.color = transparent;
             //money here
             //disactivate button
-      UnlockBarButton.SetActive(false);
+             UnlockBarButton.SetActive(false);
 
-}
+            PlayCloseClip();
+
+        }
     }
 
     public void lockBar()
@@ -204,12 +223,18 @@ public class BarScrip : MonoBehaviour
 
         //activate button
         UnlockBarButton.SetActive(true);
+
+        PlayCloseClip();
     }
 
     public bool IsitOpen()
     {
         if (unlocked == true && IsOpen == true)
+        {
+          
+           
             return true;
+        }
         else
             return false;
     }
@@ -476,5 +501,18 @@ public class BarScrip : MonoBehaviour
 
 
         return curve;
+    }
+
+
+
+    public void PlayCloseClip()
+    {
+
+
+
+        audioSRC.clip = CloseBarClip;
+        audioSRC.Play();
+
+
     }
 }

@@ -100,7 +100,7 @@ public class Currencies : MonoBehaviour
 
 
         if (Input.GetMouseButton(0))
-            GamePopularity=-250;
+            CashIn(100);
 
         if (GameMoney < 0)
         {
