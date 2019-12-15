@@ -8,7 +8,7 @@ public class DayNight : MonoBehaviour
     public int DaySec=10;
     public float Timer = 0.0f;
 
-  
+    public bool Alwaysnight = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,9 @@ public class DayNight : MonoBehaviour
             dayorNight = !dayorNight;
             
         }
+
+        if (Alwaysnight)
+        dayorNight = false;
     }
 
     public bool getdate() { return dayorNight; }
