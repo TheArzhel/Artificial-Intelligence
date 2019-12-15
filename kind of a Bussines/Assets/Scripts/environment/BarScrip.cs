@@ -85,6 +85,11 @@ public class BarScrip : MonoBehaviour
     //money
     public int UnlockBarPrice;
 
+
+    //Unlock buttom
+    public GameObject UnlockBarButton;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -185,8 +190,10 @@ public class BarScrip : MonoBehaviour
             IsOpen = true;
             cube_mat.color = transparent;
             //money here
+            //disactivate button
+      UnlockBarButton.SetActive(false);
 
-        }
+}
     }
 
     public void lockBar()
@@ -194,6 +201,9 @@ public class BarScrip : MonoBehaviour
         unlocked = false;
         IsOpen = false;
         cube_mat.color = Black;
+
+        //activate button
+        UnlockBarButton.SetActive(true);
     }
 
     public bool IsitOpen()
