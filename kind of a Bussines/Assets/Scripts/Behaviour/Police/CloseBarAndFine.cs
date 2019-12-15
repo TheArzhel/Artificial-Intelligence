@@ -36,7 +36,7 @@ public class CloseBarAndFine : ActionTask
         BarScrip BarControler;
         BarControler = Bar.GetComponent<BarScrip>();
         //close and fine
-        BarControler.CloseBar();
+        BarControler.lockBar();
         //set fine
         // decrease popularity
         curr.CashOut(cashout);

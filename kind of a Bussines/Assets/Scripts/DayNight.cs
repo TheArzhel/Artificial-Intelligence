@@ -6,7 +6,7 @@ public class DayNight : MonoBehaviour
 {
     public bool dayorNight = true;
     public int DaySec=10;
-    private float Timer = 0.0f;
+    public float Timer = 0.0f;
 
   
 
@@ -21,7 +21,7 @@ public class DayNight : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
-        if (Timer % 60 >= DaySec)
+        if (Timer >= DaySec)
         {
             Timer = 0.0f;
             dayorNight = !dayorNight;

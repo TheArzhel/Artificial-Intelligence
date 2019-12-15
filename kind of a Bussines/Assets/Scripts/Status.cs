@@ -63,12 +63,15 @@ public class Status : MonoBehaviour
     public bool IsThereFood = false;
     //Drinks
     public bool IsThereDrinks = false;
+    KitchenScrip KitchenControl;
+    public bool KitchenAttendant = false;
 
     //bar control vars
     public bool BarIsOpen = false;
     BarScrip BarControl;
+    public bool BarAttendant = false;
 
-
+    
     //ResourcesUI
 
 
@@ -85,6 +88,12 @@ public class Status : MonoBehaviour
         GameObject Bar = GameObject.FindGameObjectWithTag("Bar");
         BarControl = Bar.GetComponent<BarScrip>();
         BarIsOpen = BarControl.IsitOpen();
+
+        GameObject kitchen = GameObject.FindGameObjectWithTag("Kitchen");
+        KitchenControl = kitchen.GetComponent<KitchenScrip>();
+
+        KitchenAttendant = KitchenControl.GetComponent<KitchenScrip>().attendant;
+        BarAttendant = BarControl.GetComponent<BarScrip>().attendant;
 
         if (Curr.UnitsAlcohol > 0)
             IsThereDrinks = true;
@@ -117,6 +126,8 @@ public class Status : MonoBehaviour
     void Update()
     {
         BarIsOpen = BarControl.IsitOpen();
+        KitchenAttendant = KitchenControl.GetComponent<KitchenScrip>().attendant;
+        BarAttendant = BarControl.GetComponent<BarScrip>().attendant;
 
         //check day or night
         day = Day.getdate();

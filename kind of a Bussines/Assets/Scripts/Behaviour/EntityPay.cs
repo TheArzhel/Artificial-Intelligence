@@ -68,9 +68,9 @@ public class EntityPay : ActionTask
             {
                 if (Kitchen.GetComponent<KitchenScrip>().attendant == true)
                 {
+                }
                     ret = EntityStates.Pay(Currencies.Bill_Type.FOOD);
                     ret = true;
-                }
                 
 
             }
@@ -78,9 +78,9 @@ public class EntityPay : ActionTask
             {
                 if (Bar.GetComponent<BarScrip>().attendant == true)
                 {
+                }
                     ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
                     ret = true;
-                }
             }
 
 
