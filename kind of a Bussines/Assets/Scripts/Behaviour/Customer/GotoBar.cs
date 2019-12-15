@@ -50,7 +50,7 @@ public class GotoBar : ActionTask
 
             }
 
-            Debug.Log(ret);
+           // Debug.Log(ret);
             if (ret)
             {
 
@@ -75,12 +75,12 @@ public class GotoBar : ActionTask
     private void FindCurve()
     {
         Bar = GameObject.FindGameObjectWithTag("Bar");
-        if (Bar != null)
-            Debug.Log("exist");
+        //if (Bar != null)
+        //    Debug.Log("exist");
         BarScrip BarController;
         BarController = Bar.GetComponent<BarScrip>();
-        if (Bar != null)
-            Debug.Log("exis2t");
+        //if (Bar != null)
+        //    Debug.Log("exis2t");
         CurrentCurve = BarController.AskPath();
     }
 }

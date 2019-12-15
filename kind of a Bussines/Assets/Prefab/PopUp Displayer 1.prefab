@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4716586549049158043}
-  m_LocalRotation: {x: -0.028571075, y: 0.9077548, z: 0.41380775, w: 0.06267531}
+  m_LocalRotation: {x: 0.046704702, y: 0.9471386, z: 0.27289405, w: -0.16209893}
   m_LocalPosition: {x: -1.0763364, y: 0.9294218, z: -8.378769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -95,6 +95,6 @@ MonoBehaviour:
   offset: {x: 0, y: 2, z: 0}
   SpriteScale: {x: 5, y: 5, z: 5}
   DestroyTimePopUp: 3
-  current: 3
+  current: 0
   PopAtlas: {fileID: 4343727234628468602, guid: 0a87dcd7d6ddc044eb8fa49305e682ae,
     type: 2}

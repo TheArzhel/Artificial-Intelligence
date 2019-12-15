@@ -27,7 +27,7 @@ public class MovetoKitchen : ActionTask
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
 
         //Debug.Log("ret" + ret + CurrentCurve);
-
+        
     }
 
     // Update is called once per frame
@@ -40,13 +40,16 @@ public class MovetoKitchen : ActionTask
             if (CurrentCurve == null)
             {
                 FindCurve();
+                ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.CONFUSE;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
+
                 if (CurrentCurve != null)
                 { ret = true; }
                 //Debug.Log("choose curve ret " + ret + CurrentCurve);
 
             }
 
-            Debug.Log(ret);
+            //Debug.Log(ret);
             if (ret)
             {
 

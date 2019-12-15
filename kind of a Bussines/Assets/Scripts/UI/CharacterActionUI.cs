@@ -87,7 +87,7 @@ public class CharacterActionUI : MonoBehaviour
         {
 
             Debug.Log("Wait");
-            DataOfSelectedGO.TodoAction = WorkerState.NONE;
+           // DataOfSelectedGO.TodoAction = WorkerState.NONE;
 
         }
 

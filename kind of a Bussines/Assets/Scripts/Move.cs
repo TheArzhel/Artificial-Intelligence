@@ -178,8 +178,9 @@ public class Move : MonoBehaviour
     {
         useSteer = on;
         finished = !on;
-        if (on == true)
-        Debug.Log("end here ");
+
+        //if (on == true)
+        //Debug.Log("end here ");
         
     }
 }

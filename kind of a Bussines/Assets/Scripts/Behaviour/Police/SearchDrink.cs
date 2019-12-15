@@ -26,6 +26,7 @@ public class SearchDrink : ActionTask
 
         //stop hambo from moving
         CleanValues();
+        
     }
 
     // Update is called once per frame
@@ -38,14 +39,14 @@ public class SearchDrink : ActionTask
         if (Timer > MinTime)
         {
             GameObject Cargo = GameObject.FindGameObjectWithTag("Cargo");
-            //if (Cargo != null)
-            // Debug.Log("exist");
+           
             DepositScrip DepositControler;
             DepositControler = Cargo.GetComponent<DepositScrip>();
-            //if (Cargo != null)
-            //Debug.Log("exis2t");
+            
             
             found = DepositControler.SeeDrink();
+            ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.CONFUSE;
+            ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         }
         //id the time passes correctly end in true. otherwise false
         if (Timer * 2 >= MinTime && found == true)

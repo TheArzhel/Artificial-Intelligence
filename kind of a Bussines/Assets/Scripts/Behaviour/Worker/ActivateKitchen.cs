@@ -24,8 +24,11 @@ public class ActivateKitchen : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
-        KitchenScrip.attendant = true;
 
+        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
+        KitchenScrip.attendant = true;
+        ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
         EndAction(true);
 
     }

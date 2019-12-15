@@ -50,7 +50,7 @@ public class EnablePopUps : MonoBehaviour
 
     public void ShowPopUp()
     {
-       
+
 
         //this enums depend on the status of the agent
 
@@ -85,16 +85,16 @@ public class EnablePopUps : MonoBehaviour
                     break;
 
             }
-            
-          
-            Debug.Log("Instantiate");
+
+
+          //  Debug.Log("Instantiate");
             Instantiate(PopPrefab, transform.position + offset, Quaternion.identity,transform);
 
         }
         else
         {
 
-            Debug.Log("No status component detected");
+           // Debug.Log("No status component detected");
 
 
 

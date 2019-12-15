@@ -49,7 +49,7 @@ public class PatrolKitchen : ActionTask
             if (CurrentCurve == null)
             {
                 ret = ChooseCurve();
-                Debug.Log("choose curve ret " + ret + CurrentCurve);
+               // Debug.Log("choose curve ret " + ret + CurrentCurve);
 
 
             }

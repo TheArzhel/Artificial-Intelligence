@@ -27,6 +27,8 @@ public class GotoBarPolice : ActionTask
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
         Debug.Log("ret" + ret + CurrentCurve);
 
+        
+
     }
 
     // Update is called once per frame
@@ -40,7 +42,9 @@ public class GotoBarPolice : ActionTask
             if (CurrentCurve == null)
             {
                 ret = ChooseCurve();
-                Debug.Log("choose curve ret " + ret + CurrentCurve);
+                ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.CONFUSE;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
+                //Debug.Log("choose curve ret " + ret + CurrentCurve);
 
 
             }

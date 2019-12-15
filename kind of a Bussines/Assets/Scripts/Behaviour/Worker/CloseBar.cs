@@ -25,8 +25,10 @@ public class CloseBar : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         BarController.CloseBar();
-
+        ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
         EndAction(true);
        
     }
