@@ -29,8 +29,8 @@ public class CloseBar : ActionTask
         ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
         ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         BarController.CloseBar();
-        ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
         StatusController.PreviousAction = StatusController.TodoAction;
+        ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
         EndAction(true);
        
     }
