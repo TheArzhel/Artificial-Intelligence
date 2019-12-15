@@ -16,6 +16,12 @@ public class InstancingEntities : MonoBehaviour
     public GameObject CostumerPrefab9;
     public GameObject CostumerPrefab10;
 
+    public GameObject CostumerPrefab11;
+    public GameObject CostumerPrefab12;
+    public GameObject CostumerPrefab13;
+    public GameObject CostumerPrefab14;
+    public GameObject CostumerPrefab15;
+    public GameObject CostumerPrefab16;
 
     public GameObject PolicePrefab;
     public GameObject PolicePrefab2;
@@ -57,6 +63,10 @@ public class InstancingEntities : MonoBehaviour
                 CostumerPrefab3.SetActive(true);
                 PolicePrefab.SetActive(true);
 
+                CostumerPrefab11.SetActive(true);
+                CostumerPrefab12.SetActive(true);
+
+
 
                 Timer = 0.00f;
 
@@ -76,6 +86,8 @@ public class InstancingEntities : MonoBehaviour
                 CostumerPrefab5.SetActive(true);
                 CostumerPrefab6.SetActive(true);
                 PolicePrefab2.SetActive(true);
+                CostumerPrefab13.SetActive(true);
+                CostumerPrefab14.SetActive(true);
 
                 Timer = 0.00f;
 
@@ -96,6 +108,8 @@ public class InstancingEntities : MonoBehaviour
                 CostumerPrefab9.SetActive(true);
                 CostumerPrefab10.SetActive(true);
                 PolicePrefab3.SetActive(true);
+                CostumerPrefab15.SetActive(true);
+                CostumerPrefab16.SetActive(true);
 
 
                 Timer = 0.00f;
