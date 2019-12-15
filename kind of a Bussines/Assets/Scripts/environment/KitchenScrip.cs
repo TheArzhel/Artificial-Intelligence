@@ -68,7 +68,8 @@ public class KitchenScrip : MonoBehaviour
     Currencies Currencies;
 
     //attendat
-    public bool attendant = true;
+    public bool attendant = false;
+    Collider BoxCollidertrigger;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +77,8 @@ public class KitchenScrip : MonoBehaviour
         GameObject Scene = GameObject.FindGameObjectWithTag("Day");
         Currencies = Scene.GetComponent<Currencies>();
         foodAmount = Currencies.UnitsFood;
+
+        BoxCollidertrigger = GetComponent<BoxCollider>();
 
         if (foodAmount > 0)
         { FoodExist = true; }
@@ -94,6 +97,37 @@ public class KitchenScrip : MonoBehaviour
             FoodExist = false;
 
         TimerUpdate();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = true;
+
+        }
+        
+    }
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = true;
+
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = false;
+
+        }
+
     }
 
     void TimerUpdate()

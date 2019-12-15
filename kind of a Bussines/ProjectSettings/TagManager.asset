@@ -16,6 +16,7 @@ TagManager:
   - TableBar
   - UI
   - Block cube
+  - Worker
   layers:
   - Default
   - TransparentFX

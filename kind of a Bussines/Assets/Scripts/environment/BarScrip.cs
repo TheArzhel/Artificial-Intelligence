@@ -79,7 +79,8 @@ public class BarScrip : MonoBehaviour
     public int TimeToStopClose = 60;
 
     //attendat
-    public bool attendant = true;
+    public bool attendant = false;
+    Collider BoxCollidertrigger;
 
     //money
     public int UnlockBarPrice;
@@ -90,6 +91,10 @@ public class BarScrip : MonoBehaviour
         GameObject Scene = GameObject.FindGameObjectWithTag("Day");
         Currencies = Scene.GetComponent<Currencies>();
         DrinkAmount = Currencies.UnitsAlcohol;
+
+        BoxCollidertrigger = GetComponent<BoxCollider>();
+
+
         if (DrinkAmount > 0)
         { DrinkExist = true; }
         else
@@ -116,6 +121,40 @@ public class BarScrip : MonoBehaviour
 
         TimerUpdate();
     }
+
+    //triggers
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = true;
+
+        }
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = true;
+
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = false;
+
+        }
+
+    }
+
 
     public void CloseBar()
     {
