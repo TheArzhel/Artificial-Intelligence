@@ -10,6 +10,7 @@ public class PopUp : ActionTask
     Status stat;
     Move move;
     FollowCurve PathControl;
+    Currencies curr;
     public bool FoodService;
     // Start is called before the first frame update
     protected override void OnExecute()
@@ -34,6 +35,7 @@ public class PopUp : ActionTask
             {
                 stat.AgentMood = Mood.ANGRY;
                 ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
+                curr.DecreasePopularity();
             }
         }
             EndAction(false);
