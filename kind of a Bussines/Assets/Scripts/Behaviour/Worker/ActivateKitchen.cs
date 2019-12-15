@@ -9,13 +9,14 @@ public class ActivateKitchen : ActionTask
     Move move;
     FollowCurve PathControl;
     KitchenScrip KitchenScrip;
-
+    Status StatusController;
     // Start is called before the first frame update
     protected override void OnExecute()
     {
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
 
+    StatusController = ownerAgent.gameObject.GetComponent<Status>();
         GameObject Kitchen = GameObject.FindGameObjectWithTag("Kitchen");
         KitchenScrip = Kitchen.GetComponent<KitchenScrip>();
 
@@ -29,6 +30,7 @@ public class ActivateKitchen : ActionTask
         ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         KitchenScrip.attendant = true;
         ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
+        StatusController.PreviousAction = StatusController.TodoAction;
         EndAction(true);
 
     }

@@ -98,7 +98,7 @@ public class GotoRestock : ActionTask
                 break;
         }
 
-        StatusController.PreviousAction = StatusController.TodoAction;
+       // StatusController.PreviousAction = StatusController.TodoAction;
 
         ret = true;
         return ret;

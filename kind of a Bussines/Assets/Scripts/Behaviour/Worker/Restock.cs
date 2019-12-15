@@ -12,7 +12,7 @@ public class Restock : ActionTask
     FollowCurve PathControl;
     DepositScrip DepositController;
     Currencies Curr;
-
+    Status StatusController;
     // Start is called before the first frame update
     protected override void OnExecute()
     {
@@ -22,6 +22,7 @@ public class Restock : ActionTask
         GameObject Deposit = GameObject.FindGameObjectWithTag("Cargo");
         DepositController = Deposit.GetComponent<DepositScrip>();
 
+        StatusController = ownerAgent.gameObject.GetComponent<Status>();
         GameObject scene = GameObject.FindGameObjectWithTag("Day");
         Curr = scene.GetComponent<Currencies>();
         CleanValues();
@@ -36,6 +37,7 @@ public class Restock : ActionTask
         ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
 
         Curr.Restock();
+        StatusController.PreviousAction = StatusController.TodoAction;
         EndAction(true);
 
     }

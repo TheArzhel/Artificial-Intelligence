@@ -98,7 +98,7 @@ public class GotoDepositHideAlcochol : ActionTask
                 break;
         }
 
-        StatusController.PreviousAction = StatusController.TodoAction;
+        
         ret = true;
         return ret;
     }
