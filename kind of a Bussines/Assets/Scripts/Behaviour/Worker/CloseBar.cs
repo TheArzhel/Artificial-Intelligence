@@ -9,13 +9,14 @@ public class CloseBar : ActionTask
     Move move;
     FollowCurve PathControl;
     BarScrip BarController;
-
+    Status StatusController;
     // Start is called before the first frame update
     protected override void OnExecute()
     {
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
 
+    StatusController = ownerAgent.gameObject.GetComponent<Status>();
         GameObject Bar = GameObject.FindGameObjectWithTag("Bar");
         BarController = Bar.GetComponent<BarScrip>();
         
@@ -25,8 +26,11 @@ public class CloseBar : ActionTask
     // Update is called once per frame
     protected override void OnUpdate()
     {
+        ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+        ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         BarController.CloseBar();
-
+        ownerAgent.gameObject.GetComponent<Status>().TodoAction = WorkerState.NONE;
+        StatusController.PreviousAction = StatusController.TodoAction;
         EndAction(true);
        
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Currencies : MonoBehaviour
 {
 
-  
+
     public enum Bill_Type
     {
         FOOD,
@@ -14,10 +14,13 @@ public class Currencies : MonoBehaviour
 
     //Money
     public float GameMoney=100.00f;
-    
+
     //Food Units
     public int UnitsFood = 20;
+    public int RestockUnitsFood = 20;
+
     public int UnitsAlcohol = 0;
+    public int RestockUnitsAlcohol = 0;
 
     //price food
     public float PriceFood = 5.99f;//selling to
@@ -35,7 +38,7 @@ public class Currencies : MonoBehaviour
     public int FoodUnitPerBuy = 20;//quantity of food/alcohol recieved everytime u buy
     public int AlcoholUnitPerBuy = 5;
 
-    //popularity 
+    //popularity
     public int GamePopularity = 0;
     public int PopularityStreak=0;
     public int popularityGoalStreak = 1;//max value to arrive for popularity rise
@@ -50,18 +53,18 @@ public class Currencies : MonoBehaviour
     ResourcesUI UIstats;
 
 
-    //Status var 
-    public float MinimumBillCost;//Currently for food& alcohol 
+    //Status var
+    public float MinimumBillCost;//Currently for food& alcohol
 
 
-   
+
 
 
 
     void Start()
     {
 
-       //if factorA is 100 the fisrt price is 10 
+       //if factorA is 100 the fisrt price is 10
 
         float factorB = factorA * 0.2f;
         MinimumBillCost = factorB - (factorB / 2);
@@ -69,25 +72,40 @@ public class Currencies : MonoBehaviour
         UIstats = UICanvas.GetComponent<ResourcesUI>();
     }
 
-// Update is called once per frame
+    // Update is called once per frame
 
-  
+    void Update()
+    {
+        if (GameMoney < 0)
+        {
+            GameMoney = 0;
+
+        }
+    }
+
     public void CashIn(float income)
     {
 
         GameMoney += income;
 
-        UIstats.UpdateUIGlobalCurrencies();
-
+        //UIstats.UpdateUIGlobalCurrencies();
+        UIstats.UpdateUIValues();
 
     }
-   
-    public void CashOut(float bill)
+
+    public bool CashOut(float bill)
     {
-
+        bool ret = false;
+        if ((GameMoney - bill) >= 0)
+        {
         GameMoney -= bill;
-        UIstats.UpdateUIGlobalCurrencies();
+        //UIstats.UpdateUIGlobalCurrencies();
+        UIstats.UpdateUIValues();
 
+            ret = true;
+        }
+
+        return ret;
     }
 
 
@@ -110,11 +128,11 @@ public class Currencies : MonoBehaviour
 
 
             UIstats.UpdateUIGlobalCurrencies();
-         
+
 
 
         }
-                     
+
     }
 
     public void DecreasePopularity()
@@ -126,7 +144,7 @@ public class Currencies : MonoBehaviour
     }
 
 
-    //Food supplies 
+    //Food supplies
     public void BuyFoodUnits()
     {
 
@@ -139,8 +157,8 @@ public class Currencies : MonoBehaviour
                 if (GameMoney < 0)
                     GameMoney = 0;
 
-                UnitsFood += FoodUnitPerBuy;
-              
+                RestockUnitsFood += FoodUnitPerBuy;
+                UIstats.UpdateUIValues();
             }
         }
     }
@@ -157,25 +175,34 @@ public class Currencies : MonoBehaviour
                 if (GameMoney < 0)
                     GameMoney = 0;
 
-                
 
 
 
-                UnitsAlcohol += AlcoholUnitPerBuy;
-                
+
+                RestockUnitsAlcohol += AlcoholUnitPerBuy;
+
+                UIstats.UpdateUIValues();
             }
         }
 
     }
 
+    public void Restock()
+    {
+        UnitsFood += RestockUnitsFood;
+        RestockUnitsFood = 0;
+        UnitsAlcohol += RestockUnitsAlcohol;
+        RestockUnitsAlcohol = 0;
 
+        UIstats.UpdateUIValues();
+    }
 
 
     public void RiseFoodPrice()
     {
 
         PriceFood += RisePriceRate;
-      
+
 
     }
 
@@ -183,7 +210,7 @@ public class Currencies : MonoBehaviour
     {
 
         PriceAlcohol += LowePriceRate;
-        
+
 
     }
 
@@ -195,7 +222,7 @@ public class Currencies : MonoBehaviour
         if (PriceFood < 0)
             PriceFood = 0.00f;
 
-      
+
 
     }
 
@@ -206,14 +233,14 @@ public class Currencies : MonoBehaviour
 
         if (PriceAlcohol < 0)
             PriceAlcohol = 0.00f;
-       
+
 
 
     }
 
 
 
-   
+
 
 
 

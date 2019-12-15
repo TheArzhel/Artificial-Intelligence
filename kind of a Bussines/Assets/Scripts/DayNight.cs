@@ -6,9 +6,10 @@ public class DayNight : MonoBehaviour
 {
     public bool dayorNight = true;
     public int DaySec=10;
-    private float Timer = 0.0f;
+    public float Timer = 0.0f;
 
-  
+    public bool Alwaysnight = false;
+    public bool AlwaysDay = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,17 @@ public class DayNight : MonoBehaviour
     {
         Timer += Time.deltaTime;
 
-        if (Timer % 60 >= DaySec)
+        if (Timer >= DaySec)
         {
             Timer = 0.0f;
             dayorNight = !dayorNight;
             
         }
+
+        if (Alwaysnight)
+        dayorNight = false;
+        if (AlwaysDay)
+            dayorNight = true;
     }
 
     public bool getdate() { return dayorNight; }

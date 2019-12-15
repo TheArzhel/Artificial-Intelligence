@@ -11,14 +11,12 @@ TagManager:
   - Bar
   - Day
   - Cargo
-  - Walk police
-  - Walk Work
-  - Cargo Work
-  - Bar Work
   - VisualEmissor
   - Customer
   - TableBar
   - UI
+  - Block cube
+  - Worker
   layers:
   - Default
   - TransparentFX

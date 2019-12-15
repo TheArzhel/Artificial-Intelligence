@@ -50,6 +50,8 @@ public class GotoDepositHideAlcochol : ActionTask
            // Debug.Log(ret);
             if (ret)
             {
+                ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
                 PathControl.SetCurve(CurrentCurve);
                 // move.finished = false;
             }
@@ -60,7 +62,7 @@ public class GotoDepositHideAlcochol : ActionTask
         {
 
             EndAction(true);
-            Debug.Log("end " + CurrentCurve);
+            //Debug.Log("end " + CurrentCurve);
         }
 
     }
@@ -95,6 +97,7 @@ public class GotoDepositHideAlcochol : ActionTask
 
                 break;
         }
+
         
         ret = true;
         return ret;

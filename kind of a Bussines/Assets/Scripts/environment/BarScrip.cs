@@ -63,23 +63,62 @@ public class BarScrip : MonoBehaviour
     //Food controllers
     public int DrinkAmount = 10;
     public bool DrinkExist = true;
+    Currencies Currencies;
 
     //open controler
     public bool IsOpen = true;
+    GameObject cube;
+    Material cube_mat;
+    public bool unlocked = false;
+    Color transparent;
+    Color opaque;
+    Color Black;
+
+    private float TimerClose = 0.0f;
+    private bool timerONClose = false;
+    public int TimeToStopClose = 60;
+
+    //attendat
+    public bool attendant = false;
+    Collider BoxCollidertrigger;
+
+    //money
+    public int UnlockBarPrice;
+
+
+    //Unlock buttom
+    public GameObject UnlockBarButton;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject Scene = GameObject.FindGameObjectWithTag("Day");
+        Currencies = Scene.GetComponent<Currencies>();
+        DrinkAmount = Currencies.UnitsAlcohol;
+
+        BoxCollidertrigger = GetComponent<BoxCollider>();
+
+
         if (DrinkAmount > 0)
         { DrinkExist = true; }
         else
             DrinkExist = false;
+
+        cube = GameObject.FindGameObjectWithTag("Block cube");
+        cube_mat = cube.GetComponent<Renderer>().material;
+        opaque = cube_mat.color;
+        transparent = opaque;
+        transparent.a = 0;
+        Black = opaque;
+        Black.a = 1;
+        cube_mat.color = Black;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        DrinkAmount = Currencies.UnitsAlcohol;
         if (DrinkAmount > 0)
         { DrinkExist = true; }
         else
@@ -88,22 +127,108 @@ public class BarScrip : MonoBehaviour
         TimerUpdate();
     }
 
+    //triggers
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = true;
+
+        }
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = true;
+
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Worker"))
+        {
+            attendant = false;
+
+        }
+
+    }
+
+
     public void CloseBar()
     {
-        IsOpen = false;
+        if (unlocked==true)
+        {
+         IsOpen = false;
+         cube_mat.color = opaque;
+            timerONClose = true;
+        }
     }
+
     public void OpenBar()
     {
-        IsOpen = true;
+        if (unlocked == true)
+        {
+
+            IsOpen = true;
+            cube_mat.color = transparent;
+        }
+    }
+
+    public void unlockBar()
+    {
+      bool ret =  Currencies.CashOut(UnlockBarPrice);
+        if (ret)
+        {
+            unlocked = true;
+            IsOpen = true;
+            cube_mat.color = transparent;
+            //money here
+            //disactivate button
+      UnlockBarButton.SetActive(false);
+
+}
+    }
+
+    public void lockBar()
+    {
+        unlocked = false;
+        IsOpen = false;
+        cube_mat.color = Black;
+
+        //activate button
+        UnlockBarButton.SetActive(true);
     }
 
     public bool IsitOpen()
     {
-        return IsOpen;
+        if (unlocked == true && IsOpen == true)
+            return true;
+        else
+            return false;
     }
 
     void TimerUpdate()
     {
+        if (timerONClose)
+        {
+            TimerClose += Time.deltaTime;
+
+            if (TimerClose % 60 >= TimeToStopClose)//timetostop)
+            {
+                TimerClose = 0.0f;
+                timerONClose = false;
+                OpenBar();
+
+
+            }
+        }
         if (timerON1)
         {
             Timer1 += Time.deltaTime;
@@ -232,66 +357,56 @@ public class BarScrip : MonoBehaviour
         BGCcMath curve = null;
         int random = Random.Range(1, 2);
 
-        Debug.Log(random);
+        //Debug.Log(random);
 
-        //if (random <= 10 && timerON10 == false)
-        //{
-        //    curve = curve10;
-        //    timerON10 = true;
-        //    Debug.Log("inside");
-        //}//if (random <= 9 && timerON9 == false)
-        //{
-        //    curve = curve9;
-        //    timerON9 = true;
-        //    Debug.Log("inside");
-        //}
+        
         if (random <= 1 && timerON1 == false)
         {
             curve = curve1;
             timerON1 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 2 && timerON2 == false)
         {
             curve = curve2;
             timerON2 = true;
-            Debug.Log("inside");
+            //Debug.Log("inside");
         }
         else if (random <= 3 && timerON3 == false)
         {
             curve = curve3;
             timerON3 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 4 && timerON4 == false)
         {
             curve = curve4;
             timerON4 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 5 && timerON5 == false)
         {
             curve = curve5;
             timerON5 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 6 && timerON6 == false)
         {
             curve = curve6;
             timerON6 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 7 && timerON7 == false)
         {
             curve = curve7;
             timerON7 = true;
-            Debug.Log("inside");
+            //Debug.Log("inside");
         }
         else if (random <= 8 && timerON8 == false)
         {
             curve = curve8;
             timerON8 = true;
-            Debug.Log("inside");
+           // Debug.Log("inside");
         }
 
         if (curve == null)
@@ -300,61 +415,61 @@ public class BarScrip : MonoBehaviour
             {
                 curve = curve1;
                 timerON1 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON2 == false)
             {
                 curve = curve2;
                 timerON2 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON3 == false)
             {
                 curve = curve3;
                 timerON3 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON4 == false)
             {
                 curve = curve4;
                 timerON4 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON5 == false)
             {
                 curve = curve5;
                 timerON5 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON6 == false)
             {
                 curve = curve6;
                 timerON6 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON7 == false)
             {
                 curve = curve7;
                 timerON7 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON8 == false)
             {
                 curve = curve8;
                 timerON8 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON9 == false)
             {
                 curve = curve9;
                 timerON9 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON10 == false)
             {
                 curve = curve10;
                 timerON10 = true;
-                Debug.Log("inside");
+                // Debug.Log("inside");
             }
 
         }

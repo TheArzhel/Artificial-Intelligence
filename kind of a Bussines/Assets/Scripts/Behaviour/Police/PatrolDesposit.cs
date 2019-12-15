@@ -35,7 +35,7 @@ public class PatrolDeposit : ActionTask
         {
             EndAction(true);
         }
-
+        
 
     }
 
@@ -49,7 +49,9 @@ public class PatrolDeposit : ActionTask
             if (CurrentCurve == null)
             {
                 ret = ChooseCurve();
-                Debug.Log("choose curve ret " + ret + CurrentCurve);
+                ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.CONFUSE;
+                ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
+               // Debug.Log("choose curve ret " + ret + CurrentCurve);
 
 
             }

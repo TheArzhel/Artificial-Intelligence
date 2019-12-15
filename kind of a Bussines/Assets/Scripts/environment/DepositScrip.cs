@@ -23,17 +23,24 @@ public class DepositScrip : MonoBehaviour
 
 
     //Food controllers
-    public int foodAmount = 10;
+    private int foodAmount ;
     public bool FoodExist = true;
+    Currencies Currencies;
 
     //drinks
-    public int DrinksAmount = 10;
+    private int DrinksAmount = 0;
     public bool ExistDrinks = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject Scene = GameObject.FindGameObjectWithTag("Day");
+        Currencies = Scene.GetComponent<Currencies>();
+        DrinksAmount = Currencies.UnitsAlcohol;
+        DrinksAmount += Currencies.RestockUnitsAlcohol;
+        foodAmount = Currencies.UnitsFood;
+
         if (foodAmount > 0)
         { FoodExist = true; }
         else
@@ -44,12 +51,16 @@ public class DepositScrip : MonoBehaviour
     void Update()
     {
 
+        DrinksAmount = Currencies.UnitsAlcohol + Currencies.RestockUnitsAlcohol;
+     
+        foodAmount = Currencies.UnitsFood;
+
         if (foodAmount > 0)
         { FoodExist = true; }
         else
             FoodExist = false;
 
-        if (DrinksAmount > 0)
+        if (DrinksAmount > 0 )
             ExistDrinks = true;
         else
             ExistDrinks = false;

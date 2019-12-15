@@ -33,7 +33,7 @@ public class SteeringArrive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //  if (move.useSteer)
+        if (move.useSteer)
             Steer(move.target3);
     }
 

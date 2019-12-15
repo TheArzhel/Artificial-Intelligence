@@ -22,6 +22,21 @@ public enum WorkerState
 
 }
 
+
+public enum Mood
+{
+    NONE,
+    ANGRY,
+    HUNGRY,
+    THIRSTY,
+    CONFUSE,
+    FOCUSED,
+    PAYING
+
+
+
+}
+
 public class Status : MonoBehaviour
 {
 
@@ -43,15 +58,53 @@ public class Status : MonoBehaviour
     public WorkerState TodoAction;
     public WorkerState PreviousAction;
 
+    //FoodandDrinkControlVars
+    //Food
+    public bool IsThereFood = false;
+    //Drinks
+    public bool IsThereDrinks = false;
+    KitchenScrip KitchenControl;
+    public bool KitchenAttendant = false;
+
+    //bar control vars
+    public bool BarIsOpen = false;
+    BarScrip BarControl;
+    public bool BarAttendant = false;
+
+    
+    //ResourcesUI
+
+
+
+   public Mood AgentMood=Mood.ANGRY;
 
     // Start is called before the first frame update
     void Start()
     {
-        TodoAction = WorkerState.NONE;
-        PreviousAction = WorkerState.NONE;
 
         SceneCurrency = GameObject.FindGameObjectWithTag("Day");
         Curr= SceneCurrency.GetComponent<Currencies>();
+
+        GameObject Bar = GameObject.FindGameObjectWithTag("Bar");
+        BarControl = Bar.GetComponent<BarScrip>();
+        BarIsOpen = BarControl.IsitOpen();
+
+        GameObject kitchen = GameObject.FindGameObjectWithTag("Kitchen");
+        KitchenControl = kitchen.GetComponent<KitchenScrip>();
+
+        KitchenAttendant = KitchenControl.GetComponent<KitchenScrip>().attendant;
+        BarAttendant = BarControl.GetComponent<BarScrip>().attendant;
+
+        if (Curr.UnitsAlcohol > 0)
+            IsThereDrinks = true;
+        else
+            IsThereDrinks = false;
+
+        if (Curr.UnitsFood > 0)
+            IsThereFood = true;
+        else
+            IsThereFood = false;
+
 
         int i = Random.Range(0,2);
         CapitalStatus = (AdquisitionalState)i;
@@ -72,9 +125,22 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BarIsOpen = BarControl.IsitOpen();
+        KitchenAttendant = KitchenControl.GetComponent<KitchenScrip>().attendant;
+        BarAttendant = BarControl.GetComponent<BarScrip>().attendant;
+
         //check day or night
         day = Day.getdate();
 
+        if (Curr.UnitsAlcohol > 0)
+            IsThereDrinks = true;
+        else
+            IsThereDrinks = false;
+
+        if (Curr.UnitsFood > 0)
+            IsThereFood = true;
+        else
+            IsThereFood = false;
     }
 
 
@@ -112,8 +178,11 @@ public class Status : MonoBehaviour
 
 
                 if (moneyOwner >= Curr.PriceFood)
-                      Curr.CashIn(AuxPriceFood);
-
+                {
+                    Curr.CashIn(AuxPriceFood);
+                    Curr.UnitsFood -= 1;
+                   
+                }
                 else
                     ret = false;
 
@@ -124,7 +193,10 @@ public class Status : MonoBehaviour
 
 
                 if (moneyOwner >= Curr.PriceAlcohol)
+                {
                     Curr.CashIn(AuxPriceAlcohol);
+                    Curr.UnitsAlcohol -= 1;
+                }
                 else
                     ret = false;
 

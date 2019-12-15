@@ -20,7 +20,18 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 0
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -31,20 +42,24 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 912dd7ca3e9509a4d9a4b2da7d89b8d6, type: 3}
-    totalSpriteSurfaceArea: 4350
+    totalSpriteSurfaceArea: 8490
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 7303cc1442000704180e7658303b9c17, type: 3}
+  - {fileID: 21300000, guid: 299ae656a8171ad4f8e1dd968d64308d, type: 3}
   - {fileID: 21300000, guid: 9b2f4c0b2d26b1f419c548759f9854a4, type: 3}
   - {fileID: 21300000, guid: 66f08d2c8d5848541bb7af37b7738091, type: 3}
   - {fileID: 21300000, guid: d5ea3ced45cb01648a5e70edd07d29de, type: 3}
   - {fileID: 21300000, guid: 5e0d7b6ec681df94fb6139201e8f5886, type: 3}
+  - {fileID: 21300000, guid: cdb3ca7fae8b40748ae1346ca0c21abb, type: 3}
   m_PackedSpriteNamesToIndex:
   - Food
+  - Angry
   - Inspect
   - Alcohol
   - Detected
   - Money
+  - Waiting
   m_Tag: PopUps
   m_IsVariant: 0

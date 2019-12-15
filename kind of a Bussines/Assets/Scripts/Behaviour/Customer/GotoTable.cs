@@ -54,9 +54,10 @@ public class GotoTable : ActionTask
         }
         else if (move.finished && ret)
         {
-           
+            ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.HUNGRY;
+            ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
             EndAction(true);
-            Debug.Log("end table");
+            //Debug.Log("end table");
         }
 
     }
