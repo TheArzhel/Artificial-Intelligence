@@ -18,6 +18,7 @@ public class Currencies : MonoBehaviour
     //Food Units
     public int UnitsFood = 20;
     public int RestockUnitsFood = 20;
+
     public int UnitsAlcohol = 0;
     public int RestockUnitsAlcohol = 0;
 
@@ -157,7 +158,7 @@ public class Currencies : MonoBehaviour
                     GameMoney = 0;
 
                 RestockUnitsFood += FoodUnitPerBuy;
-
+                UIstats.UpdateUIValues();
             }
         }
     }
@@ -180,6 +181,7 @@ public class Currencies : MonoBehaviour
 
                 RestockUnitsAlcohol += AlcoholUnitPerBuy;
 
+                UIstats.UpdateUIValues();
             }
         }
 
@@ -192,6 +194,7 @@ public class Currencies : MonoBehaviour
         UnitsAlcohol += RestockUnitsAlcohol;
         RestockUnitsAlcohol = 0;
 
+        UIstats.UpdateUIValues();
     }
 
 

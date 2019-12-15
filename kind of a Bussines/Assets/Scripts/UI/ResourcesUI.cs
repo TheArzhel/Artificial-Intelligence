@@ -28,6 +28,8 @@ public class ResourcesUI : MonoBehaviour
     private int FoodUnitPerBuy;//quantity of food/alcohol recieved everytime u buy
     private int AlcoholUnitPerBuy;
 
+    private int RestockFoodUnits;
+    private int RestockAlcoholUnits;
 
     //Text
 
@@ -42,6 +44,11 @@ public class ResourcesUI : MonoBehaviour
 
     public Text CostFoodUnitText;//buying to
     public Text CostAlcoholUnitText;
+
+
+    public Text RestockUnitsFood;
+    public Text RestockUnitsAlcohol;
+
 
     public GameObject Layer;
     private GameObject scene;//scenario
@@ -80,7 +87,8 @@ public class ResourcesUI : MonoBehaviour
         RisePriceRate = Curr.RisePriceRate;
         LowePriceRate = Curr.LowePriceRate;
 
-
+        RestockFoodUnits=Curr.RestockUnitsFood;
+        RestockAlcoholUnits= Curr.RestockUnitsAlcohol;
 
         Layer.SetActive(false);
         PanelIsActive = false;
@@ -99,6 +107,11 @@ public class ResourcesUI : MonoBehaviour
 
         CostFoodUnitText.text = "-" + FoodStockPrice.ToString() + "€/Unit";
         CostAlcoholUnitText.text = "-" + AlcoholStockPrice.ToString() + "€/Unit";
+
+        RestockUnitsFood.text = RestockFoodUnits.ToString();
+        RestockUnitsAlcohol.text= RestockAlcoholUnits.ToString();
+
+
 
         PopularitySlider.value = Curr.GamePopularity; ;
 
@@ -219,6 +232,11 @@ public class ResourcesUI : MonoBehaviour
         PriceFoodText.text = Curr.PriceFood.ToString() + "€/Unit";
         PriceAlcoholText.text = Curr.PriceAlcohol.ToString() + "€/Unit";
         PopularityText.text = Curr.GamePopularity.ToString();
+
+        RestockUnitsFood.text = Curr.RestockUnitsFood.ToString();
+        RestockUnitsAlcohol.text= Curr.RestockUnitsAlcohol.ToString();
+
+
 
     }
 
