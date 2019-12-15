@@ -81,22 +81,6 @@ public class Currencies : MonoBehaviour
     {
 
 
-        if (Input.GetKey("o"))
-        {
-
-
-            GamePopularity = -251;
-        }
-
-
-        if (Input.GetKey("p"))
-        {
-
-
-            GamePopularity = 251;
-        }
-
-
 
 
         if (GameMoney < 0)
@@ -160,7 +144,10 @@ public class Currencies : MonoBehaviour
     public void IncreasePopularity()
     {
 
-        if(PopularityStreak == popularityGoalStreak)
+
+        PopularityStreak++;
+
+        if(PopularityStreak >= popularityGoalStreak)
         {
 
             GamePopularity += RisePopularityRate;

@@ -71,7 +71,7 @@ public class EntityPay : ActionTask
                 }
                     ret = EntityStates.Pay(Currencies.Bill_Type.FOOD);
                     ret = true;
-                
+                     GameCurrency.IncreasePopularity();
 
             }
             else
@@ -81,16 +81,21 @@ public class EntityPay : ActionTask
                 }
                     ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
                     ret = true;
+
+                      GameCurrency.IncreasePopularity();
             }
 
 
-            GameCurrency.PopularityStreak++;
+          
+          
 
             if (ret)
             {
                 EntityStates.AgentMood = Mood.PAYING;
                 ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
                 EndAction(true);
+
+                GameCurrency.IncreasePopularity();
             }
             else
             {
