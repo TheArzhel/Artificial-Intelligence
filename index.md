@@ -103,7 +103,7 @@ Prices: select the deciered price you want to sell your items. Be carefull. All 
 
 Authors:
 
-[Andres and Adrian](https://raw.githubusercontent.com/TheArzhel/Artificial-Intelligence/Wiki/wiki/images/AdrianAndres.png?token=AIUVX6OHECAQ37S4CIRKWJ2577OAW)
+![Andres and Adrian](https://raw.githubusercontent.com/TheArzhel/Artificial-Intelligence/Wiki/wiki/images/AdrianAndres.png?token=AIUVX6OHECAQ37S4CIRKWJ2577OAW)
 
 TheArzhel [Andres Saladrigas](https://github.com/TheArzhel) 
 
