@@ -10,12 +10,16 @@ public class PopUp : ActionTask
     Status stat;
     Move move;
     FollowCurve PathControl;
+
     Currencies curr;
+
     public bool FoodService;
     // Start is called before the first frame update
     protected override void OnExecute()
     {
         stat = ownerAgent.gameObject.GetComponent<Status>();
+        GameObject aux=GameObject.FindGameObjectWithTag("Day");
+        curr = aux.GetComponent<Currencies>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,7 @@ public class PopUp : ActionTask
             {
                 stat.AgentMood = Mood.ANGRY;
                 ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
+                curr.DecreasePopularity();
             }
         }
         else
