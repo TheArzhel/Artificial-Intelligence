@@ -5,10 +5,6 @@ using UnityEngine.EventSystems;
 
 
 
-
-
-
-
 public class CharacterActionUI : MonoBehaviour
 {
 

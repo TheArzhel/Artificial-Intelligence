@@ -5,7 +5,7 @@ using UnityEngine;
 public class DayNight : MonoBehaviour
 {
     public bool dayorNight = true;
-    public int DaySec=10;
+    public int DaySec=120;
     public float Timer = 0.0f;
 
     public bool Alwaysnight = false;
