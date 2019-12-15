@@ -1,10 +1,10 @@
 # Kind of a Business
 
-##Video
+## Video
 
 
 
-##information
+## Information
 
 **Background**
 
