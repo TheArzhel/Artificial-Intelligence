@@ -12,6 +12,10 @@ public class InstancingEntities : MonoBehaviour
     public GameObject CostumerPrefab5;
     public GameObject CostumerPrefab6;
     public GameObject CostumerPrefab7;
+    public GameObject CostumerPrefab8;
+    public GameObject CostumerPrefab9;
+    public GameObject CostumerPrefab10;
+
 
     public GameObject PolicePrefab;
     public GameObject PolicePrefab2;
@@ -48,7 +52,12 @@ public class InstancingEntities : MonoBehaviour
             if (Timer > 10)
             {
 
-                instantiateXnum(ReturnPref(),2);
+                CostumerPrefab.SetActive(true);
+                CostumerPrefab2.SetActive(true);
+                CostumerPrefab3.SetActive(true);
+                PolicePrefab.SetActive(true);
+
+
                 Timer = 0.00f;
 
 
@@ -62,7 +71,12 @@ public class InstancingEntities : MonoBehaviour
             if (Timer > 5)
             {
 
-                instantiateXnum(ReturnPref(), 1);
+
+                CostumerPrefab4.SetActive(true);
+                CostumerPrefab5.SetActive(true);
+                CostumerPrefab6.SetActive(true);
+                PolicePrefab2.SetActive(true);
+
                 Timer = 0.00f;
 
 
@@ -70,13 +84,20 @@ public class InstancingEntities : MonoBehaviour
 
 
         }
-        else if (Curr.GamePopularity > 100 && Curr.GamePopularity < 150)
+        else if (Curr.GamePopularity > 100 && Curr.GamePopularity < 200)
         {
 
             if (Timer > 5)
             {
 
-                instantiateXnum(ReturnPref(), 4);
+
+                CostumerPrefab7.SetActive(true);
+                CostumerPrefab8.SetActive(true);
+                CostumerPrefab9.SetActive(true);
+                CostumerPrefab10.SetActive(true);
+                PolicePrefab3.SetActive(true);
+
+
                 Timer = 0.00f;
 
 
@@ -85,95 +106,80 @@ public class InstancingEntities : MonoBehaviour
 
 
         }
-        else if (Curr.GamePopularity > 150 && Curr.GamePopularity < 200)
-        {
-
-
-           
-
-
-        }
-        else if (Curr.GamePopularity >200)
-        {
-
-
-
-
-
-        }
+     
     }
 
 
 
-    public GameObject ReturnPref()
-    {
+    //public GameObject ReturnPref()
+    //{
 
-        GameObject Aux=null;
-        int i = Random.Range(0,7);
+    //    GameObject Aux=null;
+    //    int i = Random.Range(0,7);
 
-        switch (i){
+    //    switch (i){
 
-            case 0:
-                Aux= CostumerPrefab;
-                break;
-            case 1:
-                Aux = CostumerPrefab2;
-                break;
+    //        case 0:
+    //            Aux= CostumerPrefab;
+    //            break;
+    //        case 1:
+    //            Aux = CostumerPrefab2;
+    //            break;
 
-            case 2:
-                Aux = CostumerPrefab3;
-                break;
-            case 3:
-                Aux = CostumerPrefab4;
-                break;
-            case 4:
-                Aux = CostumerPrefab5;
-                break;
-            case 5:
-                Aux = CostumerPrefab6;
-                break;
-            case 6:
-                Aux = CostumerPrefab7;
-                break;
-        }
-
-
-      return Aux;
-
-    }
+    //        case 2:
+    //            Aux = CostumerPrefab3;
+    //            break;
+    //        case 3:
+    //            Aux = CostumerPrefab4;
+    //            break;
+    //        case 4:
+    //            Aux = CostumerPrefab5;
+    //            break;
+    //        case 5:
+    //            Aux = CostumerPrefab6;
+    //            break;
+    //        case 6:
+    //            Aux = CostumerPrefab7;
+    //            break;
+    //    }
 
 
-    public void instantiateXnum(GameObject obj,int x)
-    {
+    //  return Aux;
 
-        for (int i=0;i<x;++i)
-        {
+    //}
 
-            int y = Random.Range(0,3);
 
-            switch (y)
-            {
-                case 0:
-                    Instantiate(obj,Point0.transform.position,Quaternion.identity);
-                    break;
-                case 1:
-                    Instantiate(obj, Point1.transform.position, Quaternion.identity);
-                    break;
-                case 2:
-                    Instantiate(obj, Point2.transform.position, Quaternion.identity);
-                    break;
-                case 3:
-                    Instantiate(obj, Point3.transform.position, Quaternion.identity);
-                    break;
+    //public void instantiateXnum(GameObject obj,int x)
+    //{
 
-            }
+    //    for (int i=0;i<x;++i)
+    //    {
+
+    //        int y = Random.Range(0,3);
+
+    //        switch (y)
+    //        {
+    //            case 0:
+    //                Instantiate(obj,Point0.transform.position,Quaternion.identity);
+    //                break;
+    //            case 1:
+    //                Instantiate(obj, Point1.transform.position, Quaternion.identity);
+    //                break;
+    //            case 2:
+    //                Instantiate(obj, Point2.transform.position, Quaternion.identity);
+    //                break;
+    //            case 3:
+    //                Instantiate(obj, Point3.transform.position, Quaternion.identity);
+    //                break;
+
+    //        }
             
           
 
 
-        }
+    //    }
 
 
 
-    }
+    //}
 }
