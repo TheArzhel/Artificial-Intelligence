@@ -96,6 +96,8 @@ https://github.com/TheArzhel/Artificial-Intelligence/blob/master/LICENSE
 
 Wiki:https://github.com/TheArzhel/Artificial-Intelligence/wiki
 
+WebPage: https://thearzhel.github.io/Artificial-Intelligence/
+
 Authors:
 TheArzhel (Andres Saladrigas):
 https://github.com/TheArzhel  
