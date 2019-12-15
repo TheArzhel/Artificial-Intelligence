@@ -23,12 +23,12 @@ public class DepositScrip : MonoBehaviour
 
 
     //Food controllers
-    public int foodAmount = 10;
+    private int foodAmount ;
     public bool FoodExist = true;
     Currencies Currencies;
 
     //drinks
-    public int DrinksAmount = 10;
+    private int DrinksAmount = 0;
     public bool ExistDrinks = false;
 
 

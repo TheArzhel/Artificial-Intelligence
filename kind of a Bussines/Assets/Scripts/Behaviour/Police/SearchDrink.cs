@@ -11,7 +11,7 @@ public class SearchDrink : ActionTask
 
     private float Timer = 0.0f;
 
-    private bool found = true;
+    private bool found = false;
 
     Move move;
     FollowCurve PathControl;
@@ -23,7 +23,7 @@ public class SearchDrink : ActionTask
         move = ownerAgent.gameObject.GetComponent<Move>();
         PathControl = ownerAgent.gameObject.GetComponent<FollowCurve>();
         Timer = 0.0f;
-
+        found = false;
         //stop hambo from moving
         CleanValues();
         
