@@ -21,7 +21,7 @@ public class Fine : ActionTask
         ownerAgent.gameObject.GetComponent<Status>().AgentMood = Mood.FOCUSED;
         ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
         curr.CashOut(cashout);
-        curr.DecreasePopularity();
+        curr.DecreasePopularity(50);
         EndAction(true);
     }
 }

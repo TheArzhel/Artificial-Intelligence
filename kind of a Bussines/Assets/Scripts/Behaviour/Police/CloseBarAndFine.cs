@@ -40,7 +40,7 @@ public class CloseBarAndFine : ActionTask
         //set fine
         // decrease popularity
         curr.CashOut(cashout);
-        curr.DecreasePopularity();
+        curr.DecreasePopularity(100);
 
         EndAction(true);
     }

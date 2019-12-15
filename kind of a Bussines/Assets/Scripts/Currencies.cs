@@ -135,10 +135,10 @@ public class Currencies : MonoBehaviour
 
     }
 
-    public void DecreasePopularity()
+    public void DecreasePopularity(int i)
     {
 
-        GamePopularity -= LowePopularityRate;
+        GamePopularity -= i;
         UIstats.UpdateUIGlobalCurrencies();
 
     }
@@ -242,9 +242,23 @@ public class Currencies : MonoBehaviour
 
 
 
+    ///Win&Lose conditions 
+
+
+    public void Win()
+    {
 
 
 
 
+    }
+
+    public void lose()
+    {
+
+
+
+
+    }
 
 }

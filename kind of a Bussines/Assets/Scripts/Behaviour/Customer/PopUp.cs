@@ -31,7 +31,7 @@ public class PopUp : ActionTask
             {
                 stat.AgentMood = Mood.ANGRY;
                 ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
-                curr.DecreasePopularity();
+                curr.DecreasePopularity(20);
             }
         }
         else
@@ -40,7 +40,7 @@ public class PopUp : ActionTask
             {
                 stat.AgentMood = Mood.ANGRY;
                 ownerAgent.gameObject.GetComponent<EnablePopUps>().ShowPopUp();
-                curr.DecreasePopularity();
+                curr.DecreasePopularity(20);
             }
         }
             EndAction(false);
