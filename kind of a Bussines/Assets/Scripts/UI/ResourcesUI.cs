@@ -63,6 +63,11 @@ public class ResourcesUI : MonoBehaviour
     Currencies Curr;
     CharacterActionUI ActionsUI;
 
+
+
+   public GameObject winGame;
+   public GameObject LoseGame;
+
     bool PanelIsActive;
 
     void Start()

@@ -55,7 +55,7 @@ public class Currencies : MonoBehaviour
     //Status var
     public float MinimumBillCost;//Currently for food& alcohol
 
-
+    float TimerForFade=0.00f;
 
     ChangeScene changer;
 
@@ -79,6 +79,26 @@ public class Currencies : MonoBehaviour
 
     void Update()
     {
+
+
+        if (Input.GetKey("o"))
+        {
+
+
+            GamePopularity = -251;
+        }
+
+
+        if (Input.GetKey("p"))
+        {
+
+
+            GamePopularity = 251;
+        }
+
+
+
+
         if (GameMoney < 0)
         {
             GameMoney = 0;
@@ -88,6 +108,11 @@ public class Currencies : MonoBehaviour
         if (GamePopularity <= -250)
         {
 
+            TimerForFade += Time.deltaTime;
+            UIstats.LoseGame.SetActive(true);
+
+
+            if(TimerForFade>=4.00f)
             Lose();
 
 
@@ -95,7 +120,11 @@ public class Currencies : MonoBehaviour
         else if (GamePopularity >= 250)
         {
 
-            Win();
+            TimerForFade += Time.deltaTime;
+            UIstats.winGame.SetActive(true);
+
+            if (TimerForFade >= 4.00f)
+                Win();
 
         }
 
@@ -263,14 +292,14 @@ public class Currencies : MonoBehaviour
     public void Win()
     {
 
-
+       
         changer.FadeTolevel(0);
 
     }
 
     public void Lose()
     {
-
+       
         changer.FadeTolevel(0);
 
     }
