@@ -117,7 +117,7 @@ public class EntityPay : ActionTask
         move.finished = true;
         PathControl.SetCurve(null);
         move.ChangeUseSteer(false);
-        Debug.Log("end on clean value wait");
+      //  Debug.Log("end on clean value wait");
     }
 
 }

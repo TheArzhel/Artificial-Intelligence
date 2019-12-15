@@ -17,7 +17,9 @@ public class Currencies : MonoBehaviour
     
     //Food Units
     public int UnitsFood = 20;
+    public int RestockUnitsFood = 20;
     public int UnitsAlcohol = 0;
+    public int RestockUnitsAlcohol = 0;
 
     //price food
     public float PriceFood = 5.99f;//selling to
@@ -152,7 +154,7 @@ public class Currencies : MonoBehaviour
                 if (GameMoney < 0)
                     GameMoney = 0;
 
-                UnitsFood += FoodUnitPerBuy;
+                RestockUnitsFood += FoodUnitPerBuy;
               
             }
         }
@@ -174,14 +176,21 @@ public class Currencies : MonoBehaviour
 
 
 
-                UnitsAlcohol += AlcoholUnitPerBuy;
+                RestockUnitsAlcohol += AlcoholUnitPerBuy;
                 
             }
         }
 
     }
 
+    public void Restock()
+    {
+        UnitsFood += RestockUnitsFood;
+        RestockUnitsFood = 0;
+        UnitsAlcohol += RestockUnitsAlcohol;
+        RestockUnitsAlcohol = 0;
 
+    }
 
 
     public void RiseFoodPrice()
