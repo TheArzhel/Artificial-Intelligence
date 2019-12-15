@@ -122,7 +122,20 @@ public class ResourcesUI : MonoBehaviour
 
     }
 
+    void Update()
+    {
 
+        if (Curr.GamePopularity > 0)
+        {
+            PopularityText.color = Color.blue;
+
+        }
+        else if(Curr.GamePopularity<0)
+        {
+            PopularityText.color = Color.red;
+            
+        }
+    }
 
   public void OpenMenu()
     {
