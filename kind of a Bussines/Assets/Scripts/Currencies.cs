@@ -52,13 +52,12 @@ public class Currencies : MonoBehaviour
     GameObject UICanvas;
     ResourcesUI UIstats;
 
-
     //Status var
     public float MinimumBillCost;//Currently for food& alcohol
 
 
 
-
+    ChangeScene changer;
 
 
     void Start()
@@ -70,6 +69,10 @@ public class Currencies : MonoBehaviour
         MinimumBillCost = factorB - (factorB / 2);
         UICanvas = GameObject.FindGameObjectWithTag("UI");
         UIstats = UICanvas.GetComponent<ResourcesUI>();
+
+
+        GameObject aux = GameObject.Find("LevelChanger");
+        changer = aux.GetComponent<ChangeScene>();
     }
 
     // Update is called once per frame
@@ -81,6 +84,22 @@ public class Currencies : MonoBehaviour
             GameMoney = 0;
 
         }
+
+        if (GamePopularity <= -250)
+        {
+
+            Lose();
+
+
+        }
+        else if (GamePopularity >= 250)
+        {
+
+            Win();
+
+        }
+
+
     }
 
     public void CashIn(float income)
@@ -239,25 +258,20 @@ public class Currencies : MonoBehaviour
     }
 
 
-
-
-
     ///Win&Lose conditions 
-
 
     public void Win()
     {
 
 
-
+        changer.FadeTolevel(0);
 
     }
 
-    public void lose()
+    public void Lose()
     {
 
-
-
+        changer.FadeTolevel(0);
 
     }
 
