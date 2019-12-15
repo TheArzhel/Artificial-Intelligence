@@ -69,8 +69,16 @@ public class Currencies : MonoBehaviour
         UIstats = UICanvas.GetComponent<ResourcesUI>();
     }
 
-// Update is called once per frame
+    // Update is called once per frame
 
+    void Update()
+    {
+        if (GameMoney < 0)
+        {
+            GameMoney = 0;
+
+        }
+    }
   
     public void CashIn(float income)
     {
@@ -82,12 +90,17 @@ public class Currencies : MonoBehaviour
 
     }
    
-    public void CashOut(float bill)
+    public bool CashOut(float bill)
     {
-
+        bool ret = false;
+        if ((GameMoney - bill) >= 0)
+        {
         GameMoney -= bill;
         UIstats.UpdateUIGlobalCurrencies();
+            ret = true;
+        }
 
+        return ret;
     }
 
 

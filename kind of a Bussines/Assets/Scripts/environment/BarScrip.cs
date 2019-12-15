@@ -81,6 +81,9 @@ public class BarScrip : MonoBehaviour
     //attendat
     public bool attendant = true;
 
+    //money
+    public int UnlockBarPrice;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -136,9 +139,15 @@ public class BarScrip : MonoBehaviour
 
     public void unlockBar()
     {
-        unlocked = true;
-        IsOpen = true;
-        cube_mat.color = transparent;
+      bool ret =  Currencies.CashOut(UnlockBarPrice);
+        if (ret)
+        {
+            unlocked = true;
+            IsOpen = true;
+            cube_mat.color = transparent;
+            //money here
+
+        }
     }
 
     public void lockBar()
@@ -299,66 +308,56 @@ public class BarScrip : MonoBehaviour
         BGCcMath curve = null;
         int random = Random.Range(1, 2);
 
-        Debug.Log(random);
+        //Debug.Log(random);
 
-        //if (random <= 10 && timerON10 == false)
-        //{
-        //    curve = curve10;
-        //    timerON10 = true;
-        //    Debug.Log("inside");
-        //}//if (random <= 9 && timerON9 == false)
-        //{
-        //    curve = curve9;
-        //    timerON9 = true;
-        //    Debug.Log("inside");
-        //}
+        
         if (random <= 1 && timerON1 == false)
         {
             curve = curve1;
             timerON1 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 2 && timerON2 == false)
         {
             curve = curve2;
             timerON2 = true;
-            Debug.Log("inside");
+            //Debug.Log("inside");
         }
         else if (random <= 3 && timerON3 == false)
         {
             curve = curve3;
             timerON3 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 4 && timerON4 == false)
         {
             curve = curve4;
             timerON4 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 5 && timerON5 == false)
         {
             curve = curve5;
             timerON5 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 6 && timerON6 == false)
         {
             curve = curve6;
             timerON6 = true;
-            Debug.Log("inside");
+            // Debug.Log("inside");
         }
         else if (random <= 7 && timerON7 == false)
         {
             curve = curve7;
             timerON7 = true;
-            Debug.Log("inside");
+            //Debug.Log("inside");
         }
         else if (random <= 8 && timerON8 == false)
         {
             curve = curve8;
             timerON8 = true;
-            Debug.Log("inside");
+           // Debug.Log("inside");
         }
 
         if (curve == null)
@@ -367,61 +366,61 @@ public class BarScrip : MonoBehaviour
             {
                 curve = curve1;
                 timerON1 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON2 == false)
             {
                 curve = curve2;
                 timerON2 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON3 == false)
             {
                 curve = curve3;
                 timerON3 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON4 == false)
             {
                 curve = curve4;
                 timerON4 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON5 == false)
             {
                 curve = curve5;
                 timerON5 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON6 == false)
             {
                 curve = curve6;
                 timerON6 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON7 == false)
             {
                 curve = curve7;
                 timerON7 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON8 == false)
             {
                 curve = curve8;
                 timerON8 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON9 == false)
             {
                 curve = curve9;
                 timerON9 = true;
-                Debug.Log("inside");
+                //Debug.Log("inside");
             }
             else if (timerON10 == false)
             {
                 curve = curve10;
                 timerON10 = true;
-                Debug.Log("inside");
+                // Debug.Log("inside");
             }
 
         }
