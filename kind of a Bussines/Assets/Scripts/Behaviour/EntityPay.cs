@@ -66,18 +66,20 @@ public class EntityPay : ActionTask
 
             if (FoodService)
             {
-                ret = EntityStates.Pay(Currencies.Bill_Type.FOOD);
-                if (Kitchen.GetComponent<KitchenScrip>().attendant != true)
+                if (Kitchen.GetComponent<KitchenScrip>().attendant == true)
                 {
-                    ret = false;
+                    ret = EntityStates.Pay(Currencies.Bill_Type.FOOD);
+                    ret = true;
                 }
+                
+
             }
             else
             {
-               ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
-                if (Bar.GetComponent<BarScrip>().attendant != true)
+                if (Bar.GetComponent<BarScrip>().attendant == true)
                 {
-                    ret = false;
+                    ret= EntityStates.Pay(Currencies.Bill_Type.ALCOHOL);
+                    ret = true;
                 }
             }
 
